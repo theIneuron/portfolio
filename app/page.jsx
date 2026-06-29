@@ -27,9 +27,9 @@ const T = {
       github: 'GitHub',
       demo: 'Demo',
       items: [
-        { emoji: '✅', title: 'Task Manager',       desc: 'JWT va bcrypt orqali autentifikatsiya, vazifalar CRUD, admin panel. Next.js + MongoDB.',    tags: ['Next.js','MongoDB','JWT'] },
-        { emoji: '🔗', title: 'Link Shortener',     desc: "Qisqa URL xizmati: unikal slug, klik statistikasi va foydalanuvchi paneli.",               tags: ['Next.js','MongoDB','Analytics'] },
-        { emoji: '🤖', title: 'Telegram Notes Bot', desc: 'Telegram bot orqali eslatmalarni saqlash. Vercel serverless webhook sifatida ishlaydi.',    tags: ['Node.js','Telegram API','MongoDB'] },
+        { emoji: '✅', title: 'Task Manager',       desc: 'JWT va bcrypt orqali autentifikatsiya, vazifalar CRUD, admin panel. Next.js + MongoDB.',    tags: ['Next.js','MongoDB','JWT'],         done: true,  github: 'https://github.com/theIneuron/project-1-task-manager', demo: 'https://project-1-task-manager-amber.vercel.app' },
+        { emoji: '🔗', title: 'Link Shortener',     desc: "Qisqa URL xizmati: unikal slug, klik statistikasi va foydalanuvchi paneli.",               tags: ['Next.js','MongoDB','Analytics'],   done: false, github: null, demo: null },
+        { emoji: '🤖', title: 'Telegram Notes Bot', desc: 'Telegram bot orqali eslatmalarni saqlash. Vercel serverless webhook sifatida ishlaydi.',    tags: ['Node.js','Telegram API','MongoDB'], done: false, github: null, demo: null },
       ],
     },
     contact: {
@@ -63,9 +63,9 @@ const T = {
       github: 'GitHub',
       demo: 'Демо',
       items: [
-        { emoji: '✅', title: 'Task Manager',       desc: 'Аутентификация JWT + bcrypt, CRUD задач, роль admin. Next.js + MongoDB.',                  tags: ['Next.js','MongoDB','JWT'] },
-        { emoji: '🔗', title: 'Link Shortener',     desc: 'Сервис коротких ссылок: уникальный слаг, счётчик кликов, личный кабинет.',                tags: ['Next.js','MongoDB','Analytics'] },
-        { emoji: '🤖', title: 'Telegram Notes Bot', desc: 'Бот для сохранения заметок. Деплоится как Vercel serverless webhook.',                     tags: ['Node.js','Telegram API','MongoDB'] },
+        { emoji: '✅', title: 'Task Manager',       desc: 'Аутентификация JWT + bcrypt, CRUD задач, роль admin. Next.js + MongoDB.',                  tags: ['Next.js','MongoDB','JWT'],         done: true,  github: 'https://github.com/theIneuron/project-1-task-manager', demo: 'https://project-1-task-manager-amber.vercel.app' },
+        { emoji: '🔗', title: 'Link Shortener',     desc: 'Сервис коротких ссылок: уникальный слаг, счётчик кликов, личный кабинет.',                tags: ['Next.js','MongoDB','Analytics'],   done: false, github: null, demo: null },
+        { emoji: '🤖', title: 'Telegram Notes Bot', desc: 'Бот для сохранения заметок. Деплоится как Vercel serverless webhook.',                     tags: ['Node.js','Telegram API','MongoDB'], done: false, github: null, demo: null },
       ],
     },
     contact: {
@@ -319,8 +319,10 @@ export default function Home() {
                 </div>
 
                 <span className="self-start text-xs font-bold px-3 py-1 rounded-full mb-3"
-                  style={{ background:'#fef3c7', color:'#d97706', border:'1.5px solid #fde68a' }}>
-                  {tr.projects.dev}
+                  style={p.done
+                    ? { background:'#dcfce7', color:'#16a34a', border:'1.5px solid #86efac' }
+                    : { background:'#fef3c7', color:'#d97706', border:'1.5px solid #fde68a' }}>
+                  {p.done ? (lang === 'uz' ? 'Tayyor' : 'Готово') : tr.projects.dev}
                 </span>
 
                 <h3 className="text-slate-900 font-bold text-lg mb-2">{p.title}</h3>
@@ -336,12 +338,26 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-center gap-4 mt-auto">
-                  <span className="flex items-center gap-1.5 text-sm text-slate-300 cursor-not-allowed select-none">
-                    <GitHubIcon/> {tr.projects.github}
-                  </span>
-                  <span className="flex items-center gap-1.5 text-sm text-slate-300 cursor-not-allowed select-none">
-                    <ExtIcon/> {tr.projects.demo}
-                  </span>
+                  {p.github ? (
+                    <a href={p.github} target="_blank" rel="noreferrer"
+                      className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-indigo-600 font-medium transition-colors">
+                      <GitHubIcon/> {tr.projects.github}
+                    </a>
+                  ) : (
+                    <span className="flex items-center gap-1.5 text-sm text-slate-300 cursor-not-allowed select-none">
+                      <GitHubIcon/> {tr.projects.github}
+                    </span>
+                  )}
+                  {p.demo ? (
+                    <a href={p.demo} target="_blank" rel="noreferrer"
+                      className="flex items-center gap-1.5 text-sm text-indigo-600 hover:text-indigo-800 font-semibold transition-colors">
+                      <ExtIcon/> {tr.projects.demo}
+                    </a>
+                  ) : (
+                    <span className="flex items-center gap-1.5 text-sm text-slate-300 cursor-not-allowed select-none">
+                      <ExtIcon/> {tr.projects.demo}
+                    </span>
+                  )}
                 </div>
               </div>
             ))}
