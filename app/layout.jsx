@@ -1,8 +1,24 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Boyazid — Backend Developer',
-  description: 'Portfolio of Boyazid — backend developer in the making',
+  title: 'Boyazid — преподаватель, методист и разработчик',
+  description:
+    'Преподавание математики и физики, разработка методических пособий, тестовых материалов и цифровых образовательных инструментов.',
+  keywords: [
+    'преподаватель математики',
+    'преподаватель физики',
+    'методист',
+    'методические материалы',
+    'тестовые материалы',
+    'EdTech',
+  ],
+  openGraph: {
+    title: 'Boyazid — Education × Technology',
+    description:
+      'Математика, физика, методические материалы и цифровые инструменты для образования.',
+    type: 'website',
+    locale: 'ru_RU',
+  },
 }
 
 export default function RootLayout({ children }) {

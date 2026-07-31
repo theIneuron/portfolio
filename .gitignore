@@ -9,6 +9,11 @@ node_modules/
 .env
 .env.local
 .env.production
+.env.*
+!.env.example
+
+# Vercel project metadata
+.vercel/
 
 # OS
 .DS_Store

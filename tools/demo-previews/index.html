@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Boyazid — демонстрационные учебные макеты</title>
+    <style>
+      :root {
+        --ink: #10192b;
+        --muted: #66738a;
+        --line: #dfe5ef;
+        --violet: #6555ee;
+        --violet-soft: #eeebff;
+        --cyan: #0d9f99;
+        --cyan-soft: #e1f7f4;
+        --amber: #ca8214;
+        --amber-soft: #fff2d6;
+      }
+      * { box-sizing: border-box; }
+      html, body { width: 900px; height: 1273px; margin: 0; overflow: hidden; }
+      body {
+        background: #fff;
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .page {
+        position: relative;
+        width: 900px;
+        height: 1273px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 92% 8%, rgba(101,85,238,.08), transparent 24%),
+          linear-gradient(#fff, #fff);
+        padding: 62px 66px 55px;
+      }
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(62,75,103,.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(62,75,103,.035) 1px, transparent 1px);
+        background-size: 31px 31px;
+        mask-image: linear-gradient(to bottom, #000, transparent 43%);
+        pointer-events: none;
+      }
+      .watermarks {
+        position: absolute;
+        inset: -120px;
+        z-index: 6;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-content: space-around;
+        justify-items: center;
+        gap: 125px 30px;
+        transform: rotate(-28deg);
+        pointer-events: none;
+      }
+      .watermarks span {
+        color: var(--ink);
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: .18em;
+        opacity: .055;
+        white-space: nowrap;
+      }
+      header {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 22px;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand { display: flex; align-items: center; gap: 12px; }
+      .brand-mark {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border-radius: 13px;
+        background: linear-gradient(145deg, #7768f6, #5141db);
+        color: #fff;
+        font-size: 17px;
+        font-weight: 900;
+        box-shadow: 0 8px 18px rgba(101,85,238,.22);
+      }
+      .brand strong { display: block; font-size: 14px; }
+      .brand small {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: .13em;
+        text-transform: uppercase;
+      }
+      .demo-badge {
+        border: 1px solid rgba(101,85,238,.25);
+        border-radius: 999px;
+        background: var(--violet-soft);
+        color: #5848d8;
+        padding: 9px 13px;
+        font-size: 8px;
+        font-weight: 900;
+        letter-spacing: .09em;
+        text-transform: uppercase;
+      }
+      main { position: relative; z-index: 2; }
+      .kicker {
+        margin: 43px 0 14px;
+        color: var(--accent, var(--violet));
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+      }
+      h1 {
+        max-width: 715px;
+        margin: 0;
+        font-size: 42px;
+        line-height: 1.08;
+        letter-spacing: -.04em;
+      }
+      .lead {
+        max-width: 690px;
+        margin: 20px 0 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.65;
+      }
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 26px;
+      }
+      .meta > div {
+        min-height: 74px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(255,255,255,.78);
+        padding: 14px;
+      }
+      .meta span {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--muted);
+        font-size: 8px;
+        font-weight: 800;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
+      .meta strong { font-size: 12px; line-height: 1.4; }
+      .section {
+        margin-top: 22px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255,255,255,.9);
+        padding: 20px;
+      }
+      .section-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+      }
+      .section-title h2 { margin: 0; font-size: 18px; }
+      .section-title span {
+        color: var(--accent, var(--violet));
+        font-size: 9px;
+        font-weight: 900;
+        letter-spacing: .11em;
+        text-transform: uppercase;
+      }
+      .goals { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .goal {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        border-radius: 12px;
+        background: var(--soft, var(--violet-soft));
+        padding: 13px;
+      }
+      .goal b {
+        display: grid;
+        width: 24px;
+        height: 24px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 7px;
+        background: #fff;
+        color: var(--accent, var(--violet));
+        font-size: 9px;
+      }
+      .goal p { margin: 2px 0 0; font-size: 11px; font-weight: 700; line-height: 1.48; }
+      .steps { display: grid; gap: 10px; }
+      .step {
+        display: grid;
+        grid-template-columns: 34px 1fr auto;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 1px solid #edf0f5;
+        padding: 0 0 10px;
+      }
+      .step:last-child { border-bottom: 0; padding-bottom: 0; }
+      .step > b {
+        display: grid;
+        width: 31px;
+        height: 31px;
+        place-items: center;
+        border-radius: 9px;
+        background: var(--soft, var(--violet-soft));
+        color: var(--accent, var(--violet));
+        font-size: 9px;
+      }
+      .step strong { display: block; margin-bottom: 4px; font-size: 12px; }
+      .step p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.45; }
+      .step em { color: var(--muted); font-size: 9px; font-style: normal; font-weight: 700; }
+      .question {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        gap: 13px;
+        border-bottom: 1px solid #e9edf4;
+        padding: 12px 0;
+      }
+      .question:first-child { padding-top: 0; }
+      .question:last-child { border-bottom: 0; padding-bottom: 0; }
+      .question > b {
+        display: grid;
+        width: 32px;
+        height: 32px;
+        place-items: center;
+        border-radius: 9px;
+        background: var(--soft, var(--violet-soft));
+        color: var(--accent, var(--violet));
+        font-size: 10px;
+      }
+      .question p { margin: 0 0 9px; font-size: 12px; font-weight: 700; line-height: 1.5; }
+      .answers { display: flex; flex-wrap: wrap; gap: 7px; }
+      .answers span {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--muted);
+        padding: 6px 9px;
+        font-size: 9px;
+        font-weight: 700;
+      }
+      .motion-graph {
+        display: block;
+        width: 100%;
+        height: 104px;
+        margin: 2px 0 9px;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        background:
+          linear-gradient(rgba(60,75,104,.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(60,75,104,.045) 1px, transparent 1px),
+          #fbfdfd;
+        background-size: 20px 20px;
+      }
+      .motion-graph .axis {
+        fill: none;
+        stroke: var(--ink);
+        stroke-width: 1.8;
+      }
+      .motion-graph .guide {
+        fill: none;
+        stroke: #aeb9c9;
+        stroke-dasharray: 4 4;
+        stroke-width: 1;
+      }
+      .motion-graph .motion-line {
+        fill: none;
+        stroke: var(--accent, var(--cyan));
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 4;
+      }
+      .motion-graph circle {
+        fill: #fff;
+        stroke: var(--accent, var(--cyan));
+        stroke-width: 2.5;
+      }
+      .motion-graph text {
+        fill: var(--muted);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9px;
+        font-weight: 700;
+      }
+      .motion-graph .point-label { fill: var(--ink); font-size: 10px; font-weight: 900; }
+      .formula {
+        border-left: 4px solid var(--accent, var(--violet));
+        border-radius: 0 13px 13px 0;
+        background: var(--soft, var(--violet-soft));
+        padding: 15px 18px;
+      }
+      .formula strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--accent, var(--violet));
+        font-size: 25px;
+        letter-spacing: .02em;
+      }
+      .formula p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.55; }
+      .task-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+      .task {
+        min-height: 105px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+      }
+      .task span {
+        color: var(--accent, var(--violet));
+        font-size: 8px;
+        font-weight: 900;
+        letter-spacing: .11em;
+        text-transform: uppercase;
+      }
+      .task h3 { margin: 9px 0 7px; font-size: 13px; }
+      .task p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.5; }
+      .task .equation {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 900;
+      }
+      .locked {
+        position: relative;
+        min-height: 105px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fafbfe;
+        padding: 16px;
+      }
+      .locked-lines { filter: blur(5px); opacity: .34; }
+      .locked-lines i {
+        display: block;
+        height: 8px;
+        margin-bottom: 12px;
+        border-radius: 99px;
+        background: #7f8aa0;
+      }
+      .locked-lines i:nth-child(2) { width: 86%; }
+      .locked-lines i:nth-child(3) { width: 74%; }
+      .locked-cover {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-content: center;
+        background: rgba(255,255,255,.62);
+        text-align: center;
+        backdrop-filter: blur(2px);
+      }
+      .locked-cover b {
+        display: inline-grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        margin: 0 auto 11px;
+        border-radius: 50%;
+        background: var(--accent, var(--violet));
+        color: #fff;
+        font-size: 15px;
+      }
+      .locked-cover strong { font-size: 13px; }
+      .locked-cover small { margin-top: 5px; color: var(--muted); font-size: 9px; }
+      .circuit {
+        display: grid;
+        grid-template-columns: 1.1fr .9fr;
+        gap: 18px;
+      }
+      .circuit-diagram {
+        position: relative;
+        min-height: 190px;
+        border-radius: 16px;
+        background:
+          linear-gradient(rgba(60,75,104,.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(60,75,104,.055) 1px, transparent 1px),
+          var(--soft, var(--cyan-soft));
+        background-size: 22px 22px;
+      }
+      .circuit-svg { display: block; width: 100%; height: 190px; }
+      .circuit-svg .circuit-line {
+        fill: none;
+        stroke: var(--accent, var(--cyan));
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3.5;
+      }
+      .circuit-svg .device-ring {
+        fill: #fff;
+        stroke: var(--accent, var(--cyan));
+        stroke-width: 3.5;
+      }
+      .circuit-svg .resistor {
+        fill: #fff;
+        stroke: var(--accent, var(--cyan));
+        stroke-width: 3;
+      }
+      .circuit-svg .node { fill: var(--accent, var(--cyan)); }
+      .circuit-svg text {
+        fill: var(--accent, var(--cyan));
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        font-weight: 900;
+      }
+      .circuit-svg .source-label { fill: var(--muted); font-size: 8px; }
+      .safety { display: grid; gap: 9px; }
+      .safety div {
+        display: flex;
+        gap: 9px;
+        border-radius: 10px;
+        background: var(--soft, var(--cyan-soft));
+        padding: 10px;
+        color: var(--muted);
+        font-size: 9px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+      .safety b { color: var(--accent, var(--cyan)); }
+      .table {
+        display: grid;
+        grid-template-columns: 1.3fr repeat(3, 1fr);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+      }
+      .table div {
+        min-height: 45px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 13px;
+        color: var(--muted);
+        font-size: 9px;
+        font-weight: 700;
+      }
+      .table div:nth-child(4n) { border-right: 0; }
+      .table div:nth-last-child(-n+4) { border-bottom: 0; }
+      .table .head { background: var(--soft, var(--cyan-soft)); color: var(--ink); }
+      .graph-box {
+        position: relative;
+        height: 170px;
+        border: 1px solid var(--line);
+        border-radius: 15px;
+        background:
+          linear-gradient(rgba(60,75,104,.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(60,75,104,.07) 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+      .graph-box::before, .graph-box::after {
+        position: absolute;
+        background: var(--ink);
+        content: "";
+      }
+      .graph-box::before { right: 30px; bottom: 28px; left: 34px; height: 2px; }
+      .graph-box::after { top: 24px; bottom: 28px; left: 34px; width: 2px; }
+      .graph-axis-label {
+        position: absolute;
+        z-index: 2;
+        border-radius: 5px;
+        background: rgba(255,255,255,.84);
+        color: var(--ink);
+        padding: 3px 5px;
+        font-size: 10px;
+        font-weight: 900;
+      }
+      .graph-axis-label.y { top: 8px; left: 8px; }
+      .graph-axis-label.x { right: 10px; bottom: 6px; }
+      .graph-origin {
+        position: absolute;
+        bottom: 12px;
+        left: 21px;
+        color: var(--muted);
+        font-size: 8px;
+        font-weight: 800;
+      }
+      .page-worksheet-2 .section { margin-top: 18px; padding: 16px 20px; }
+      .page-worksheet-2 .section-title { margin-bottom: 14px; }
+      .page-worksheet-2 .graph-box { height: 145px; }
+      .page-worksheet-2 .question { padding: 8px 0; }
+      .page-worksheet-2 .locked { min-height: 82px; }
+      .page-worksheet-2 .locked-cover b {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 5px;
+        font-size: 12px;
+      }
+      footer {
+        position: absolute;
+        right: 66px;
+        bottom: 45px;
+        left: 66px;
+        z-index: 7;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid var(--line);
+        padding-top: 16px;
+        color: var(--muted);
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: .055em;
+      }
+      footer strong {
+        color: var(--accent, var(--violet));
+        letter-spacing: .11em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const query = new URLSearchParams(location.search)
+      const doc = query.get('doc') || 'guide'
+      const pageNumber = Number(query.get('page') || 1)
+
+      const data = {
+        guide: {
+          accent: '#6555ee',
+          soft: '#eeebff',
+          kicker: 'Методическое пособие · Математика',
+          title: 'Квадратные уравнения: от смысла к алгоритму',
+          lead: 'Демо-макет для портфолио: цели, логика объяснения и примеры заданий разного уровня.',
+          meta: ['Алгебра', '8 класс · базовый', 'Методический макет · RU'],
+        },
+        diagnostic: {
+          accent: '#0d9f99',
+          soft: '#e1f7f4',
+          kicker: 'Диагностический материал · Физика',
+          title: 'Входная диагностика: основы механики',
+          lead: 'Демо-макет для портфолио: пример структуры входной диагностики. Не является стандартизированным или апробированным инструментом.',
+          meta: ['Механика', '8 класс · повторение', 'Диагностический макет · RU'],
+        },
+        worksheet: {
+          accent: '#ca8214',
+          soft: '#fff2d6',
+          kicker: 'Рабочий лист · Физика',
+          title: 'Закон Ома: исследуем зависимость тока от напряжения',
+          lead: 'Демо-макет для портфолио: гипотеза, измерительная схема, таблица наблюдений и поле для графика.',
+          meta: ['Электричество', '8 класс · практикум', 'Рабочий лист · RU'],
+        },
+      }
+
+      const pageContent = {
+        guide: {
+          1: `
+            <div class="section">
+              <div class="section-title"><h2>Учебные цели</h2><span>01 · Результат</span></div>
+              <div class="goals">
+                <div class="goal"><b>01</b><p>Объяснять смысл корней квадратного уравнения</p></div>
+                <div class="goal"><b>02</b><p>Выбирать подходящий способ решения</p></div>
+                <div class="goal"><b>03</b><p>Определять число действительных корней по дискриминанту</p></div>
+                <div class="goal"><b>04</b><p>Проверять найденное решение подстановкой</p></div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Логика объяснения</h2><span>02 · Сценарий</span></div>
+              <div class="steps">
+                <div class="step"><b>1</b><div><strong>Актуализировать знания</strong><p>Линейные уравнения и разложение на множители</p></div><em>5 мин</em></div>
+                <div class="step"><b>2</b><div><strong>Создать проблемную ситуацию</strong><p>Когда квадратное уравнение имеет два, один или не имеет действительных корней?</p></div><em>7 мин</em></div>
+                <div class="step"><b>3</b><div><strong>Построить алгоритм</strong><p>Коэффициенты → D = b² − 4ac → число корней → решение и проверка</p></div><em>15 мин</em></div>
+                <div class="step"><b>4</b><div><strong>Закрепить понимание</strong><p>Три задания с постепенным ростом сложности</p></div><em>13 мин</em></div>
+              </div>
+            </div>`,
+          2: `
+            <div class="section">
+              <div class="section-title"><h2>Смысл и алгоритм</h2><span>03 · Объяснение</span></div>
+              <div class="formula">
+                <strong>ax² + bx + c = 0, a ≠ 0</strong>
+                <p>Корень обращает левую часть в ноль. Дискриминант D = b² − 4ac определяет число действительных корней.</p>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Задания для практики</h2><span>04 · Уровни</span></div>
+              <div class="task-grid">
+                <div class="task"><span>Базовый</span><h3>Определить коэффициенты</h3><p><b class="equation">2x² − 5x − 3 = 0</b>Назовите a, b и c. Является ли уравнение полным?</p></div>
+                <div class="task"><span>Прикладной</span><h3>Выбрать метод</h3><p><b class="equation">x² − 5x + 6 = 0</b>Почему разложение на множители здесь удобнее общей формулы?</p></div>
+                <div class="task"><span>Повышенный</span><h3>Исследовать корни</h3><p><b class="equation">x² − 7x + 10 = 0</b>По D и теореме Виета определите количество и знаки корней, не находя их.</p></div>
+                <div class="task"><span>Рефлексия</span><h3>Объяснить другому</h3><p>Сформулируйте алгоритм решения в четырёх коротких шагах.</p></div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Расширение материала</h2><span>В демо не входит</span></div>
+              <div class="locked"><div class="locked-lines"><i></i><i></i><i></i><i></i></div><div class="locked-cover"><b>×</b><strong>Не включено в демо-макет</strong><small>Ответы и дополнительные варианты разрабатываются под задачу</small></div></div>
+            </div>`,
+        },
+        diagnostic: {
+          1: `
+            <div class="section">
+              <div class="section-title"><h2>Проверяемые умения</h2><span>01 · Карта теста</span></div>
+              <div class="goals">
+                <div class="goal"><b>01</b><p>Переводить единицы в систему СИ</p></div>
+                <div class="goal"><b>02</b><p>Читать график движения</p></div>
+                <div class="goal"><b>03</b><p>Различать массу, силу и вес</p></div>
+                <div class="goal"><b>04</b><p>Применять формулы скорости и плотности</p></div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Демонстрационные вопросы</h2><span>02 · Фрагмент</span></div>
+              <div class="question"><b>1</b><div><p>Какая физическая величина характеризует быстроту движения тела?</p><div class="answers"><span>путь</span><span>скорость</span><span>масса</span><span>сила</span></div></div></div>
+              <div class="question"><b>2</b><div><p>Переведите 72 км/ч в метры в секунду и кратко запишите ход преобразования.</p><div class="answers"><span>Ответ: ______ м/с</span></div></div></div>
+              <div class="question"><b>3</b><div>
+                <p>По графику v(t) определите участок равномерного движения и объясните свой выбор.</p>
+                <svg class="motion-graph" viewBox="0 0 560 112" role="img" aria-label="График зависимости скорости тела от времени">
+                  <defs><marker id="motion-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#10192b"></path></marker></defs>
+                  <line class="axis" x1="42" y1="90" x2="535" y2="90" marker-end="url(#motion-arrow)"></line>
+                  <line class="axis" x1="42" y1="90" x2="42" y2="13" marker-end="url(#motion-arrow)"></line>
+                  <line class="guide" x1="150" y1="36" x2="150" y2="90"></line>
+                  <line class="guide" x1="380" y1="36" x2="380" y2="90"></line>
+                  <polyline class="motion-line" points="42,88 150,36 380,36 510,68"></polyline>
+                  <circle cx="42" cy="88" r="3.8"></circle><circle cx="150" cy="36" r="3.8"></circle>
+                  <circle cx="380" cy="36" r="3.8"></circle><circle cx="510" cy="68" r="3.8"></circle>
+                  <text class="point-label" x="48" y="81">A</text><text class="point-label" x="137" y="28">B</text>
+                  <text class="point-label" x="386" y="28">C</text><text class="point-label" x="518" y="65">D</text>
+                  <text x="143" y="104">2</text><text x="373" y="104">6</text><text x="503" y="104">8</text>
+                  <text x="515" y="108">t, с</text><text x="6" y="15">v, м/с</text>
+                </svg>
+                <div class="answers"><span>Участок: ____</span><span>Обоснование: ____________________</span></div>
+              </div></div>
+            </div>`,
+          2: `
+            <div class="section">
+              <div class="section-title"><h2>Расчётная задача</h2><span>03 · Применение</span></div>
+              <div class="formula"><strong>v = s / t</strong><p>Тело прошло 180 м за 30 с. Найдите скорость и укажите единицу измерения в системе СИ.</p></div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Критерий оценивания</h2><span>04 · Пример</span></div>
+              <div class="steps">
+                <div class="step"><b>1</b><div><strong>Выбрана верная формула</strong><p>Ученик связывает скорость, путь и время</p></div><em>1 балл</em></div>
+                <div class="step"><b>2</b><div><strong>Подставлены величины</strong><p>Числовые данные записаны с обозначениями</p></div><em>1 балл</em></div>
+                <div class="step"><b>3</b><div><strong>Вычисление и ответ верны</strong><p>Числовой результат верен и указана единица СИ</p></div><em>1 балл</em></div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Расширение диагностики</h2><span>В демо не входит</span></div>
+              <div class="locked"><div class="locked-lines"><i></i><i></i><i></i><i></i></div><div class="locked-cover"><b>×</b><strong>Не включено в демо-макет</strong><small>Ключ и шкала разрабатываются после утверждения спецификации</small></div></div>
+            </div>`,
+        },
+        worksheet: {
+          1: `
+            <div class="section">
+              <div class="section-title"><h2>Проблемный вопрос</h2><span>01 · Гипотеза</span></div>
+              <div class="formula"><strong>Как связаны I и U при R = const?</strong><p>Для одного резистора при практически постоянной температуре предскажите, что произойдёт с силой тока, если напряжение увеличить в два раза.</p></div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Экспериментальная схема</h2><span>02 · Наблюдение</span></div>
+              <div class="circuit">
+                <div class="circuit-diagram">
+                  <svg class="circuit-svg" viewBox="0 0 350 190" role="img" aria-label="Схема измерения силы тока и напряжения на резисторе">
+                    <path class="circuit-line" d="M35 35 H72 M112 35 H157 M203 35 H320 V150 H282"></path>
+                    <path class="circuit-line" d="M198 150 H35 V92 M35 72 V35"></path>
+                    <circle class="device-ring" cx="180" cy="35" r="22"></circle>
+                    <text x="175" y="40">A</text>
+                    <circle class="device-ring" cx="240" cy="96" r="22"></circle>
+                    <text x="235" y="101">V</text>
+                    <path class="circuit-line" d="M198 150 V96 H218 M262 96 H282 V150"></path>
+                    <rect class="resistor" x="198" y="141" width="84" height="18" rx="4"></rect>
+                    <text x="236" y="155">R</text>
+                    <circle class="node" cx="72" cy="35" r="3.5"></circle>
+                    <circle class="node" cx="112" cy="35" r="3.5"></circle>
+                    <path class="circuit-line" d="M72 35 L110 24"></path>
+                    <text x="88" y="19">K</text>
+                    <line class="circuit-line" x1="18" y1="72" x2="52" y2="72"></line>
+                    <line class="circuit-line" x1="24" y1="92" x2="46" y2="92"></line>
+                    <text x="55" y="74">+</text><text x="55" y="95">−</text>
+                    <text class="source-label" x="55" y="86">источник 0–6 В</text>
+                  </svg>
+                </div>
+                <div class="safety">
+                  <div><b>01</b><span>Соберите цепь только при отключённом источнике.</span></div>
+                  <div><b>02</b><span>До включения попросите преподавателя проверить схему.</span></div>
+                  <div><b>03</b><span>Используйте регулируемый источник 0–6 В постоянного тока.</span></div>
+                  <div><b>04</b><span>Не меняйте резистор и не допускайте его заметного нагрева.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Таблица наблюдений</h2><span>03 · Данные</span></div>
+              <div class="table">
+                <div class="head">Измерение</div><div class="head">1</div><div class="head">2</div><div class="head">3</div>
+                <div>Напряжение U, В</div><div></div><div></div><div></div>
+                <div>Сила тока I, А</div><div></div><div></div><div></div>
+              </div>
+            </div>`,
+          2: `
+            <div class="section">
+              <div class="section-title"><h2>Постройте график I(U)</h2><span>04 · Анализ</span></div>
+              <div class="graph-box">
+                <span class="graph-axis-label y">I, А</span>
+                <span class="graph-axis-label x">U, В</span>
+                <span class="graph-origin">0</span>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Вопросы для вывода</h2><span>05 · Рефлексия</span></div>
+              <div class="question"><b>1</b><div><p>Как менялась сила тока при увеличении напряжения при постоянном сопротивлении?</p><div class="answers"><span>Мой вывод: __________________________</span></div></div></div>
+              <div class="question"><b>2</b><div><p>Как выглядит график и о какой зависимости I от U говорит его форма?</p><div class="answers"><span>Объяснение: ________________________</span></div></div></div>
+              <div class="question"><b>3</b><div><p>Сформулируйте закон Ома для участка цепи и укажите условие его проверки.</p><div class="answers"><span>Формулировка: ______________________</span></div></div></div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Расширение рабочего листа</h2><span>В демо не входит</span></div>
+              <div class="locked"><div class="locked-lines"><i></i><i></i><i></i></div><div class="locked-cover"><b>×</b><strong>Не включено в демо-макет</strong><small>Эталон и рекомендации разрабатываются под цели урока и оборудование</small></div></div>
+            </div>`,
+        },
+      }
+
+      const watermarks = Array.from({ length: 12 }, () => '<span>ДЕМО-МАКЕТ • BOYAZID</span>').join('')
+
+      const renderPage = (documentKey, documentPage) => {
+        const current = data[documentKey] || data.guide
+        const content = pageContent[documentKey]?.[documentPage] || pageContent.guide[1]
+        return `
+        <article class="page page-${documentKey}-${documentPage}" style="--accent:${current.accent};--soft:${current.soft}">
+          <div class="grid"></div>
+          <div class="watermarks">${watermarks}</div>
+          <header>
+            <div class="brand"><span class="brand-mark">B</span><span><strong>Boyazid</strong><small>Education × Technology</small></span></div>
+            <span class="demo-badge">Демо-макет для портфолио</span>
+          </header>
+          <main>
+            <p class="kicker">${current.kicker}</p>
+            <h1>${current.title}</h1>
+            <p class="lead">${current.lead}</p>
+            <div class="meta">
+              <div><span>Предмет / тема</span><strong>${current.meta[0]}</strong></div>
+              <div><span>Уровень</span><strong>${current.meta[1]}</strong></div>
+              <div><span>Формат</span><strong>${current.meta[2]}</strong></div>
+            </div>
+            ${content}
+          </main>
+          <footer><span>© Boyazid · Демонстрационный макет для портфолио · Использование по согласованию</span><strong>Демо · ${documentPage}/2</strong></footer>
+        </article>`
+      }
+
+      if (doc === 'all') {
+        const documents = ['guide', 'diagnostic', 'worksheet']
+        document.documentElement.style.height = `${1273 * 6}px`
+        document.body.style.height = `${1273 * 6}px`
+        document.body.innerHTML = documents
+          .flatMap((documentKey) => [1, 2].map((documentPage) => renderPage(documentKey, documentPage)))
+          .join('')
+      } else {
+        document.body.innerHTML = renderPage(doc, pageNumber)
+      }
+    </script>
+  </body>
+</html>
