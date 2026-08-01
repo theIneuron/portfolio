@@ -213,9 +213,9 @@ const CONTENT = {
       title: "Keling, foydali ta'lim mahsulotini birga yarataylik",
       text:
         "Dars, metodik qo'llanma, test materiallari yoki raqamli ta'lim vositasi kerak bo'lsa, vazifangizni muhokama qilishga tayyorman.",
-      primary: 'Telegram botni ochish',
+      primary: 'Telegram orqali yozish',
       response: 'To‘g‘ridan-to‘g‘ri bog‘lanish',
-      fallback: 'Forma ishlamasa, Telegram botni oching yoki qo‘ng‘iroq qiling.',
+      fallback: 'Forma ishlamasa, Telegram orqali yozing yoki qo‘ng‘iroq qiling.',
       form: {
         badge: 'Ariza → Telegram',
         title: 'Vazifangiz haqida yozing',
@@ -250,14 +250,20 @@ const CONTENT = {
         success:
           'Rahmat! Arizangizni oldim va ko‘rsatilgan aloqa orqali siz bilan bog‘lanaman.',
         reference: 'Ariza raqami',
+        celebrationEyebrow: 'ARIZA QABUL QILINDI · EDU 01',
+        celebrationTitle: 'Vazifa ta’lim orbitasida!',
+        celebrationText:
+          'So‘rovingiz Telegram orqali yetkazildi. Tafsilotlarni ko‘rib chiqib, siz bilan bog‘lanaman.',
+        celebrationClose: 'Davom etish',
+        celebrationDismiss: 'Animatsiyani yopish',
         errors: {
           validation: 'Maydonlarni tekshiring va yana urinib ko‘ring.',
-          rate_limited: 'Juda ko‘p urinish bo‘ldi. Birozdan keyin qayting yoki Telegram botni oching.',
+          rate_limited: 'Juda ko‘p urinish bo‘ldi. Birozdan keyin qayting yoki Telegram orqali yozing.',
           service_unconfigured:
-            'Onlayn arizalar hali sozlanmagan. Telegram botni oching yoki qo‘ng‘iroq qiling.',
+            'Onlayn arizalar hali sozlanmagan. Telegram orqali yozing yoki qo‘ng‘iroq qiling.',
           delivery_failed:
-            'Arizani yetkazib bo‘lmadi. Telegram botni oching yoki keyinroq urinib ko‘ring.',
-          generic: 'Arizani yuborib bo‘lmadi. Telegram botni oching yoki keyinroq urinib ko‘ring.',
+            'Arizani yetkazib bo‘lmadi. Telegram orqali yozing yoki keyinroq urinib ko‘ring.',
+          generic: 'Arizani yuborib bo‘lmadi. Telegram orqali yozing yoki keyinroq urinib ko‘ring.',
         },
       },
     },
@@ -506,9 +512,9 @@ const CONTENT = {
       title: 'Давайте создадим полезный образовательный продукт',
       text:
         'Если вам нужен урок, методическое пособие, тестовые материалы или цифровой инструмент для образования — готов обсудить задачу.',
-      primary: 'Открыть Telegram-бота',
+      primary: 'Написать в Telegram',
       response: 'Связаться напрямую',
-      fallback: 'Если форма не сработает, откройте Telegram-бота или позвоните.',
+      fallback: 'Если форма не сработает, напишите в Telegram или позвоните.',
       form: {
         badge: 'Заявка → Telegram',
         title: 'Расскажите о задаче',
@@ -543,14 +549,20 @@ const CONTENT = {
         success:
           'Спасибо! Я получил заявку и свяжусь с вами по указанному контакту.',
         reference: 'Номер заявки',
+        celebrationEyebrow: 'ЗАЯВКА ПРИНЯТА · EDU 01',
+        celebrationTitle: 'Задача на образовательной орбите!',
+        celebrationText:
+          'Запрос уже доставлен в Telegram. Я изучу детали и свяжусь с вами по указанному контакту.',
+        celebrationClose: 'Продолжить',
+        celebrationDismiss: 'Закрыть анимацию',
         errors: {
           validation: 'Проверьте заполненные поля и попробуйте ещё раз.',
-          rate_limited: 'Слишком много попыток. Попробуйте позже или откройте Telegram-бота.',
+          rate_limited: 'Слишком много попыток. Попробуйте позже или напишите в Telegram.',
           service_unconfigured:
-            'Онлайн-заявки ещё не настроены. Откройте Telegram-бота или позвоните.',
+            'Онлайн-заявки ещё не настроены. Напишите в Telegram или позвоните.',
           delivery_failed:
-            'Не удалось доставить заявку. Откройте Telegram-бота или попробуйте позже.',
-          generic: 'Не удалось отправить заявку. Откройте Telegram-бота или попробуйте позже.',
+            'Не удалось доставить заявку. Напишите в Telegram или попробуйте позже.',
+          generic: 'Не удалось отправить заявку. Напишите в Telegram или попробуйте позже.',
         },
       },
     },
@@ -747,6 +759,68 @@ const LockIcon = () => (
   </svg>
 )
 
+const LearningSuccessIcon = () => (
+  <svg viewBox="0 0 88 88" fill="none" aria-hidden="true">
+    <path
+      d="M12 22.5c10.5-4.8 20.7-3.2 31.8 4.2v43C32.7 62.8 22.5 61.4 12 65.2V22.5Z"
+      fill="currentColor"
+      fillOpacity="0.13"
+      stroke="currentColor"
+      strokeWidth="3"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M76 22.5c-10.5-4.8-20.7-3.2-31.8 4.2v43C55.3 62.8 65.5 61.4 76 65.2V22.5Z"
+      fill="currentColor"
+      fillOpacity="0.07"
+      stroke="currentColor"
+      strokeWidth="3"
+      strokeLinejoin="round"
+    />
+    <path d="M44 27v42.5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+    <path d="m25 42 7 7 13-15" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M54 39h13M54 48h10M54 57h7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+  </svg>
+)
+
+const EDUCATION_SYMBOLS = [
+  ['π', 'symbol-one'],
+  ['F = ma', 'symbol-two'],
+  ['∑', 'symbol-three'],
+  ['x² + y²', 'symbol-four'],
+  ['Δ', 'symbol-five'],
+]
+
+const SUCCESS_CELEBRATION_MS = 6200
+
+const EducationAmbient = ({ dark = false }) => (
+  <div className={`education-ambient ${dark ? 'education-ambient-dark' : ''}`} aria-hidden="true">
+    <svg className="education-curve" viewBox="0 0 520 220" fill="none">
+      <path className="education-curve-axis" d="M22 188H500M44 204V22" />
+      <path
+        className="education-curve-line"
+        pathLength="1"
+        d="M48 176C112 170 124 140 180 137C242 133 249 84 309 87C365 90 387 57 474 36"
+      />
+      <circle cx="180" cy="137" r="6" />
+      <circle cx="309" cy="87" r="6" />
+      <circle cx="474" cy="36" r="6" />
+    </svg>
+    <span className="education-ring education-ring-one" />
+    <span className="education-ring education-ring-two" />
+    <span className="education-triangle" />
+    {EDUCATION_SYMBOLS.map(([symbol, position], index) => (
+      <span
+        key={symbol}
+        className={`education-symbol ${position}`}
+        style={{ '--ambient-delay': `${index * -1.4}s` }}
+      >
+        {symbol}
+      </span>
+    ))}
+  </div>
+)
+
 export default function Home() {
   const [lang, setLang] = useState('uz')
   const [localeInitialized, setLocaleInitialized] = useState(false)
@@ -758,6 +832,7 @@ export default function Home() {
   const [contactStatus, setContactStatus] = useState('idle')
   const [contactResult, setContactResult] = useState(null)
   const [contactDetailsLength, setContactDetailsLength] = useState(0)
+  const [celebrationOpen, setCelebrationOpen] = useState(false)
   const menuButtonRef = useRef(null)
   const mobileNavRef = useRef(null)
   const demoPageRef = useRef(0)
@@ -766,6 +841,9 @@ export default function Home() {
   const demoStatusRef = useRef(null)
   const lastFocusedRef = useRef(null)
   const contactStatusRef = useRef(null)
+  const celebrationPanelRef = useRef(null)
+  const celebrationCloseRef = useRef(null)
+  const celebrationReturnFocusRef = useRef(null)
   const tr = CONTENT[lang]
   const demoDocument = activeDemo ? DEMO_DOCUMENTS[activeDemo] : null
   const demoContent = demoDocument ? demoDocument[lang] : null
@@ -827,6 +905,69 @@ export default function Home() {
     const frame = window.requestAnimationFrame(() => contactStatusRef.current?.focus())
     return () => window.cancelAnimationFrame(frame)
   }, [contactStatus])
+
+  useEffect(() => {
+    if (!celebrationOpen) return undefined
+
+    const previousOverflow = document.body.style.overflow
+    const backgroundElements = Array.from(
+      document.querySelectorAll('.site-shell > :not(.success-celebration)')
+    )
+    const backgroundState = backgroundElements.map((element) => ({
+      element,
+      ariaHidden: element.getAttribute('aria-hidden'),
+      hadInert: element.hasAttribute('inert'),
+    }))
+
+    document.body.style.overflow = 'hidden'
+    backgroundElements.forEach((element) => {
+      element.setAttribute('aria-hidden', 'true')
+      element.setAttribute('inert', '')
+    })
+
+    const focusFrame = window.requestAnimationFrame(() => celebrationCloseRef.current?.focus())
+    const closeTimer = window.setTimeout(
+      () => setCelebrationOpen(false),
+      SUCCESS_CELEBRATION_MS
+    )
+    const handleCelebrationKeys = (event) => {
+      if (event.key === 'Escape') setCelebrationOpen(false)
+      if (event.key !== 'Tab' || !celebrationPanelRef.current) return
+
+      const focusable = celebrationPanelRef.current.querySelectorAll('button:not([disabled])')
+      if (!focusable.length) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+
+      if (!celebrationPanelRef.current.contains(document.activeElement)) {
+        event.preventDefault()
+        ;(event.shiftKey ? last : first).focus()
+      } else if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    window.addEventListener('keydown', handleCelebrationKeys)
+    return () => {
+      window.cancelAnimationFrame(focusFrame)
+      window.clearTimeout(closeTimer)
+      window.removeEventListener('keydown', handleCelebrationKeys)
+      document.body.style.overflow = previousOverflow
+      backgroundState.forEach(({ element, ariaHidden, hadInert }) => {
+        if (ariaHidden === null) {
+          element.removeAttribute('aria-hidden')
+        } else {
+          element.setAttribute('aria-hidden', ariaHidden)
+        }
+        if (!hadInert) element.removeAttribute('inert')
+      })
+      celebrationReturnFocusRef.current?.focus({ preventScroll: true })
+    }
+  }, [celebrationOpen])
 
   useEffect(() => {
     if (!activeDemo || !demoDocument) return undefined
@@ -1045,6 +1186,8 @@ export default function Home() {
       setContactDetailsLength(0)
       setContactStatus('success')
       setContactResult({ requestId: result.requestId || null })
+      celebrationReturnFocusRef.current = form.querySelector('button[type="submit"]')
+      setCelebrationOpen(true)
     } catch {
       setContactStatus('error')
       setContactResult({ code: 'generic' })
@@ -1142,6 +1285,7 @@ export default function Home() {
           <div className="hero-grid-pattern" aria-hidden="true" />
           <div className="hero-orb hero-orb-one" aria-hidden="true" />
           <div className="hero-orb hero-orb-two" aria-hidden="true" />
+          <EducationAmbient />
 
           <div className="container-wide hero-layout">
             <div className="hero-copy">
@@ -1472,6 +1616,7 @@ export default function Home() {
 
         <section id="contact" className="contact-section">
           <div className="contact-grid-pattern" aria-hidden="true" />
+          <EducationAmbient dark />
           <div className="container-wide contact-inner">
             <div className="contact-copy">
               <p className="section-eyebrow section-eyebrow-light reveal">{tr.contact.eyebrow}</p>
@@ -1701,6 +1846,78 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {celebrationOpen && (
+        <div className="success-celebration">
+          <div className="success-celebration-grid" aria-hidden="true" />
+          <div className="success-burst" aria-hidden="true" />
+          <section
+            ref={celebrationPanelRef}
+            className="success-celebration-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="success-celebration-title"
+            aria-describedby="success-celebration-description"
+          >
+            <button
+              ref={celebrationCloseRef}
+              className="success-celebration-close"
+              type="button"
+              onClick={() => setCelebrationOpen(false)}
+              aria-label={tr.contact.form.celebrationDismiss}
+            >
+              <CloseIcon />
+            </button>
+
+            <div className="success-scene" aria-hidden="true">
+              <div className="success-orbit success-orbit-outer">
+                <span>π</span>
+                <span>F = ma</span>
+                <span>∑</span>
+              </div>
+              <div className="success-orbit success-orbit-inner">
+                <span>Δ</span>
+                <span>x²</span>
+              </div>
+              <div className="success-particles">
+                {Array.from({ length: 18 }, (_, index) => (
+                  <i
+                    key={index}
+                    style={{
+                      '--particle-angle': `${index * 20}deg`,
+                      '--particle-distance': `${118 + (index % 4) * 26}px`,
+                      '--particle-delay': `${(index % 5) * 0.06}s`,
+                    }}
+                  />
+                ))}
+              </div>
+              <div className="success-core-halo" />
+              <div className="success-core">
+                <LearningSuccessIcon />
+              </div>
+            </div>
+
+            <div className="success-celebration-copy">
+              <span>{tr.contact.form.celebrationEyebrow}</span>
+              <h2 id="success-celebration-title">{tr.contact.form.celebrationTitle}</h2>
+              <p id="success-celebration-description">{tr.contact.form.celebrationText}</p>
+              {contactResult?.requestId && (
+                <strong>
+                  {tr.contact.form.reference}: <b>{contactResult.requestId}</b>
+                </strong>
+              )}
+              <button type="button" onClick={() => setCelebrationOpen(false)}>
+                <CheckIcon />
+                {tr.contact.form.celebrationClose}
+              </button>
+            </div>
+
+            <div className="success-celebration-progress" aria-hidden="true">
+              <span />
+            </div>
+          </section>
+        </div>
+      )}
 
       {demoDocument && demoContent && (
         <div
