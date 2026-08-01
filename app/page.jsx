@@ -1272,12 +1272,9 @@ export default function Home() {
       trajectoryPath: document.querySelector('.scroll-trajectory-line'),
       trajectoryMarker: document.querySelector('.scroll-trajectory-marker'),
       trajectoryMarkerHalo: document.querySelector('.scroll-trajectory-marker-halo'),
-      formulaMorphs: Array.from(document.querySelectorAll('.scroll-formula-morph span')),
-      formulaCounter: document.querySelector('.scroll-formula-index'),
       particles: Array.from(document.querySelectorAll('.scroll-particles i')),
     }
     let frame = null
-    let formulaIndex = -1
 
     const updateScrollField = () => {
       frame = null
@@ -1304,17 +1301,6 @@ export default function Home() {
       root.style.setProperty('--contact-progress', contactProgress.toFixed(4))
       root.style.setProperty('--scroll-offset', `${scrollTop.toFixed(1)}px`)
       root.style.setProperty('--scroll-percent', `${(scrollProgress * 100).toFixed(2)}%`)
-
-      const nextFormulaIndex = Math.min(3, Math.floor(scrollProgress * 4))
-      if (nextFormulaIndex !== formulaIndex) {
-        formulaIndex = nextFormulaIndex
-        scene.formulaMorphs.forEach((formula, index) => {
-          formula.classList.toggle('active', index === formulaIndex)
-        })
-        if (scene.formulaCounter) {
-          scene.formulaCounter.textContent = `0${formulaIndex + 1} / 04`
-        }
-      }
 
       if (scene.trajectoryPath) {
         scene.trajectoryPath.style.strokeDashoffset = String(1 - scrollProgress)
@@ -1872,15 +1858,6 @@ export default function Home() {
     <div className="site-shell">
       <ScrollPhysicsField />
       <div className="global-pointer-field" aria-hidden="true" />
-      <div className="scroll-formula-morph" aria-hidden="true">
-        {['∑', 'ψ', '∂', 'Δ'].map((formula, index) => (
-          <span className={index === 0 ? 'active' : ''} key={formula}>
-            {formula}
-          </span>
-        ))}
-        <b className="scroll-formula-index">01 / 04</b>
-        <small>FIELD · STATE</small>
-      </div>
       {orderSignal && (
         <div
           className="order-signal-flight"

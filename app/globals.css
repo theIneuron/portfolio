@@ -8162,78 +8162,6 @@ body {
   }
 }
 
-.scroll-formula-morph {
-  position: fixed;
-  z-index: 58;
-  top: 47%;
-  right: 24px;
-  width: 112px;
-  height: 138px;
-  border: 1px solid rgba(110, 239, 224, 0.36);
-  border-radius: 50% 8px 50% 8px;
-  background: rgba(8, 19, 41, 0.88);
-  box-shadow: 0 0 45px rgba(74, 220, 210, 0.16), inset 0 0 30px rgba(120, 98, 255, 0.11);
-  color: #80eee0;
-  pointer-events: none;
-  transform: translateY(-50%);
-  backdrop-filter: blur(10px);
-}
-
-.scroll-formula-morph::before {
-  position: absolute;
-  inset: 9px;
-  border: 1px dashed rgba(153, 137, 255, 0.22);
-  border-radius: inherit;
-  content: "";
-  animation: formula-state-pulse 2.8s ease-in-out infinite;
-}
-
-.scroll-formula-morph span {
-  position: absolute;
-  top: 43%;
-  left: 50%;
-  opacity: 0;
-  font-family: Georgia, serif;
-  font-size: 58px;
-  font-style: italic;
-  transform: translate(-50%, -50%) scale(0.55) rotate(-16deg);
-  transition: opacity 0.45s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.scroll-formula-morph span.active {
-  opacity: 1;
-  text-shadow: 0 0 25px rgba(81, 235, 219, 0.45);
-  transform: translate(-50%, -50%) scale(1) rotate(0);
-}
-
-.scroll-formula-morph small {
-  position: absolute;
-  right: 0;
-  bottom: 12px;
-  left: 0;
-  color: #687a98;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 6px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-align: center;
-}
-
-.scroll-formula-index {
-  position: absolute;
-  top: 11px;
-  right: 13px;
-  color: #9c91df;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 7px;
-  letter-spacing: 0.08em;
-}
-
-@keyframes formula-state-pulse {
-  0%, 100% { opacity: 0.35; transform: scale(0.95); }
-  50% { opacity: 0.9; transform: scale(1); }
-}
-
 .order-signal-flight {
   position: fixed;
   z-index: 180;
@@ -8463,36 +8391,6 @@ body {
 @media (max-width: 759px) {
   .material-simulation::after {
     display: none;
-  }
-
-  .scroll-formula-morph {
-    top: 82px;
-    right: 10px;
-    width: 60px;
-    height: 72px;
-    border-radius: 25px 4px 25px 4px;
-    transform: none;
-    backdrop-filter: none;
-  }
-
-  .scroll-formula-morph::before {
-    inset: 5px;
-    animation: none;
-  }
-
-  .scroll-formula-morph span {
-    top: 46%;
-    font-size: 30px;
-  }
-
-  .scroll-formula-morph small {
-    display: none;
-  }
-
-  .scroll-formula-index {
-    top: 5px;
-    right: 8px;
-    font-size: 5px;
   }
 
   .hero-buttons .button {
