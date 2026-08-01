@@ -13,15 +13,14 @@ const CONTENT = {
       contact: 'Aloqa',
     },
     hero: {
-      eyebrow: "O'qituvchi · Metodist · EdTech",
-      title: 'Murakkab mavzularni',
-      accent: 'tushunarli tizimga',
-      tail: 'aylantiraman.',
-      description:
-        'Matematika va fizikani tushunarli o‘rgataman; metodik materiallar, testlar va EdTech vositalarini yarataman.',
-      primary: "Materiallarni ko'rish",
-      secondary: 'Vazifani muhokama qilish',
-      availability: 'Yangi ta’lim loyihalari uchun ochiqman',
+      eyebrow: "NAZARIYA → TUSHUNISH → NATIJA",
+      title: 'Murakkab',
+      accent: 'tushunarli bo‘ladi.',
+      tail: '',
+      description: 'Matematika · Fizika · Metodika · EdTech',
+      primary: 'Materiallar',
+      secondary: 'Ariza qoldirish',
+      availability: 'Yangi loyihalar uchun ochiqman',
       focus: ['Matematika', 'Fizika', 'Metodika', 'EdTech'],
       visualLabel: "Ta'lim modeli",
       visualTitle: 'Tushunishdan natijagacha',
@@ -68,9 +67,9 @@ const CONTENT = {
       ],
     },
     expertise: {
-      eyebrow: 'professional yo‘nalishlar',
-      title: 'Men nima bilan yordam bera olaman',
-      intro: 'Dars, metodika, diagnostika va raqamli yechimlar.',
+      eyebrow: 'TA’LIM MAYDONI',
+      title: '4 yo‘nalish',
+      intro: 'Nazariya. Amaliyot. Natija.',
       items: [
         {
           symbol: '∑',
@@ -103,9 +102,9 @@ const CONTENT = {
       ],
     },
     materials: {
-      eyebrow: 'metodik mahsulotlar',
-      title: 'Sizning vazifangiz uchun ishlab chiqaman',
-      intro: 'Fan, yosh, maqsad va formatga mos individual materiallar.',
+      eyebrow: 'MATERIALLAR LABORATORIYASI',
+      title: 'Tayyor formatlar',
+      intro: 'Himoyalangan demo-ko‘rish.',
       request: "Materialni muhokama qilish",
       items: [
         {
@@ -146,8 +145,8 @@ const CONTENT = {
       ],
     },
     process: {
-      eyebrow: 'ish jarayoni',
-      title: "G'oyadan tayyor materialgacha",
+      eyebrow: 'YECHIM TRAYEKTORIYASI',
+      title: '4 koordinata',
       items: [
         {
           number: '01',
@@ -172,9 +171,9 @@ const CONTENT = {
       ],
     },
     projects: {
-      eyebrow: 'texnologiyalar orqali ta’lim',
+      eyebrow: 'EDTECH TIZIMLARI',
       title: 'Raqamli loyihalar',
-      intro: "Ta'limni qulayroq qiladigan raqamli vositalar.",
+      intro: 'Ta’lim uchun kod.',
       ready: 'Tayyor',
       development: 'Ishlanmoqda',
       demo: 'Demo',
@@ -212,16 +211,16 @@ const CONTENT = {
       ],
     },
     contact: {
-      eyebrow: 'hamkorlik',
-      title: "Foydali ta'lim mahsulotini yarataylik",
-      text: 'Vazifani yuboring — mos yechim va formatni taklif qilaman.',
+      eyebrow: 'SIGNAL YUBORISH',
+      title: 'Vazifani uzating',
+      text: 'Javob Telegram orqali.',
       primary: 'Telegram orqali yozish',
       response: 'To‘g‘ridan-to‘g‘ri bog‘lanish',
       fallback: 'Forma ishlamasa, Telegram orqali yozing yoki qo‘ng‘iroq qiling.',
       form: {
-        badge: 'Ariza → Telegram',
-        title: 'Vazifangiz haqida yozing',
-        hint: 'Ariza menga Telegram orqali keladi.',
+        badge: 'SIGNAL → TELEGRAM',
+        title: 'Yangi vazifa',
+        hint: 'Qisqa va aniq.',
         name: 'Sizga qanday murojaat qilay?',
         namePlaceholder: 'Ismingiz',
         replyTo: 'Javob yuborish uchun aloqa',
@@ -252,9 +251,12 @@ const CONTENT = {
         success:
           'Rahmat! Arizangizni oldim va ko‘rsatilgan aloqa orqali siz bilan bog‘lanaman.',
         reference: 'Ariza raqami',
+        referenceYours: 'Sizning ariza raqamingiz',
+        copyReference: 'Raqamni nusxalash',
+        copiedReference: 'Nusxalandi',
         celebrationEyebrow: 'SIGNAL QABUL QILINDI · Φ 01',
-        celebrationTitle: 'Vazifa yechim trayektoriyasida!',
-        celebrationText: 'So‘rov Telegram orqali yetkazildi. Tez orada bog‘lanaman.',
+        celebrationTitle: 'Aloqa o‘rnatildi',
+        celebrationText: 'Vazifa yechim trayektoriyasida.',
         celebrationClose: 'Davom etish',
         celebrationDismiss: 'Animatsiyani yopish',
         errors: {
@@ -312,15 +314,14 @@ const CONTENT = {
       contact: 'Контакты',
     },
     hero: {
-      eyebrow: 'Преподаватель · Методист · EdTech',
-      title: 'Превращаю сложные темы',
-      accent: 'в понятную систему',
-      tail: 'обучения.',
-      description:
-        'Объясняю математику и физику, создаю методические материалы, тесты и EdTech-инструменты.',
-      primary: 'Посмотреть материалы',
-      secondary: 'Обсудить задачу',
-      availability: 'Открыт к новым образовательным проектам',
+      eyebrow: 'ТЕОРИЯ → ПОНИМАНИЕ → РЕЗУЛЬТАТ',
+      title: 'Сложное',
+      accent: 'становится ясным.',
+      tail: '',
+      description: 'Математика · Физика · Методика · EdTech',
+      primary: 'Материалы',
+      secondary: 'Оставить заявку',
+      availability: 'Открыт к новым проектам',
       focus: ['Математика', 'Физика', 'Методика', 'EdTech'],
       visualLabel: 'Модель обучения',
       visualTitle: 'От понимания к результату',
@@ -367,9 +368,9 @@ const CONTENT = {
       ],
     },
     expertise: {
-      eyebrow: 'профессиональные направления',
-      title: 'С чем я могу помочь',
-      intro: 'Занятия, методика, диагностика и цифровые решения.',
+      eyebrow: 'ОБРАЗОВАТЕЛЬНОЕ ПОЛЕ',
+      title: '4 направления',
+      intro: 'Теория. Практика. Результат.',
       items: [
         {
           symbol: '∑',
@@ -402,9 +403,9 @@ const CONTENT = {
       ],
     },
     materials: {
-      eyebrow: 'методические продукты',
-      title: 'Разработаю материал под вашу задачу',
-      intro: 'Индивидуальные материалы под предмет, возраст, цель и формат.',
+      eyebrow: 'ЛАБОРАТОРИЯ МАТЕРИАЛОВ',
+      title: 'Готовые форматы',
+      intro: 'Защищённый демо-просмотр.',
       request: 'Обсудить материал',
       items: [
         {
@@ -445,8 +446,8 @@ const CONTENT = {
       ],
     },
     process: {
-      eyebrow: 'процесс работы',
-      title: 'От идеи до готового материала',
+      eyebrow: 'ТРАЕКТОРИЯ РЕШЕНИЯ',
+      title: '4 координаты',
       items: [
         {
           number: '01',
@@ -471,9 +472,9 @@ const CONTENT = {
       ],
     },
     projects: {
-      eyebrow: 'образование через технологии',
+      eyebrow: 'EDTECH-СИСТЕМЫ',
       title: 'Цифровые проекты',
-      intro: 'Цифровые инструменты, которые упрощают обучение.',
+      intro: 'Код для образования.',
       ready: 'Готово',
       development: 'В разработке',
       demo: 'Демо',
@@ -511,16 +512,16 @@ const CONTENT = {
       ],
     },
     contact: {
-      eyebrow: 'сотрудничество',
-      title: 'Создадим полезный образовательный продукт',
-      text: 'Опишите задачу — предложу подходящий формат и решение.',
+      eyebrow: 'ПЕРЕДАТЬ СИГНАЛ',
+      title: 'Передайте задачу',
+      text: 'Ответ — в Telegram.',
       primary: 'Написать в Telegram',
       response: 'Связаться напрямую',
       fallback: 'Если форма не сработает, напишите в Telegram или позвоните.',
       form: {
-        badge: 'Заявка → Telegram',
-        title: 'Расскажите о задаче',
-        hint: 'Заявка придёт мне в Telegram.',
+        badge: 'СИГНАЛ → TELEGRAM',
+        title: 'Новая задача',
+        hint: 'Коротко и по существу.',
         name: 'Как к вам обращаться?',
         namePlaceholder: 'Ваше имя',
         replyTo: 'Куда вам ответить?',
@@ -551,9 +552,12 @@ const CONTENT = {
         success:
           'Спасибо! Я получил заявку и свяжусь с вами по указанному контакту.',
         reference: 'Номер заявки',
+        referenceYours: 'Ваш номер заявки',
+        copyReference: 'Скопировать номер',
+        copiedReference: 'Скопировано',
         celebrationEyebrow: 'СИГНАЛ ПРИНЯТ · Φ 01',
-        celebrationTitle: 'Задача на траектории решения!',
-        celebrationText: 'Запрос доставлен в Telegram. Скоро свяжусь с вами.',
+        celebrationTitle: 'Связь установлена',
+        celebrationText: 'Задача вышла на траекторию решения.',
         celebrationClose: 'Продолжить',
         celebrationDismiss: 'Закрыть анимацию',
         errors: {
@@ -663,7 +667,7 @@ const DEMO_DOCUMENTS = {
   },
 }
 
-const NAV_ITEMS = ['about', 'expertise', 'materials', 'projects', 'contact']
+const NAV_ITEMS = ['about', 'expertise', 'materials', 'contact']
 
 function updateDemoQuery(demoId) {
   const url = new URL(window.location.href)
@@ -706,13 +710,6 @@ function useScrollReveal() {
 const ArrowIcon = ({ className = 'w-4 h-4' }) => (
   <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
     <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-5-5 5 5-5 5" />
-  </svg>
-)
-
-const ExternalIcon = () => (
-  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5h5v5m0-5-9 9" />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5" />
   </svg>
 )
 
@@ -760,6 +757,13 @@ const LockIcon = () => (
   </svg>
 )
 
+const CopyIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="8" y="8" width="11" height="11" rx="2" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M16 8V6.8A1.8 1.8 0 0 0 14.2 5H6.8A1.8 1.8 0 0 0 5 6.8v7.4A1.8 1.8 0 0 0 6.8 16H8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+  </svg>
+)
+
 const LearningSuccessIcon = () => (
   <svg viewBox="0 0 88 88" fill="none" aria-hidden="true">
     <path
@@ -794,7 +798,7 @@ const EDUCATION_SYMBOLS = [
   ['Fμν', 'symbol-seven'],
 ]
 
-const SUCCESS_CELEBRATION_MS = 6200
+const SUCCESS_CELEBRATION_MS = 14000
 const FORMULA_STREAM =
   'ψ(x,t) · iℏ∂ψ/∂t = Ĥψ · E = ħω · ΔxΔp ≥ ħ/2 · Gμν + Λgμν = 8πGTμν/c⁴ · Fμν · ∮p·dq'
 
@@ -851,6 +855,307 @@ const EducationAmbient = ({ dark = false }) => (
   </div>
 )
 
+const PhysicsCore = ({ label }) => (
+  <div className="quantum-console" aria-label={label} role="img">
+    <div className="quantum-console-bar" aria-hidden="true">
+      <span><i /> QUANTUM FIELD / ACTIVE</span>
+      <small>φ · 01</small>
+    </div>
+
+    <div className="quantum-stage" aria-hidden="true">
+      <div className="quantum-crosshair quantum-crosshair-x" />
+      <div className="quantum-crosshair quantum-crosshair-y" />
+      <div className="quantum-orbit quantum-orbit-a"><i /></div>
+      <div className="quantum-orbit quantum-orbit-b"><i /></div>
+      <div className="quantum-orbit quantum-orbit-c"><i /></div>
+      <div className="quantum-core-pulse" />
+      <div className="quantum-core">
+        <span>ψ</span>
+        <small>x,t</small>
+      </div>
+      <span className="quantum-formula quantum-formula-a">iℏ∂ψ/∂t = Ĥψ</span>
+      <span className="quantum-formula quantum-formula-b">ΔxΔp ≥ ℏ/2</span>
+      <span className="quantum-formula quantum-formula-c">E = ℏω</span>
+      <span className="quantum-coordinate quantum-coordinate-a">x₁</span>
+      <span className="quantum-coordinate quantum-coordinate-b">t₀</span>
+    </div>
+
+    <div className="quantum-wave-monitor" aria-hidden="true">
+      <span>probability amplitude</span>
+      <svg viewBox="0 0 560 92" preserveAspectRatio="none">
+        <path className="quantum-wave-grid" d="M0 46H560M140 0V92M280 0V92M420 0V92" />
+        <path
+          className="quantum-wave-line"
+          pathLength="1"
+          d="M0 46C35 46 35 12 70 12S105 80 140 80S175 25 210 25S245 67 280 67S315 34 350 34S385 58 420 58S455 40 490 40S525 51 560 51"
+        />
+      </svg>
+      <div><b>0.984</b><small>coherence</small></div>
+    </div>
+
+    <div className="quantum-readouts" aria-hidden="true">
+      <span><i /> FIELD STABLE</span>
+      <span>μ = 10⁻⁶</span>
+      <span>Σ P = 1</span>
+    </div>
+  </div>
+)
+
+function sampledPath(equation, samples = 72, startX = 34, endX = 346) {
+  return Array.from({ length: samples }, (_, index) => {
+    const ratio = index / (samples - 1)
+    const x = startX + (endX - startX) * ratio
+    const y = equation(ratio, x)
+    return `${index ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`
+  }).join('')
+}
+
+const MaterialSimulation = ({ index }) => {
+  const [progress, setProgress] = useState(0.28 + index * 0.14)
+  const [inView, setInView] = useState(false)
+  const [interacting, setInteracting] = useState(false)
+  const simulationRef = useRef(null)
+
+  useEffect(() => {
+    const element = simulationRef.current
+    if (!element) return undefined
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.25 }
+    )
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!inView || interacting || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return undefined
+    }
+
+    const timer = window.setInterval(() => {
+      setProgress((current) => (current + 0.0075) % 1)
+    }, 70)
+    return () => window.clearInterval(timer)
+  }, [inView, interacting])
+
+  const handlePointerMove = (event) => {
+    if (event.pointerType && event.pointerType !== 'mouse' && event.pointerType !== 'pen') return
+    const bounds = event.currentTarget.getBoundingClientRect()
+    setProgress(Math.min(1, Math.max(0, (event.clientX - bounds.left) / bounds.width)))
+  }
+
+  const handleTap = (event) => {
+    if (event.pointerType === 'mouse') return
+    setProgress((current) => (current + 0.23) % 1)
+  }
+
+  const axis = <path className="simulation-axis" d="M30 134H350M42 146V14" />
+
+  let formula = 'f(x)'
+  let readout = `a = ${(0.7 + progress * 1.8).toFixed(2)}`
+  let simulation
+
+  if (index === 0) {
+    const factor = 0.0022 + progress * 0.0019
+    const vertexX = 158 + progress * 48
+    const curve = sampledPath((ratio, x) => 28 + (x - vertexX) ** 2 * factor)
+    const markerX = 72 + progress * 244
+    const markerY = 28 + (markerX - vertexX) ** 2 * factor
+    const slope = 2 * factor * (markerX - vertexX)
+    const tangentStartX = markerX - 46
+    const tangentEndX = markerX + 46
+    const tangentStartY = markerY - slope * 46
+    const tangentEndY = markerY + slope * 46
+
+    formula = 'f(x) = ax² + bx + c'
+    simulation = (
+      <>
+        {axis}
+        <path className="simulation-curve" d={curve} />
+        <path
+          className="simulation-tangent"
+          d={`M${tangentStartX.toFixed(1)} ${tangentStartY.toFixed(1)}L${tangentEndX.toFixed(1)} ${tangentEndY.toFixed(1)}`}
+        />
+        <circle className="simulation-marker-halo" cx={markerX} cy={markerY} r="13" />
+        <circle className="simulation-marker" cx={markerX} cy={markerY} r="5" />
+        <circle className="simulation-vertex" cx={vertexX} cy="28" r="3.5" />
+      </>
+    )
+  } else if (index === 1) {
+    const phase = progress * Math.PI * 2
+    const probability = sampledPath(
+      (ratio) => 132 - Math.sin(ratio * Math.PI * 3 + phase) ** 2 * (80 - ratio * 22)
+    )
+    const markerX = 48 + progress * 286
+    const ratio = (markerX - 34) / 312
+    const markerY = 132 - Math.sin(ratio * Math.PI * 3 + phase) ** 2 * (80 - ratio * 22)
+
+    formula = 'P(x) = |ψ(x)|²'
+    readout = `P = ${Math.max(0.01, (1 - Math.abs(progress - 0.5) * 1.45)).toFixed(2)}`
+    simulation = (
+      <>
+        {axis}
+        <path className="simulation-curve simulation-probability" d={probability} />
+        <path className="simulation-measurement" d={`M${markerX} 18V136`} />
+        <circle className="simulation-marker-halo" cx={markerX} cy={markerY} r="15" />
+        <circle className="simulation-marker" cx={markerX} cy={markerY} r="5.5" />
+      </>
+    )
+  } else if (index === 2) {
+    const voltage = 1 + progress * 11
+    const resistance = 2.5 + (1 - progress) * 5.5
+    const current = voltage / resistance
+    const endY = 30 + resistance * 5.4
+    const markerX = 66 + progress * 256
+    const markerY = 134 - ((134 - endY) * (markerX - 42)) / 304
+
+    formula = 'I = U / R'
+    readout = `${voltage.toFixed(1)} V  ·  ${current.toFixed(2)} A`
+    simulation = (
+      <>
+        {axis}
+        <path className="simulation-curve simulation-ohm" d={`M42 134L346 ${endY.toFixed(1)}`} />
+        <path className="simulation-guide" d={`M${markerX} ${markerY}V134M42 ${markerY}H${markerX}`} />
+        <circle className="simulation-marker-halo" cx={markerX} cy={markerY} r="15" />
+        <circle className="simulation-marker" cx={markerX} cy={markerY} r="5.5" />
+      </>
+    )
+  } else {
+    const phase = progress * Math.PI * 2
+    const waveOne = sampledPath((ratio) => 78 + Math.sin(ratio * Math.PI * 4) * 23)
+    const waveTwo = sampledPath((ratio) => 78 + Math.sin(ratio * Math.PI * 4 + phase) * 23)
+    const result = sampledPath(
+      (ratio) => 78 + (Math.sin(ratio * Math.PI * 4) + Math.sin(ratio * Math.PI * 4 + phase)) * 21
+    )
+
+    formula = 'ψ = ψ₁ + ψ₂'
+    readout = `Δφ = ${(progress * 2).toFixed(2)}π`
+    simulation = (
+      <>
+        {axis}
+        <path className="simulation-wave-secondary" d={waveOne} />
+        <path className="simulation-wave-secondary simulation-wave-two" d={waveTwo} />
+        <path className="simulation-curve simulation-interference" d={result} />
+      </>
+    )
+  }
+
+  return (
+    <div
+      ref={simulationRef}
+      className={`material-simulation simulation-${index + 1} ${interacting ? 'is-interacting' : ''}`}
+      onPointerEnter={() => setInteracting(true)}
+      onPointerLeave={() => setInteracting(false)}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handleTap}
+      aria-hidden="true"
+    >
+      <div className="simulation-readout">
+        <span>{formula}</span>
+        <strong>{readout}</strong>
+      </div>
+      <svg viewBox="0 0 380 160" preserveAspectRatio="none">
+        {simulation}
+      </svg>
+      <div className="simulation-scan" />
+    </div>
+  )
+}
+
+const SCROLL_FIELD_FORMULAS = [
+  'Gμν + Λgμν',
+  '∫ ℒ d⁴x',
+  'iℏ∂t|ψ⟩',
+  'Rμν − ½Rgμν',
+  '∇ · E = ρ/ε₀',
+  'S = ∫ p dq',
+  'ΔEΔt ≥ ℏ/2',
+  '□φ + m²φ = 0',
+]
+
+const ScrollPhysicsField = () => (
+  <div className="scroll-physics-field" aria-hidden="true">
+    <div className="scroll-field-nebula" />
+    <div className="scroll-spacetime-sheet" />
+
+    <svg className="scroll-wave-ribbon" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path
+        pathLength="1"
+        d="M0 164C96 28 196 28 292 164S488 300 584 164S780 28 876 164S1072 300 1168 164S1354 44 1440 136"
+      />
+      <path
+        pathLength="1"
+        d="M0 164C72 92 144 92 216 164S360 236 432 164S576 92 648 164S792 236 864 164S1008 92 1080 164S1224 236 1296 164S1380 106 1440 142"
+      />
+    </svg>
+
+    <svg className="scroll-trajectory" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="scrollTrajectoryGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#8d7bff" />
+          <stop offset="48%" stopColor="#58bfff" />
+          <stop offset="100%" stopColor="#55f1d8" />
+        </linearGradient>
+      </defs>
+      <path
+        className="scroll-trajectory-ghost"
+        pathLength="1"
+        d="M-40 742C132 650 154 272 350 318C534 361 467 712 684 661C873 617 763 208 1011 265C1174 303 1176 592 1468 448"
+      />
+      <path
+        className="scroll-trajectory-line"
+        pathLength="1"
+        d="M-40 742C132 650 154 272 350 318C534 361 467 712 684 661C873 617 763 208 1011 265C1174 303 1176 592 1468 448"
+      />
+      <g className="scroll-trajectory-nodes">
+        <circle cx="350" cy="318" r="7" />
+        <circle cx="684" cy="661" r="7" />
+        <circle cx="1011" cy="265" r="7" />
+        <circle cx="1360" cy="494" r="7" />
+      </g>
+      <circle className="scroll-trajectory-marker-halo" cx="0" cy="0" r="18" />
+      <circle className="scroll-trajectory-marker" cx="0" cy="0" r="7" />
+    </svg>
+
+    <div className="scroll-equation-cloud">
+      {SCROLL_FIELD_FORMULAS.map((formula, index) => (
+        <span key={formula} style={{ '--field-index': index }}>
+          {formula}
+        </span>
+      ))}
+    </div>
+
+    <div className="scroll-tunnel">
+      {Array.from({ length: 9 }, (_, index) => (
+        <i key={index} style={{ '--ring-index': index }} />
+      ))}
+      <b>ψ</b>
+    </div>
+
+    <div className="scroll-particles">
+      {Array.from({ length: 22 }, (_, index) => (
+        <i
+          key={index}
+          style={{
+            '--particle-x': `${(index * 47) % 101}%`,
+            '--particle-y': `${(index * 73) % 97}%`,
+            '--particle-shift': `${-260 - (index % 5) * 115}px`,
+            '--particle-size': `${2 + (index % 3)}px`,
+          }}
+        />
+      ))}
+    </div>
+
+    <div className="scroll-contact-target">
+      <span />
+      <i />
+      <b>FORM · Φ</b>
+    </div>
+
+  </div>
+)
+
 export default function Home() {
   const [lang, setLang] = useState('uz')
   const [localeInitialized, setLocaleInitialized] = useState(false)
@@ -863,6 +1168,7 @@ export default function Home() {
   const [contactResult, setContactResult] = useState(null)
   const [contactDetailsLength, setContactDetailsLength] = useState(0)
   const [celebrationOpen, setCelebrationOpen] = useState(false)
+  const [referenceCopied, setReferenceCopied] = useState(false)
   const menuButtonRef = useRef(null)
   const mobileNavRef = useRef(null)
   const demoPageRef = useRef(0)
@@ -879,6 +1185,137 @@ export default function Home() {
   const demoContent = demoDocument ? demoDocument[lang] : null
 
   useScrollReveal()
+
+  useEffect(() => {
+    let frame = null
+    const updatePointerField = (event) => {
+      if (event.pointerType && event.pointerType !== 'mouse') return
+      if (frame) window.cancelAnimationFrame(frame)
+      frame = window.requestAnimationFrame(() => {
+        const x = event.clientX
+        const y = event.clientY
+        const normalizedX = (x / window.innerWidth - 0.5).toFixed(3)
+        const normalizedY = (y / window.innerHeight - 0.5).toFixed(3)
+        document.documentElement.style.setProperty('--pointer-x', `${x}px`)
+        document.documentElement.style.setProperty('--pointer-y', `${y}px`)
+        document.documentElement.style.setProperty('--field-x', normalizedX)
+        document.documentElement.style.setProperty('--field-y', normalizedY)
+      })
+    }
+
+    window.addEventListener('pointermove', updatePointerField, { passive: true })
+    return () => {
+      window.removeEventListener('pointermove', updatePointerField)
+      if (frame) window.cancelAnimationFrame(frame)
+    }
+  }, [])
+
+  useEffect(() => {
+    const root = document.documentElement
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const scene = {
+      nebula: document.querySelector('.scroll-field-nebula'),
+      sheet: document.querySelector('.scroll-spacetime-sheet'),
+      wave: document.querySelector('.scroll-wave-ribbon'),
+      equations: document.querySelector('.scroll-equation-cloud'),
+      tunnel: document.querySelector('.scroll-tunnel'),
+      target: document.querySelector('.scroll-contact-target'),
+      trajectoryPath: document.querySelector('.scroll-trajectory-line'),
+      trajectoryMarker: document.querySelector('.scroll-trajectory-marker'),
+      trajectoryMarkerHalo: document.querySelector('.scroll-trajectory-marker-halo'),
+      particles: Array.from(document.querySelectorAll('.scroll-particles i')),
+    }
+    let frame = null
+
+    const updateScrollField = () => {
+      frame = null
+      if (reducedMotion.matches) {
+        root.style.setProperty('--scroll-progress', '0')
+        root.style.setProperty('--contact-progress', '0')
+        return
+      }
+
+      const scrollTop = window.scrollY
+      const scrollRange = Math.max(1, document.documentElement.scrollHeight - window.innerHeight)
+      const scrollProgress = Math.min(1, Math.max(0, scrollTop / scrollRange))
+      const contactSection = document.querySelector('#contact')
+      let contactProgress = 0
+
+      if (contactSection) {
+        const contactTop = contactSection.getBoundingClientRect().top + scrollTop
+        const approachStart = contactTop - window.innerHeight * 1.35
+        const approachDistance = window.innerHeight * 1.2
+        contactProgress = Math.min(1, Math.max(0, (scrollTop - approachStart) / approachDistance))
+      }
+
+      root.style.setProperty('--scroll-progress', scrollProgress.toFixed(4))
+      root.style.setProperty('--contact-progress', contactProgress.toFixed(4))
+      root.style.setProperty('--scroll-offset', `${scrollTop.toFixed(1)}px`)
+      root.style.setProperty('--scroll-percent', `${(scrollProgress * 100).toFixed(2)}%`)
+
+      if (scene.nebula) {
+        scene.nebula.style.transform = `translate3d(${-9 * scrollProgress}%, ${-7 * scrollProgress}%, 0) scale(${1 + scrollProgress * 0.2 + contactProgress * 0.26})`
+        scene.nebula.style.opacity = String(0.55 + contactProgress * 0.3)
+      }
+      if (scene.sheet) {
+        scene.sheet.style.transform = `rotateX(67deg) translateY(${-240 * scrollProgress}px) scale(${1 + contactProgress * 0.82})`
+        scene.sheet.style.backgroundPosition = `0 ${-360 * scrollProgress}px, ${160 * scrollProgress}px 0`
+        scene.sheet.style.opacity = String(0.24 + contactProgress * 0.34)
+      }
+      if (scene.wave) {
+        scene.wave.style.top = `${36 - scrollProgress * 18}%`
+        scene.wave.style.left = `${-12 - scrollProgress * 20}%`
+        scene.wave.style.transform = `rotate(${-7 + scrollProgress * 17}deg) scale(${1 + contactProgress * 0.5})`
+        scene.wave.style.opacity = String(0.2 + contactProgress * 0.2)
+      }
+      if (scene.equations) {
+        scene.equations.style.transform = `translateY(${-170 * scrollProgress}px) scale(${1 + scrollProgress * 0.16})`
+        scene.equations.style.opacity = String(0.42 - contactProgress * 0.12)
+      }
+      if (scene.tunnel) {
+        scene.tunnel.style.left = `${70 + contactProgress * 2}%`
+        scene.tunnel.style.top = `${49 + contactProgress * 3}%`
+        scene.tunnel.style.opacity = String(0.14 + contactProgress * 0.82)
+        scene.tunnel.style.transform = `translate(-50%, -50%) rotate(${scrollProgress * 105}deg) scale(${0.52 + scrollProgress * 0.28 + contactProgress * 1.35})`
+      }
+      if (scene.target) {
+        scene.target.style.opacity = String(contactProgress)
+        scene.target.style.transform = `translate(-50%, -50%) scale(${0.35 + contactProgress * 0.65})`
+      }
+      if (scene.trajectoryPath) {
+        scene.trajectoryPath.style.strokeDashoffset = String(1 - scrollProgress)
+        const point = scene.trajectoryPath.getPointAtLength(
+          scene.trajectoryPath.getTotalLength() * scrollProgress
+        )
+        scene.trajectoryMarker?.setAttribute('cx', point.x.toFixed(2))
+        scene.trajectoryMarker?.setAttribute('cy', point.y.toFixed(2))
+        scene.trajectoryMarkerHalo?.setAttribute('cx', point.x.toFixed(2))
+        scene.trajectoryMarkerHalo?.setAttribute('cy', point.y.toFixed(2))
+      }
+      scene.particles.forEach((particle, index) => {
+        const shift = -260 - (index % 5) * 115
+        particle.style.transform = `translateY(${scrollProgress * shift}px) scale(${0.8 + contactProgress * 1.7})`
+        particle.style.opacity = String(0.25 + contactProgress * 0.45)
+      })
+    }
+
+    const requestScrollUpdate = () => {
+      if (frame) return
+      frame = window.requestAnimationFrame(updateScrollField)
+    }
+
+    updateScrollField()
+    window.addEventListener('scroll', requestScrollUpdate, { passive: true })
+    window.addEventListener('resize', requestScrollUpdate)
+    reducedMotion.addEventListener?.('change', requestScrollUpdate)
+
+    return () => {
+      window.removeEventListener('scroll', requestScrollUpdate)
+      window.removeEventListener('resize', requestScrollUpdate)
+      reducedMotion.removeEventListener?.('change', requestScrollUpdate)
+      if (frame) window.cancelAnimationFrame(frame)
+    }
+  }, [])
 
   useEffect(() => {
     const query = new URLSearchParams(window.location.search)
@@ -1175,6 +1612,22 @@ export default function Home() {
     setDemoImageRetry((current) => current + 1)
     window.requestAnimationFrame(() => demoStatusRef.current?.focus())
   }
+  const handleMaterialCardMotion = (event) => {
+    if (event.pointerType && event.pointerType !== 'mouse') return
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const x = Math.min(1, Math.max(0, (event.clientX - bounds.left) / bounds.width))
+    const y = Math.min(1, Math.max(0, (event.clientY - bounds.top) / bounds.height))
+    event.currentTarget.style.setProperty('--card-tilt-x', `${(0.5 - y) * 4.5}deg`)
+    event.currentTarget.style.setProperty('--card-tilt-y', `${(x - 0.5) * 5.5}deg`)
+    event.currentTarget.style.setProperty('--card-glow-x', `${(x * 100).toFixed(1)}%`)
+    event.currentTarget.style.setProperty('--card-glow-y', `${(y * 100).toFixed(1)}%`)
+  }
+  const resetMaterialCardMotion = (event) => {
+    event.currentTarget.style.setProperty('--card-tilt-x', '0deg')
+    event.currentTarget.style.setProperty('--card-tilt-y', '0deg')
+    event.currentTarget.style.setProperty('--card-glow-x', '50%')
+    event.currentTarget.style.setProperty('--card-glow-y', '50%')
+  }
   const handleContactSubmit = async (event) => {
     event.preventDefault()
     if (contactStatus === 'sending') return
@@ -1216,6 +1669,7 @@ export default function Home() {
       setContactDetailsLength(0)
       setContactStatus('success')
       setContactResult({ requestId: result.requestId || null })
+      setReferenceCopied(false)
       celebrationReturnFocusRef.current = form.querySelector('button[type="submit"]')
       setCelebrationOpen(true)
     } catch {
@@ -1224,8 +1678,37 @@ export default function Home() {
     }
   }
 
+  const copyRequestReference = async () => {
+    const reference = contactResult?.requestId
+    if (!reference) return
+
+    try {
+      await navigator.clipboard.writeText(reference)
+      setReferenceCopied(true)
+      return
+    } catch {
+      const copyField = document.createElement('textarea')
+      copyField.value = reference
+      copyField.setAttribute('readonly', '')
+      copyField.style.position = 'fixed'
+      copyField.style.opacity = '0'
+      document.body.appendChild(copyField)
+      copyField.select()
+      const copied = document.execCommand('copy')
+      copyField.remove()
+      if (copied) setReferenceCopied(true)
+    }
+  }
+
   return (
     <div className="site-shell">
+      <ScrollPhysicsField />
+      <div className="global-pointer-field" aria-hidden="true" />
+      <div className="scroll-page-meter" aria-hidden="true">
+        <span>FIELD / DEPTH</span>
+        <i><b /></i>
+        <strong>Φ</strong>
+      </div>
       <a className="skip-link" href="#main">
         {tr.skip}
       </a>
@@ -1356,148 +1839,25 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="hero-visual reveal" aria-label={tr.hero.visualTitle}>
-              <div className="visual-formula visual-formula-one" aria-hidden="true">
-                E = ħω
-              </div>
-              <div className="visual-formula visual-formula-two" aria-hidden="true">
-                iℏ∂tψ = Ĥψ
-              </div>
-
-              <div className="learning-card">
-                <div className="learning-card-top">
-                  <span className="learning-label">{tr.hero.visualLabel}</span>
-                  <span className="learning-code">EDU·01</span>
-                </div>
-
-                <div className="learning-graphic" aria-hidden="true">
-                  <div className="graphic-axis graphic-axis-x" />
-                  <div className="graphic-axis graphic-axis-y" />
-                  <svg viewBox="0 0 420 180" role="presentation">
-                    <defs>
-                      <linearGradient id="curveGradient" x1="0" x2="1">
-                        <stop offset="0%" stopColor="#6d5dfc" />
-                        <stop offset="100%" stopColor="#12b8a6" />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M18 151 C 72 150, 96 138, 132 119 S 204 76, 250 74 S 330 65, 398 18"
-                      fill="none"
-                      stroke="url(#curveGradient)"
-                      strokeWidth="5"
-                      strokeLinecap="round"
-                    />
-                    {[18, 132, 250, 398].map((x, index) => (
-                      <circle
-                        key={x}
-                        cx={x}
-                        cy={[151, 119, 74, 18][index]}
-                        r="7"
-                        fill="#fff"
-                        stroke={index < 2 ? '#6d5dfc' : '#12b8a6'}
-                        strokeWidth="4"
-                      />
-                    ))}
-                  </svg>
-                </div>
-
-                <h2>{tr.hero.visualTitle}</h2>
-                <div className="learning-steps">
-                  {tr.hero.visualSteps.map((step, index) => (
-                    <div key={step}>
-                      <span>{index + 1}</span>
-                      <p>{step}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="learning-note">
-                  <span aria-hidden="true">i</span>
-                  <p>{tr.hero.visualNote}</p>
-                </div>
-              </div>
-
-              <div
-                className="equation-solver-card"
-                role="img"
-                aria-label={`${tr.hero.solverTitle}: ${tr.hero.solverSteps
-                  .map((step) => `${step.formula}, ${step.action}`)
-                  .join('; ')}`}
-              >
-                <div className="equation-solver-header" aria-hidden="true">
-                  <span>{tr.hero.solverTitle}</span>
-                  <small>{tr.hero.solverBadge}</small>
-                </div>
-
-                <div className="equation-solver-stage" aria-hidden="true">
-                  {tr.hero.solverSteps.map((step, index) => (
-                    <div
-                      key={step.formula}
-                      className="equation-solver-step"
-                      style={{ '--equation-delay': `${index * 3}s` }}
-                    >
-                      <strong>{step.formula}</strong>
-                      <span>{step.action}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="equation-solver-progress" aria-hidden="true">
-                  {tr.hero.solverSteps.map((step, index) => (
-                    <span
-                      key={step.formula}
-                      style={{ '--equation-delay': `${index * 3}s` }}
-                    />
-                  ))}
-                </div>
-
-                <p aria-hidden="true">
-                  <CheckIcon />
-                  {tr.hero.solverFooter}
-                </p>
-              </div>
+            <div className="hero-visual reveal">
+              <PhysicsCore label={tr.hero.visualTitle} />
             </div>
           </div>
         </section>
 
-        <section className="section section-white">
-          <div className="container-wide">
-            <div className="about-layout">
-              <div>
-                <p className="section-eyebrow reveal">{tr.about.eyebrow}</p>
-                <h2 className="section-title reveal">{tr.about.title}</h2>
-              </div>
-              <div className="about-copy reveal">
-                <p className="about-lead">{tr.about.lead}</p>
-                <p>{tr.about.body}</p>
-
-                <div className="principles">
-                  <p className="principles-title">{tr.about.principlesTitle}</p>
-                  {tr.about.principles.map((principle) => (
-                    <div key={principle}>
-                      <span>
-                        <CheckIcon />
-                      </span>
-                      <p>{principle}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        <section className="theory-bridge" aria-labelledby="theory-bridge-title">
+          <div className="container-wide theory-bridge-inner">
+            <div className="theory-bridge-title reveal">
+              <span>Φ / 02</span>
+              <h2 id="theory-bridge-title">{tr.about.title}</h2>
             </div>
-
-            <div className="audience-wrap">
-              <p className="audience-label reveal">{tr.about.audiencesTitle}</p>
-              <div className="audience-grid">
-                {tr.about.audiences.map((audience) => (
-                  <article className="audience-card reveal" key={audience.title}>
-                    <span>{audience.number}</span>
-                    <div>
-                      <h3>{audience.title}</h3>
-                      <p>{audience.text}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
+            <div className="theory-principles">
+              {tr.about.principles.map((principle, index) => (
+                <div className="theory-principle reveal" key={principle}>
+                  <span>{['ψ', '∂', 'Δ'][index]}</span>
+                  <p>{principle}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -1515,6 +1875,7 @@ export default function Home() {
             <div className="expertise-grid">
               {tr.expertise.items.map((item) => (
                 <article className="expertise-card reveal" key={item.title}>
+                  <span className="card-field-glow" aria-hidden="true" />
                   <div className="expertise-top">
                     <span className="expertise-symbol" aria-hidden="true">
                       {item.symbol}
@@ -1523,22 +1884,17 @@ export default function Home() {
                   </div>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
-                  <ul>
-                    {item.points.map((point) => (
-                      <li key={point}>
-                        <span aria-hidden="true" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
+                  <a href="#contact" className="card-orbit-link" aria-label={`${item.title} — ${tr.contact.primary}`}>
+                    <ArrowIcon />
+                  </a>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="materials" className="section section-white">
-          <div className="container-wide">
+        <section id="materials" className="section section-white materials-section">
+          <div className="container-wide materials-container">
             <div className="section-heading">
               <div>
                 <p className="section-eyebrow reveal">{tr.materials.eyebrow}</p>
@@ -1549,30 +1905,23 @@ export default function Home() {
 
             <div className="materials-grid">
               {tr.materials.items.map((item, index) => (
-                <article className={`material-card tone-${item.tone} reveal`} key={item.title}>
+                <article
+                  className={`material-card tone-${item.tone} reveal`}
+                  key={item.title}
+                  onPointerMove={handleMaterialCardMotion}
+                  onPointerLeave={resetMaterialCardMotion}
+                >
                   <div className="material-preview" aria-hidden="true">
                     <div className="preview-top">
                       <span>{item.type}</span>
                       <span>0{index + 1}</span>
                     </div>
-                    <div className="preview-title-line" />
-                    <div className="preview-line preview-line-long" />
-                    <div className="preview-line preview-line-medium" />
-                    <div className="preview-items">
-                      {item.preview.map((previewItem, previewIndex) => (
-                        <div key={previewItem}>
-                          <span>{previewIndex + 1}</span>
-                          <p>{previewItem}</p>
-                        </div>
-                      ))}
-                    </div>
+                    <MaterialSimulation index={index} />
                   </div>
 
                   <div className="material-content">
                     <div className="material-meta">
-                      {item.meta.map((meta) => (
-                        <span key={meta}>{meta}</span>
-                      ))}
+                      <span>{item.meta[0]}</span>
                     </div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -1592,91 +1941,6 @@ export default function Home() {
                         <ArrowIcon />
                       </a>
                     </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section process-section">
-          <div className="process-glow" aria-hidden="true" />
-          <div className="container-wide">
-            <p className="section-eyebrow section-eyebrow-light reveal">{tr.process.eyebrow}</p>
-            <h2 className="section-title section-title-light reveal">{tr.process.title}</h2>
-
-            <div className="process-grid">
-              {tr.process.items.map((item, index) => (
-                <article className="process-item reveal" key={item.number}>
-                  <div className="process-number">{item.number}</div>
-                  {index < tr.process.items.length - 1 && (
-                    <div className="process-connector" aria-hidden="true">
-                      <ArrowIcon />
-                    </div>
-                  )}
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="projects" className="section section-soft">
-          <div className="container-wide">
-            <div className="section-heading">
-              <div>
-                <p className="section-eyebrow reveal">{tr.projects.eyebrow}</p>
-                <h2 className="section-title reveal">{tr.projects.title}</h2>
-              </div>
-              <p className="section-intro reveal">{tr.projects.intro}</p>
-            </div>
-
-            <div className="next-focus reveal">
-              <div className="next-focus-icon" aria-hidden="true">
-                <span>∑</span>
-                <span>01</span>
-              </div>
-              <div>
-                <p>{tr.projects.nextFocus}</p>
-                <h3>{tr.projects.nextTitle}</h3>
-                <span>{tr.projects.nextText}</span>
-              </div>
-              <a href="#contact" className="circle-link" aria-label={tr.contact.primary}>
-                <ArrowIcon className="w-5 h-5" />
-              </a>
-            </div>
-
-            <div className="projects-grid">
-              {tr.projects.items.map((project) => (
-                <article className="project-card reveal" key={project.title}>
-                  <div className="project-top">
-                    <span className="project-icon">{project.icon}</span>
-                    <span className={`project-status ${project.done ? 'done' : ''}`}>
-                      <span aria-hidden="true" />
-                      {project.done ? tr.projects.ready : tr.projects.development}
-                    </span>
-                  </div>
-                  <p className="project-category">{project.category}</p>
-                  <h3>{project.title}</h3>
-                  <p className="project-text">{project.text}</p>
-                  <div className="project-tags">
-                    {project.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                  <div className="project-links">
-                    {project.demo ? (
-                      <a href={project.demo} target="_blank" rel="noreferrer">
-                        <ExternalIcon />
-                        {tr.projects.demo}
-                      </a>
-                    ) : (
-                      <span className="disabled-link">
-                        <ExternalIcon />
-                        {tr.projects.demo}
-                      </span>
-                    )}
                   </div>
                 </article>
               ))}
@@ -1729,6 +1993,9 @@ export default function Home() {
               aria-labelledby="contact-form-title"
               aria-busy={contactStatus === 'sending'}
             >
+              <div className="contact-form-target-lock" aria-hidden="true">
+                <span /><span /><span /><span />
+              </div>
               <div className="contact-form-header">
                 <span>{tr.contact.form.badge}</span>
                 <h3 id="contact-form-title">{tr.contact.form.title}</h3>
@@ -1940,6 +2207,13 @@ export default function Home() {
             </button>
 
             <div className="success-scene" aria-hidden="true">
+              <div className="success-detector-beam" />
+              <svg className="success-signal-wave" viewBox="0 0 620 120" preserveAspectRatio="none">
+                <path
+                  pathLength="1"
+                  d="M0 60H92L116 59L132 16L153 104L176 60H235L250 46L266 75L281 60H345L365 25L387 94L409 60H472L487 52L501 67L516 60H620"
+                />
+              </svg>
               <div className="success-orbit success-orbit-outer">
                 <span>ψ</span>
                 <span>E = ħω</span>
@@ -1965,6 +2239,11 @@ export default function Home() {
               <div className="success-core">
                 <LearningSuccessIcon />
               </div>
+              <div className="success-coordinates">
+                <span>x: 41.311</span>
+                <span>t: NOW</span>
+                <span>P: 1.000</span>
+              </div>
             </div>
 
             <div className="success-celebration-copy">
@@ -1972,9 +2251,26 @@ export default function Home() {
               <h2 id="success-celebration-title">{tr.contact.form.celebrationTitle}</h2>
               <p id="success-celebration-description">{tr.contact.form.celebrationText}</p>
               {contactResult?.requestId && (
-                <strong>
-                  {tr.contact.form.reference}: <b>{contactResult.requestId}</b>
-                </strong>
+                <div className={`success-reference-card ${referenceCopied ? 'copied' : ''}`}>
+                  <span>{tr.contact.form.referenceYours}</span>
+                  <div>
+                    <strong>{contactResult.requestId}</strong>
+                    <button
+                      type="button"
+                      onClick={copyRequestReference}
+                      aria-label={referenceCopied
+                        ? tr.contact.form.copiedReference
+                        : tr.contact.form.copyReference}
+                    >
+                      {referenceCopied ? <CheckIcon /> : <CopyIcon />}
+                      <span aria-live="polite">
+                        {referenceCopied
+                          ? tr.contact.form.copiedReference
+                          : tr.contact.form.copyReference}
+                      </span>
+                    </button>
+                  </div>
+                </div>
               )}
               <button type="button" onClick={() => setCelebrationOpen(false)}>
                 <CheckIcon />
