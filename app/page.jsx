@@ -2063,6 +2063,20 @@ export default function Home() {
               <div className="contact-card reveal">
                 <p>{tr.contact.response}</p>
                 <span className="contact-fallback-note">{tr.contact.fallback}</span>
+                <a
+                  href="https://t.me/sultoniiy"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="contact-link-icon telegram">
+                    <TelegramIcon />
+                  </span>
+                  <span>
+                    <small>Telegram</small>
+                    @sultoniiy
+                  </span>
+                  <ArrowIcon />
+                </a>
                 <a href="tel:+998949560127">
                   <span className="contact-link-icon phone">
                     <PhoneIcon />
