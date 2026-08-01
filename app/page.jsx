@@ -668,6 +668,12 @@ const DEMO_DOCUMENTS = {
 }
 
 const NAV_ITEMS = ['about', 'expertise', 'materials', 'contact']
+const EXPERTISE_SERVICE_IDS = [
+  'math_lessons',
+  'physics_lessons',
+  'methodical_material',
+  'tests_diagnostics',
+]
 
 function updateDemoQuery(demoId) {
   const url = new URL(window.location.href)
@@ -1180,11 +1186,21 @@ export default function Home() {
   const celebrationPanelRef = useRef(null)
   const celebrationCloseRef = useRef(null)
   const celebrationReturnFocusRef = useRef(null)
+  const contactScrollFrameRef = useRef(null)
   const tr = CONTENT[lang]
   const demoDocument = activeDemo ? DEMO_DOCUMENTS[activeDemo] : null
   const demoContent = demoDocument ? demoDocument[lang] : null
 
   useScrollReveal()
+
+  useEffect(
+    () => () => {
+      if (contactScrollFrameRef.current) {
+        window.cancelAnimationFrame(contactScrollFrameRef.current)
+      }
+    },
+    []
+  )
 
   useEffect(() => {
     let frame = null
@@ -1628,6 +1644,63 @@ export default function Home() {
     event.currentTarget.style.setProperty('--card-glow-x', '50%')
     event.currentTarget.style.setProperty('--card-glow-y', '50%')
   }
+  const scrollToContactForm = (event, serviceId) => {
+    event?.preventDefault()
+    setMenuOpen(false)
+
+    const contactSection = document.querySelector('#contact')
+    if (!contactSection) return
+
+    if (contactScrollFrameRef.current) {
+      window.cancelAnimationFrame(contactScrollFrameRef.current)
+    }
+
+    const serviceField = contactSection.querySelector('select[name="service"]')
+    if (serviceField && serviceId) {
+      serviceField.value = serviceId
+      serviceField.dispatchEvent(new Event('change', { bubbles: true }))
+    }
+
+    const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0
+    const startY = window.scrollY
+    const destinationY = Math.max(
+      0,
+      contactSection.getBoundingClientRect().top + startY - headerHeight
+    )
+    const distance = destinationY - startY
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const duration = reducedMotion ? 0 : 1250
+
+    const finishTransition = () => {
+      contactScrollFrameRef.current = null
+      contactSection.classList.remove('contact-target-active')
+      window.requestAnimationFrame(() => contactSection.classList.add('contact-target-active'))
+      const url = new URL(window.location.href)
+      url.hash = 'contact'
+      window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`)
+    }
+
+    if (!duration || Math.abs(distance) < 2) {
+      window.scrollTo(0, destinationY)
+      finishTransition()
+      return
+    }
+
+    const startedAt = performance.now()
+    const animateScroll = (now) => {
+      const progress = Math.min(1, (now - startedAt) / duration)
+      const easedProgress = 1 - Math.pow(1 - progress, 4)
+      window.scrollTo(0, startY + distance * easedProgress)
+
+      if (progress < 1) {
+        contactScrollFrameRef.current = window.requestAnimationFrame(animateScroll)
+      } else {
+        finishTransition()
+      }
+    }
+
+    contactScrollFrameRef.current = window.requestAnimationFrame(animateScroll)
+  }
   const handleContactSubmit = async (event) => {
     event.preventDefault()
     if (contactStatus === 'sending') return
@@ -1845,23 +1918,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="theory-bridge" aria-labelledby="theory-bridge-title">
-          <div className="container-wide theory-bridge-inner">
-            <div className="theory-bridge-title reveal">
-              <span>Φ / 02</span>
-              <h2 id="theory-bridge-title">{tr.about.title}</h2>
-            </div>
-            <div className="theory-principles">
-              {tr.about.principles.map((principle, index) => (
-                <div className="theory-principle reveal" key={principle}>
-                  <span>{['ψ', '∂', 'Δ'][index]}</span>
-                  <p>{principle}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="expertise" className="section section-soft">
           <div className="container-wide">
             <div className="section-heading">
@@ -1873,8 +1929,14 @@ export default function Home() {
             </div>
 
             <div className="expertise-grid">
-              {tr.expertise.items.map((item) => (
-                <article className="expertise-card reveal" key={item.title}>
+              {tr.expertise.items.map((item, index) => (
+                <a
+                  className="expertise-card reveal"
+                  href="#contact"
+                  key={item.title}
+                  onClick={(event) => scrollToContactForm(event, EXPERTISE_SERVICE_IDS[index])}
+                  aria-label={`${item.title} — ${tr.contact.primary}`}
+                >
                   <span className="card-field-glow" aria-hidden="true" />
                   <div className="expertise-top">
                     <span className="expertise-symbol" aria-hidden="true">
@@ -1884,10 +1946,10 @@ export default function Home() {
                   </div>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
-                  <a href="#contact" className="card-orbit-link" aria-label={`${item.title} — ${tr.contact.primary}`}>
+                  <span className="card-orbit-link" aria-hidden="true">
                     <ArrowIcon />
-                  </a>
-                </article>
+                  </span>
+                </a>
               ))}
             </div>
           </div>
@@ -2165,24 +2227,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <footer className="site-footer">
-        <div className="container-wide footer-inner">
-          <div className="footer-brand">
-            <span className="brand-symbol" aria-hidden="true">
-              B
-            </span>
-            <div>
-              <strong>Boyazid</strong>
-              <p>{tr.footer.role}</p>
-            </div>
-          </div>
-          <div className="footer-note">
-            <span>{tr.footer.built}</span>
-            <span>© {new Date().getFullYear()}</span>
-          </div>
-        </div>
-      </footer>
 
       {celebrationOpen && (
         <div className="success-celebration">
