@@ -27,6 +27,14 @@ const CONTENT = {
       visualTitle: 'Tushunishdan natijagacha',
       visualSteps: ['Mavzu', 'Tushunish', 'Amaliyot', 'Tekshirish'],
       visualNote: "Har bir material aniq maqsad, mantiqiy tuzilma va bilimni tekshirish mezoniga ega.",
+      solverTitle: 'Bosqichma-bosqich yechim',
+      solverBadge: '3 bosqich',
+      solverFooter: 'Faqat javobni emas, yechim mantiqini ko‘rsataman',
+      solverSteps: [
+        { formula: '2x + 6 = 14', action: 'Boshlang‘ich tenglama' },
+        { formula: '2x = 8', action: 'Har ikki tomondan 6 ni ayiramiz' },
+        { formula: 'x = 4', action: '2 ga bo‘lamiz · javob' },
+      ],
     },
     about: {
       eyebrow: 'mening yondashuvim',
@@ -326,6 +334,14 @@ const CONTENT = {
       visualSteps: ['Тема', 'Понимание', 'Практика', 'Проверка'],
       visualNote:
         'Каждый материал имеет ясную цель, логичную структуру и критерий проверки знаний.',
+      solverTitle: 'Решение по шагам',
+      solverBadge: '3 шага',
+      solverFooter: 'Показываю логику решения, а не только ответ',
+      solverSteps: [
+        { formula: '2x + 6 = 14', action: 'Исходное уравнение' },
+        { formula: '2x = 8', action: 'Вычитаем 6 из обеих частей' },
+        { formula: 'x = 4', action: 'Делим на 2 · ответ' },
+      ],
     },
     about: {
       eyebrow: 'мой подход',
@@ -1400,6 +1416,46 @@ export default function Home() {
                   <span aria-hidden="true">i</span>
                   <p>{tr.hero.visualNote}</p>
                 </div>
+              </div>
+
+              <div
+                className="equation-solver-card"
+                role="img"
+                aria-label={`${tr.hero.solverTitle}: ${tr.hero.solverSteps
+                  .map((step) => `${step.formula}, ${step.action}`)
+                  .join('; ')}`}
+              >
+                <div className="equation-solver-header" aria-hidden="true">
+                  <span>{tr.hero.solverTitle}</span>
+                  <small>{tr.hero.solverBadge}</small>
+                </div>
+
+                <div className="equation-solver-stage" aria-hidden="true">
+                  {tr.hero.solverSteps.map((step, index) => (
+                    <div
+                      key={step.formula}
+                      className="equation-solver-step"
+                      style={{ '--equation-delay': `${index * 3}s` }}
+                    >
+                      <strong>{step.formula}</strong>
+                      <span>{step.action}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="equation-solver-progress" aria-hidden="true">
+                  {tr.hero.solverSteps.map((step, index) => (
+                    <span
+                      key={step.formula}
+                      style={{ '--equation-delay': `${index * 3}s` }}
+                    />
+                  ))}
+                </div>
+
+                <p aria-hidden="true">
+                  <CheckIcon />
+                  {tr.hero.solverFooter}
+                </p>
               </div>
             </div>
           </div>
