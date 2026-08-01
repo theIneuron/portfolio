@@ -674,6 +674,12 @@ const EXPERTISE_SERVICE_IDS = [
   'methodical_material',
   'tests_diagnostics',
 ]
+const MATERIAL_SERVICE_IDS = [
+  'methodical_material',
+  'tests_diagnostics',
+  'worksheets',
+  'methodical_material',
+]
 
 function updateDemoQuery(demoId) {
   const url = new URL(window.location.href)
@@ -1802,7 +1808,11 @@ export default function Home() {
 
           <nav className="desktop-nav" aria-label={tr.navigationLabel}>
             {NAV_ITEMS.map((item) => (
-              <a key={item} href={`#${item}`}>
+              <a
+                key={item}
+                href={`#${item}`}
+                onClick={item === 'contact' ? (event) => scrollToContactForm(event) : undefined}
+              >
                 {tr.nav[item]}
               </a>
             ))}
@@ -1827,6 +1837,7 @@ export default function Home() {
             <a
               className="header-contact"
               href="#contact"
+              onClick={(event) => scrollToContactForm(event)}
             >
               {tr.nav.contact}
               <ArrowIcon />
@@ -1857,7 +1868,11 @@ export default function Home() {
               <a
                 key={item}
                 href={`#${item}`}
-                onClick={closeMenu}
+                onClick={
+                  item === 'contact'
+                    ? (event) => scrollToContactForm(event)
+                    : closeMenu
+                }
                 tabIndex={menuOpen ? undefined : -1}
               >
                 <span>0{index + 1}</span>
@@ -1895,7 +1910,11 @@ export default function Home() {
                   {tr.hero.primary}
                   <ArrowIcon />
                 </a>
-                <a href="#contact" className="button button-secondary">
+                <a
+                  href="#contact"
+                  className="button button-secondary"
+                  onClick={(event) => scrollToContactForm(event)}
+                >
                   {tr.hero.secondary}
                 </a>
               </div>
@@ -2000,7 +2019,10 @@ export default function Home() {
                         {tr.demoViewer.open}
                         </button>
                       )}
-                      <a href="#contact">
+                      <a
+                        href="#contact"
+                        onClick={(event) => scrollToContactForm(event, MATERIAL_SERVICE_IDS[index])}
+                      >
                         {item.demo ? tr.demoViewer.similar : tr.materials.request}
                         <ArrowIcon />
                       </a>
