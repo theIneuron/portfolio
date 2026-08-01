@@ -69,36 +69,37 @@ const CONTENT = {
     },
     expertise: {
       eyebrow: 'TA’LIM MAYDONI',
-      title: '4 yo‘nalish',
-      intro: 'Nazariya. Amaliyot. Natija.',
+      title: 'Ish yo‘nalishlari',
+      intro: 'Fanlar va ta’lim mahsulotlari.',
+      action: 'Yo‘nalishni tanlash',
       items: [
         {
           symbol: '∑',
           index: '01',
-          title: "Matematika o'qitish",
-          text: 'Nazariya, strategiya va bosqichli amaliyot.',
-          points: ['Nazariy tushuntirish', 'Masala yechish'],
+          category: 'Fan',
+          title: 'Matematika',
+          points: ['Algebra', 'Geometriya', 'Matematik analiz', 'Ehtimollar nazariyasi'],
         },
         {
           symbol: 'ψ',
           index: '02',
-          title: "Fizika o'qitish",
-          text: 'Hodisa, formula va masala — yagona mantiqda.',
-          points: ['Hodisa va qonunlar', 'Amaliy masalalar'],
+          category: 'Fan',
+          title: 'Fizika',
+          points: ['Mexanika', 'Elektr', 'Optika', 'Molekulyar va kvant fizikasi'],
         },
         {
           symbol: '∂',
           index: '03',
-          title: 'Metodik ishlab chiqish',
-          text: 'Maqsad va auditoriyaga mos tayyor material.',
-          points: ["Metodik qo'llanmalar", 'Ishchi varaqlar'],
+          category: 'Ta’lim mahsuloti',
+          title: 'O‘quv materiallari',
+          points: ['Metodik qo‘llanmalar', 'Dars ishlanmalari', 'Ishchi varaqlar', 'Taqdimotlar'],
         },
         {
           symbol: 'Δ',
           index: '04',
-          title: 'Test va diagnostika',
-          text: "Bilimni aniq o'lchaydigan savol va mezonlar.",
-          points: ['Diagnostik testlar', 'Javob va mezonlar'],
+          category: 'Ta’lim mahsuloti',
+          title: 'Bilimni baholash',
+          points: ['Diagnostika', 'Testlar', 'Nazorat ishlari', 'Baholash mezonlari'],
         },
       ],
     },
@@ -377,36 +378,37 @@ const CONTENT = {
     },
     expertise: {
       eyebrow: 'ОБРАЗОВАТЕЛЬНОЕ ПОЛЕ',
-      title: '4 направления',
-      intro: 'Теория. Практика. Результат.',
+      title: 'Направления работы',
+      intro: 'Предметы и образовательные продукты.',
+      action: 'Выбрать направление',
       items: [
         {
           symbol: '∑',
           index: '01',
-          title: 'Преподавание математики',
-          text: 'Теория, стратегия и поэтапная практика.',
-          points: ['Теоретическое объяснение', 'Решение задач'],
+          category: 'Предмет',
+          title: 'Математика',
+          points: ['Алгебра', 'Геометрия', 'Математический анализ', 'Теория вероятностей'],
         },
         {
           symbol: 'ψ',
           index: '02',
-          title: 'Преподавание физики',
-          text: 'Явление, формула и задача — в одной логике.',
-          points: ['Явления и законы', 'Практические задачи'],
+          category: 'Предмет',
+          title: 'Физика',
+          points: ['Механика', 'Электричество', 'Оптика', 'Молекулярная и квантовая физика'],
         },
         {
           symbol: '∂',
           index: '03',
-          title: 'Методическая разработка',
-          text: 'Готовый материал под цель и аудиторию.',
-          points: ['Методические пособия', 'Рабочие листы'],
+          category: 'Образовательный продукт',
+          title: 'Учебные материалы',
+          points: ['Методические пособия', 'Разработки уроков', 'Рабочие листы', 'Презентации'],
         },
         {
           symbol: 'Δ',
           index: '04',
-          title: 'Тесты и диагностика',
-          text: 'Вопросы и критерии для точной оценки знаний.',
-          points: ['Диагностические тесты', 'Ответы и критерии'],
+          category: 'Образовательный продукт',
+          title: 'Проверка знаний',
+          points: ['Диагностика', 'Тесты', 'Контрольные работы', 'Критерии оценивания'],
         },
       ],
     },
@@ -2125,14 +2127,22 @@ export default function Home() {
                 >
                   <span className="card-field-glow" aria-hidden="true" />
                   <div className="expertise-top">
-                    <span className="expertise-symbol" aria-hidden="true">
-                      {item.symbol}
+                    <span className="expertise-identity">
+                      <span className="expertise-symbol" aria-hidden="true">
+                        {item.symbol}
+                      </span>
+                      <span className="expertise-category">{item.category}</span>
                     </span>
                     <span className="expertise-index">{item.index}</span>
                   </div>
                   <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                  <span className="card-orbit-link" aria-hidden="true">
+                  <ul className="expertise-tags" aria-label={item.title}>
+                    {item.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                  <span className="expertise-card-action" aria-hidden="true">
+                    {tr.expertise.action}
                     <ArrowIcon />
                   </span>
                 </a>

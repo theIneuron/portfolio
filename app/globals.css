@@ -5044,6 +5044,21 @@ html[data-theme="light"] .project-card h3 {
   color: #152641;
 }
 
+html[data-theme="light"] .expertise-category {
+  color: #596b87;
+}
+
+html[data-theme="light"] .expertise-card .expertise-tags li {
+  border-color: rgba(65, 91, 139, 0.16);
+  background: rgba(238, 244, 253, 0.84);
+  color: #30435f;
+}
+
+html[data-theme="light"] .expertise-card-action {
+  border-color: rgba(65, 91, 139, 0.13);
+  color: #4d42ae;
+}
+
 html[data-theme="light"] .expertise-card > p,
 html[data-theme="light"] .project-card p {
   color: #63738e;
@@ -7350,7 +7365,9 @@ body {
 }
 
 .expertise-card {
+  display: flex;
   min-height: 230px;
+  flex-direction: column;
   border-color: rgba(160, 172, 211, 0.12);
   border-radius: 24px 5px 24px 5px;
   background:
@@ -7401,6 +7418,23 @@ body {
   transform: translate(30px, 30px) scale(1.35);
 }
 
+.expertise-identity {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.expertise-category {
+  color: #7c89a5;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .expertise-symbol,
 .expertise-card:nth-child(n) .expertise-symbol {
   width: 58px;
@@ -7426,6 +7460,7 @@ body {
 
 .expertise-card h3 {
   max-width: 320px;
+  margin-bottom: 18px;
   color: #eef0fb;
   font-size: clamp(1.25rem, 2vw, 1.75rem);
 }
@@ -7435,6 +7470,87 @@ body {
   max-width: 330px;
   color: #7f8aa6;
   font-size: 14px;
+}
+
+.expertise-card .expertise-tags {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.expertise-card .expertise-tags li {
+  display: inline-flex;
+  min-height: 31px;
+  align-items: center;
+  border: 1px solid rgba(151, 166, 207, 0.13);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #a5b0c7;
+  padding: 6px 11px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.35;
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.expertise-card:hover .expertise-tags li {
+  border-color: rgba(91, 220, 210, 0.22);
+  background: rgba(67, 231, 208, 0.055);
+  color: #c6d2e7;
+  transform: translateY(-1px);
+}
+
+.expertise-card-action {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: auto;
+  border-top: 1px solid rgba(151, 166, 207, 0.1);
+  color: #9f95ed;
+  padding-top: 19px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.expertise-card-action svg {
+  width: 17px;
+  height: 17px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expertise-card:hover .expertise-card-action,
+.expertise-card:focus-visible .expertise-card-action {
+  border-color: rgba(67, 231, 208, 0.24);
+  color: var(--quantum-cyan);
+}
+
+.expertise-card:hover .expertise-card-action svg,
+.expertise-card:focus-visible .expertise-card-action svg {
+  transform: translateX(5px);
+}
+
+.expertise-card:hover .expertise-symbol,
+.expertise-card:focus-visible .expertise-symbol {
+  transform: rotate(-7deg) scale(1.08);
+}
+
+.expertise-symbol {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-orbit-link {
@@ -8545,19 +8661,9 @@ body {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
-  .expertise-card:nth-child(1),
-  .expertise-card:nth-child(4) {
-    grid-column: span 7;
-  }
-
-  .expertise-card:nth-child(2),
-  .expertise-card:nth-child(3) {
-    grid-column: span 5;
-  }
-
-  .expertise-card:nth-child(1),
-  .expertise-card:nth-child(2) {
-    min-height: 280px;
+  .expertise-card:nth-child(n) {
+    grid-column: span 6;
+    min-height: 300px;
   }
 
   .materials-grid {
