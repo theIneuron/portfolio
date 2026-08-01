@@ -3327,11 +3327,14 @@ button:focus-visible {
   justify-content: center;
   gap: 8px;
   margin-top: 20px;
+  border: 0;
   border-radius: 12px;
   background: var(--ink-900);
   box-shadow: 0 9px 22px rgba(17, 26, 45, 0.18);
   color: #fff;
   padding: 0 13px;
+  cursor: pointer;
+  font-family: inherit;
   font-size: 10px;
   font-weight: 850;
   text-align: center;
@@ -8137,6 +8140,121 @@ body {
 
   .success-reference-card button {
     width: 100%;
+  }
+}
+
+/* Mobile performance: keep the physics identity with fewer composited layers. */
+@media (max-width: 759px) {
+  .site-header,
+  .quantum-console,
+  .contact-form,
+  .quantum-formula {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .scroll-physics-field::before,
+  .scroll-field-nebula,
+  .scroll-tunnel,
+  .scroll-contact-target,
+  .scroll-particles,
+  .education-formula-stream,
+  .education-curve,
+  .education-ring-two,
+  .quantum-console::before,
+  .quantum-console::after,
+  .quantum-orbit-c {
+    display: none;
+  }
+
+  .scroll-physics-field::after {
+    opacity: 0.16;
+    mix-blend-mode: normal;
+  }
+
+  .scroll-spacetime-sheet,
+  .scroll-wave-ribbon,
+  .scroll-equation-cloud,
+  .scroll-trajectory,
+  .quantum-console,
+  .quantum-stage,
+  .quantum-core,
+  .quantum-core-pulse,
+  .quantum-orbit,
+  .quantum-formula {
+    will-change: auto;
+  }
+
+  .scroll-wave-ribbon {
+    opacity: 0.11 !important;
+  }
+
+  .scroll-wave-ribbon path,
+  .scroll-trajectory,
+  .scroll-trajectory-nodes circle,
+  .scroll-trajectory-marker,
+  .scroll-trajectory-marker-halo {
+    filter: none;
+  }
+
+  .scroll-wave-ribbon path {
+    animation-duration: 24s;
+  }
+
+  .scroll-trajectory {
+    opacity: 0.55;
+    mix-blend-mode: normal;
+  }
+
+  .scroll-trajectory-nodes circle,
+  .scroll-trajectory-marker-halo,
+  .education-symbol,
+  .quantum-formula {
+    animation: none;
+  }
+
+  .scroll-equation-cloud span:nth-child(n + 4),
+  .education-symbol.symbol-four,
+  .education-symbol.symbol-five,
+  .education-symbol.symbol-six,
+  .education-symbol.symbol-seven {
+    display: none;
+  }
+
+  .education-symbol {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .physics-wave-primary,
+  .physics-wave-secondary {
+    filter: none;
+    animation-duration: 18s;
+  }
+
+  .quantum-orbit-a {
+    animation-duration: 22s;
+  }
+
+  .quantum-orbit-b {
+    animation-duration: 18s;
+  }
+
+  .quantum-core-pulse {
+    animation-duration: 4.8s;
+  }
+
+  .quantum-core {
+    animation-duration: 7s;
+  }
+
+  .quantum-wave-line {
+    filter: none;
+    animation-duration: 9s;
+  }
+
+  .js .hero-section .reveal.visible {
+    animation-duration: 0.32s;
   }
 }
 

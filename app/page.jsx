@@ -214,9 +214,9 @@ const CONTENT = {
       eyebrow: 'SIGNAL YUBORISH',
       title: 'Vazifani uzating',
       text: 'Javob Telegram orqali.',
-      primary: 'Telegram orqali yozish',
+      primary: 'Ariza qoldirish',
       response: 'To‘g‘ridan-to‘g‘ri bog‘lanish',
-      fallback: 'Forma ishlamasa, Telegram orqali yozing yoki qo‘ng‘iroq qiling.',
+      fallback: 'Forma ishlamasa, telefon orqali bog‘laning.',
       form: {
         badge: 'SIGNAL → TELEGRAM',
         title: 'Yangi vazifa',
@@ -261,12 +261,12 @@ const CONTENT = {
         celebrationDismiss: 'Animatsiyani yopish',
         errors: {
           validation: 'Maydonlarni tekshiring va yana urinib ko‘ring.',
-          rate_limited: 'Juda ko‘p urinish bo‘ldi. Birozdan keyin qayting yoki Telegram orqali yozing.',
+          rate_limited: 'Juda ko‘p urinish bo‘ldi. Birozdan keyin qayta urinib ko‘ring.',
           service_unconfigured:
-            'Onlayn arizalar hali sozlanmagan. Telegram orqali yozing yoki qo‘ng‘iroq qiling.',
+            'Onlayn arizalar hali sozlanmagan. Telefon orqali bog‘laning.',
           delivery_failed:
-            'Arizani yetkazib bo‘lmadi. Telegram orqali yozing yoki keyinroq urinib ko‘ring.',
-          generic: 'Arizani yuborib bo‘lmadi. Telegram orqali yozing yoki keyinroq urinib ko‘ring.',
+            'Arizani yetkazib bo‘lmadi. Qayta urinib ko‘ring yoki telefon orqali bog‘laning.',
+          generic: 'Arizani yuborib bo‘lmadi. Qayta urinib ko‘ring yoki telefon orqali bog‘laning.',
         },
       },
     },
@@ -515,9 +515,9 @@ const CONTENT = {
       eyebrow: 'ПЕРЕДАТЬ СИГНАЛ',
       title: 'Передайте задачу',
       text: 'Ответ — в Telegram.',
-      primary: 'Написать в Telegram',
+      primary: 'Оставить заявку',
       response: 'Связаться напрямую',
-      fallback: 'Если форма не сработает, напишите в Telegram или позвоните.',
+      fallback: 'Если форма не сработает, позвоните по телефону.',
       form: {
         badge: 'СИГНАЛ → TELEGRAM',
         title: 'Новая задача',
@@ -562,12 +562,12 @@ const CONTENT = {
         celebrationDismiss: 'Закрыть анимацию',
         errors: {
           validation: 'Проверьте заполненные поля и попробуйте ещё раз.',
-          rate_limited: 'Слишком много попыток. Попробуйте позже или напишите в Telegram.',
+          rate_limited: 'Слишком много попыток. Попробуйте немного позже.',
           service_unconfigured:
-            'Онлайн-заявки ещё не настроены. Напишите в Telegram или позвоните.',
+            'Онлайн-заявки ещё не настроены. Позвоните по телефону.',
           delivery_failed:
-            'Не удалось доставить заявку. Напишите в Telegram или попробуйте позже.',
-          generic: 'Не удалось отправить заявку. Напишите в Telegram или попробуйте позже.',
+            'Не удалось доставить заявку. Попробуйте ещё раз или позвоните.',
+          generic: 'Не удалось отправить заявку. Попробуйте ещё раз или позвоните.',
         },
       },
     },
@@ -680,6 +680,11 @@ const MATERIAL_SERVICE_IDS = [
   'worksheets',
   'methodical_material',
 ]
+const DEMO_SERVICE_IDS = {
+  mathGuide: 'methodical_material',
+  physicsDiagnostic: 'tests_diagnostics',
+  ohmWorksheet: 'worksheets',
+}
 
 function updateDemoQuery(demoId) {
   const url = new URL(window.location.href)
@@ -1235,6 +1240,7 @@ export default function Home() {
   useEffect(() => {
     const root = document.documentElement
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const compactMotion = window.matchMedia('(max-width: 759px)')
     const scene = {
       nebula: document.querySelector('.scroll-field-nebula'),
       sheet: document.querySelector('.scroll-spacetime-sheet'),
@@ -1275,6 +1281,19 @@ export default function Home() {
       root.style.setProperty('--scroll-offset', `${scrollTop.toFixed(1)}px`)
       root.style.setProperty('--scroll-percent', `${(scrollProgress * 100).toFixed(2)}%`)
 
+      if (scene.trajectoryPath) {
+        scene.trajectoryPath.style.strokeDashoffset = String(1 - scrollProgress)
+        const point = scene.trajectoryPath.getPointAtLength(
+          scene.trajectoryPath.getTotalLength() * scrollProgress
+        )
+        scene.trajectoryMarker?.setAttribute('cx', point.x.toFixed(2))
+        scene.trajectoryMarker?.setAttribute('cy', point.y.toFixed(2))
+        scene.trajectoryMarkerHalo?.setAttribute('cx', point.x.toFixed(2))
+        scene.trajectoryMarkerHalo?.setAttribute('cy', point.y.toFixed(2))
+      }
+
+      if (compactMotion.matches) return
+
       if (scene.nebula) {
         scene.nebula.style.transform = `translate3d(${-9 * scrollProgress}%, ${-7 * scrollProgress}%, 0) scale(${1 + scrollProgress * 0.2 + contactProgress * 0.26})`
         scene.nebula.style.opacity = String(0.55 + contactProgress * 0.3)
@@ -1304,16 +1323,6 @@ export default function Home() {
         scene.target.style.opacity = String(contactProgress)
         scene.target.style.transform = `translate(-50%, -50%) scale(${0.35 + contactProgress * 0.65})`
       }
-      if (scene.trajectoryPath) {
-        scene.trajectoryPath.style.strokeDashoffset = String(1 - scrollProgress)
-        const point = scene.trajectoryPath.getPointAtLength(
-          scene.trajectoryPath.getTotalLength() * scrollProgress
-        )
-        scene.trajectoryMarker?.setAttribute('cx', point.x.toFixed(2))
-        scene.trajectoryMarker?.setAttribute('cy', point.y.toFixed(2))
-        scene.trajectoryMarkerHalo?.setAttribute('cx', point.x.toFixed(2))
-        scene.trajectoryMarkerHalo?.setAttribute('cy', point.y.toFixed(2))
-      }
       scene.particles.forEach((particle, index) => {
         const shift = -260 - (index % 5) * 115
         particle.style.transform = `translateY(${scrollProgress * shift}px) scale(${0.8 + contactProgress * 1.7})`
@@ -1330,11 +1339,13 @@ export default function Home() {
     window.addEventListener('scroll', requestScrollUpdate, { passive: true })
     window.addEventListener('resize', requestScrollUpdate)
     reducedMotion.addEventListener?.('change', requestScrollUpdate)
+    compactMotion.addEventListener?.('change', requestScrollUpdate)
 
     return () => {
       window.removeEventListener('scroll', requestScrollUpdate)
       window.removeEventListener('resize', requestScrollUpdate)
       reducedMotion.removeEventListener?.('change', requestScrollUpdate)
+      compactMotion.removeEventListener?.('change', requestScrollUpdate)
       if (frame) window.cancelAnimationFrame(frame)
     }
   }, [])
@@ -1709,6 +1720,13 @@ export default function Home() {
 
     contactScrollFrameRef.current = window.requestAnimationFrame(animateScroll)
   }
+  const requestOrderFromDemo = () => {
+    const serviceId = DEMO_SERVICE_IDS[activeDemo] || 'methodical_material'
+    closeDemo()
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => scrollToContactForm(null, serviceId))
+    })
+  }
   const handleContactSubmit = async (event) => {
     event.preventDefault()
     if (contactStatus === 'sending') return
@@ -2045,20 +2063,6 @@ export default function Home() {
               <div className="contact-card reveal">
                 <p>{tr.contact.response}</p>
                 <span className="contact-fallback-note">{tr.contact.fallback}</span>
-                <a
-                  href="https://t.me/sultoniiy"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span className="contact-link-icon telegram">
-                    <TelegramIcon />
-                  </span>
-                  <span>
-                    <small>Telegram</small>
-                    @sultoniiy
-                  </span>
-                  <ArrowIcon />
-                </a>
                 <a href="tel:+998949560127">
                   <span className="contact-link-icon phone">
                     <PhoneIcon />
@@ -2434,16 +2438,15 @@ export default function Home() {
                   ))}
                 </div>
 
-                <a
+                <button
+                  type="button"
                   className="demo-request-button"
-                  href="https://t.me/sultoniiy"
-                  target="_blank"
-                  rel="noreferrer"
+                  onClick={requestOrderFromDemo}
                 >
                   <TelegramIcon />
                   {tr.demoViewer.request}
                   <ArrowIcon />
-                </a>
+                </button>
               </aside>
 
               <div
