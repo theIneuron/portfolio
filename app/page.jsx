@@ -18,18 +18,18 @@ const CONTENT = {
       accent: 'tushunarli tizimga',
       tail: 'aylantiraman.',
       description:
-        "Matematika va fizika fanlaridan dars beraman, metodik qo'llanmalar va test materiallarini ishlab chiqaman, ta'lim uchun raqamli vositalar yarataman.",
+        'Matematika va fizikani tushunarli o‘rgataman; metodik materiallar, testlar va EdTech vositalarini yarataman.',
       primary: "Materiallarni ko'rish",
       secondary: 'Vazifani muhokama qilish',
-      availability: 'Hamkorlik va yangi ta’lim loyihalari uchun ochiqman',
+      availability: 'Yangi ta’lim loyihalari uchun ochiqman',
       focus: ['Matematika', 'Fizika', 'Metodika', 'EdTech'],
       visualLabel: "Ta'lim modeli",
       visualTitle: 'Tushunishdan natijagacha',
       visualSteps: ['Mavzu', 'Tushunish', 'Amaliyot', 'Tekshirish'],
-      visualNote: "Har bir material aniq maqsad, mantiqiy tuzilma va bilimni tekshirish mezoniga ega.",
+      visualNote: 'Maqsad, mantiq va tekshiruv — yagona tizimda.',
       solverTitle: 'Bosqichma-bosqich yechim',
       solverBadge: '3 bosqich',
-      solverFooter: 'Faqat javobni emas, yechim mantiqini ko‘rsataman',
+      solverFooter: 'Yechim mantiqini ko‘rsataman',
       solverSteps: [
         { formula: '2x + 6 = 14', action: 'Boshlang‘ich tenglama' },
         { formula: '2x = 8', action: 'Har ikki tomondan 6 ni ayiramiz' },
@@ -38,83 +38,80 @@ const CONTENT = {
     },
     about: {
       eyebrow: 'mening yondashuvim',
-      title: "Ta'lim, metodika va texnologiya bir nuqtada",
-      lead:
-        "Mening asosiy faoliyatim — matematika va fizika fanlarini o'qitish hamda sifatli o'quv materiallarini yaratish.",
+      title: "Ta'lim × metodika × texnologiya",
+      lead: "Matematika va fizika o'qitaman, o'quv materiallarini yarataman.",
       body:
-        "Murakkab tushunchalarni bosqichma-bosqich tushuntirish, topshiriqlarni o'quv maqsadiga mos tuzish va natijani xolis baholashga e'tibor beraman. Dasturlash ko'nikmalarim esa testlar, botlar va boshqa raqamli ta'lim vositalarini yaratishga yordam beradi.",
+        'Murakkab mavzuni bosqichlarga ajrataman va natijani aniq mezonlar bilan tekshiraman. Kod esa bu jarayonni raqamlashtiradi.',
       principlesTitle: 'Ish tamoyillari',
       principles: [
-        'Murakkab mavzuni sodda va aniq tilda tushuntirish',
-        "Nazariya, amaliyot va tekshiruvni yagona tizimga bog'lash",
-        "Materialni auditoriya va o'quv maqsadiga moslashtirish",
+        'Sodda va aniq tushuntirish',
+        'Nazariya → amaliyot → tekshiruv',
+        'Materialni auditoriyaga moslash',
       ],
       audiencesTitle: 'Kimlar uchun',
       audiences: [
         {
           number: '01',
           title: "O'quvchilar",
-          text: "Mavzuni tushunish, bilimdagi bo'shliqlarni aniqlash va tizimli mashq qilish uchun.",
+          text: "Tushunish, bo'shliqlarni topish va mashq qilish.",
         },
         {
           number: '02',
           title: "O'qituvchilar",
-          text: "Tayyor metodik tuzilma, topshiriqlar, testlar va dars materiallari uchun.",
+          text: 'Tayyor dars tuzilmasi, topshiriq va testlar.',
         },
         {
           number: '03',
           title: "Maktab va markazlar",
-          text: "O'quv dasturlari, diagnostika va maxsus ta'lim mahsulotlarini ishlab chiqish uchun.",
+          text: "Dastur, diagnostika va maxsus ta'lim mahsulotlari.",
         },
       ],
     },
     expertise: {
       eyebrow: 'professional yo‘nalishlar',
       title: 'Men nima bilan yordam bera olaman',
-      intro:
-        "Dars berishdan tortib tayyor metodik mahsulotgacha — mazmun, tuzilma va tekshiruv mezonlarini birgalikda ishlab chiqaman.",
+      intro: 'Dars, metodika, diagnostika va raqamli yechimlar.',
       items: [
         {
           symbol: '∑',
           index: '01',
           title: "Matematika o'qitish",
-          text: "Mavzularni mantiqiy ketma-ketlikda tushuntirish, masala yechish strategiyasi va mustahkamlovchi mashqlar.",
-          points: ['Nazariy tushuntirish', 'Masala yechish algoritmlari', 'Darajali topshiriqlar'],
+          text: 'Nazariya, strategiya va bosqichli amaliyot.',
+          points: ['Nazariy tushuntirish', 'Masala yechish'],
         },
         {
-          symbol: 'φ',
+          symbol: 'ψ',
           index: '02',
           title: "Fizika o'qitish",
-          text: "Fizik hodisalarni mazmunan anglash, formulalarni tushunib qo'llash va amaliy masalalar bilan ishlash.",
-          points: ['Hodisa va qonunlar', 'Formulalar bilan ishlash', 'Amaliy masalalar'],
+          text: 'Hodisa, formula va masala — yagona mantiqda.',
+          points: ['Hodisa va qonunlar', 'Amaliy masalalar'],
         },
         {
-          symbol: '◇',
+          symbol: '∂',
           index: '03',
           title: 'Metodik ishlab chiqish',
-          text: "O'quv maqsadi, mavzu mantig'i va auditoriya darajasiga mos qo'llanma hamda dars materiallari.",
-          points: ["Metodik qo'llanmalar", 'Dars ishlanmalari', 'Ishchi varaqlar'],
+          text: 'Maqsad va auditoriyaga mos tayyor material.',
+          points: ["Metodik qo'llanmalar", 'Ishchi varaqlar'],
         },
         {
-          symbol: '✓',
+          symbol: 'Δ',
           index: '04',
           title: 'Test va diagnostika',
-          text: "Bilimni aniq o'lchaydigan savollar, darajalar bo'yicha topshiriqlar va tushunarli baholash mezonlari.",
-          points: ['Diagnostik testlar', 'Nazorat materiallari', 'Javob va mezonlar'],
+          text: "Bilimni aniq o'lchaydigan savol va mezonlar.",
+          points: ['Diagnostik testlar', 'Javob va mezonlar'],
         },
       ],
     },
     materials: {
       eyebrow: 'metodik mahsulotlar',
       title: 'Sizning vazifangiz uchun ishlab chiqaman',
-      intro:
-        "Har bir material tayyor shablon emas — fan, yosh, maqsad va foydalanish formatiga moslab tuziladi.",
+      intro: 'Fan, yosh, maqsad va formatga mos individual materiallar.',
       request: "Materialni muhokama qilish",
       items: [
         {
           type: "Qo'llanma",
           title: "Metodik qo'llanmalar",
-          text: "Mavzu tuzilmasi, tushuntirish usullari, misollar va o'qituvchi uchun amaliy tavsiyalar.",
+          text: 'Mavzu tuzilmasi, misollar va amaliy tavsiyalar.',
           meta: ['PDF / DOCX', 'Bosma va raqamli'],
           preview: ['Maqsad va natija', 'Nazariya va misollar', 'Metodik tavsiyalar'],
           tone: 'violet',
@@ -123,7 +120,7 @@ const CONTENT = {
         {
           type: 'Baholash',
           title: 'Test materiallari',
-          text: "Kirish, joriy yoki yakuniy nazorat uchun testlar, javoblar va baholash mezonlari.",
+          text: 'Diagnostika va nazorat uchun test, javob va mezonlar.',
           meta: ['Test / Google Forms', 'Javoblar bilan'],
           preview: ['Diagnostika', 'Darajali savollar', 'Baholash mezoni'],
           tone: 'cyan',
@@ -132,7 +129,7 @@ const CONTENT = {
         {
           type: 'Amaliyot',
           title: "Masalalar va ishchi varaqlar",
-          text: "Oddiydan murakkabga o'tadigan topshiriqlar, mustaqil ish va mavzuni mustahkamlash materiallari.",
+          text: 'Oddiydan murakkabga topshiriqlar va mustaqil ish.',
           meta: ['PDF / Print', "O'quvchi uchun"],
           preview: ['Asosiy mashqlar', 'Amaliy masalalar', 'Mustaqil ish'],
           tone: 'amber',
@@ -141,7 +138,7 @@ const CONTENT = {
         {
           type: 'Dars',
           title: 'Dars ishlanmalari',
-          text: "Dars maqsadi, bosqichlari, faoliyatlar, taqdimot tuzilmasi va yakuniy refleksiya.",
+          text: 'Maqsad, dars bosqichlari, faoliyat va refleksiya.',
           meta: ['PPTX / DOCX', "O'qituvchi uchun"],
           preview: ['Dars ssenariysi', 'Taqdimot rejasi', 'Refleksiya'],
           tone: 'green',
@@ -155,43 +152,41 @@ const CONTENT = {
         {
           number: '01',
           title: 'Vazifani aniqlash',
-          text: 'Auditoriya, fan, mavzu, maqsad va foydalanish formatini belgilaymiz.',
+          text: 'Auditoriya, mavzu, maqsad va format.',
         },
         {
           number: '02',
           title: 'Tuzilmani yaratish',
-          text: "Mazmun mantig'i, murakkablik darajalari va natijani tekshirish usulini rejalayman.",
+          text: 'Mantiq, murakkablik va tekshiruv usuli.',
         },
         {
           number: '03',
           title: 'Materialni ishlab chiqish',
-          text: "Matn, topshiriqlar, javoblar va vizual tuzilmani yagona mahsulotga birlashtiraman.",
+          text: 'Matn, topshiriq va vizual tuzilma.',
         },
         {
           number: '04',
           title: 'Tekshirish va topshirish',
-          text: "Aniqlik, mantiq va foydalanish qulayligini tekshirib, kerakli formatda taqdim qilaman.",
+          text: 'Tekshiruv va kerakli formatda topshirish.',
         },
       ],
     },
     projects: {
       eyebrow: 'texnologiyalar orqali ta’lim',
       title: 'Raqamli loyihalar',
-      intro:
-        "Dasturlash men uchun alohida yo'nalish bo'lishi bilan birga, ta'lim jarayonini qulayroq va samaraliroq qilish vositasidir.",
+      intro: "Ta'limni qulayroq qiladigan raqamli vositalar.",
       ready: 'Tayyor',
       development: 'Ishlanmoqda',
       demo: 'Demo',
       nextFocus: 'Keyingi yo‘nalish',
       nextTitle: 'Ta’lim uchun raqamli vositalar',
-      nextText:
-        "Onlayn testlar, bilim diagnostikasi va o'quv materiallari bilan ishlashni soddalashtiruvchi servislar.",
+      nextText: 'Onlayn testlar, diagnostika va materiallar bilan ishlash.',
       items: [
         {
           icon: 'TM',
           category: 'Full-stack ilova',
           title: 'Task Manager',
-          text: 'JWT va bcrypt orqali autentifikatsiya, vazifalar CRUD va foydalanuvchi rollari.',
+          text: 'Autentifikatsiya, vazifalar va foydalanuvchi rollari.',
           tags: ['Next.js', 'MongoDB', 'JWT'],
           done: true,
           demo: 'https://project-1-task-manager-amber.vercel.app',
@@ -200,7 +195,7 @@ const CONTENT = {
           icon: 'LS',
           category: 'Web servis',
           title: 'Link Shortener',
-          text: 'Qisqa havolalar, unikal slug, klik statistikasi va foydalanuvchi paneli.',
+          text: 'Qisqa havolalar, statistika va foydalanuvchi paneli.',
           tags: ['Next.js', 'MongoDB', 'Analytics'],
           done: false,
           demo: null,
@@ -209,7 +204,7 @@ const CONTENT = {
           icon: 'TB',
           category: 'Telegram vosita',
           title: 'Telegram Notes Bot',
-          text: 'Telegram orqali eslatmalarni saqlash uchun serverless webhook asosidagi bot.',
+          text: 'Telegram orqali eslatmalarni saqlovchi serverless bot.',
           tags: ['Node.js', 'Telegram API', 'MongoDB'],
           done: false,
           demo: null,
@@ -218,16 +213,15 @@ const CONTENT = {
     },
     contact: {
       eyebrow: 'hamkorlik',
-      title: "Keling, foydali ta'lim mahsulotini birga yarataylik",
-      text:
-        "Dars, metodik qo'llanma, test materiallari yoki raqamli ta'lim vositasi kerak bo'lsa, vazifangizni muhokama qilishga tayyorman.",
+      title: "Foydali ta'lim mahsulotini yarataylik",
+      text: 'Vazifani yuboring — mos yechim va formatni taklif qilaman.',
       primary: 'Telegram orqali yozish',
       response: 'To‘g‘ridan-to‘g‘ri bog‘lanish',
       fallback: 'Forma ishlamasa, Telegram orqali yozing yoki qo‘ng‘iroq qiling.',
       form: {
         badge: 'Ariza → Telegram',
         title: 'Vazifangiz haqida yozing',
-        hint: 'Ariza to‘g‘ridan-to‘g‘ri menga keladi. Odatda Telegram yoki telefon orqali javob beraman.',
+        hint: 'Ariza menga Telegram orqali keladi.',
         name: 'Sizga qanday murojaat qilay?',
         namePlaceholder: 'Ismingiz',
         replyTo: 'Javob yuborish uchun aloqa',
@@ -258,10 +252,9 @@ const CONTENT = {
         success:
           'Rahmat! Arizangizni oldim va ko‘rsatilgan aloqa orqali siz bilan bog‘lanaman.',
         reference: 'Ariza raqami',
-        celebrationEyebrow: 'ARIZA QABUL QILINDI · EDU 01',
-        celebrationTitle: 'Vazifa ta’lim orbitasida!',
-        celebrationText:
-          'So‘rovingiz Telegram orqali yetkazildi. Tafsilotlarni ko‘rib chiqib, siz bilan bog‘lanaman.',
+        celebrationEyebrow: 'SIGNAL QABUL QILINDI · Φ 01',
+        celebrationTitle: 'Vazifa yechim trayektoriyasida!',
+        celebrationText: 'So‘rov Telegram orqali yetkazildi. Tez orada bog‘lanaman.',
         celebrationClose: 'Davom etish',
         celebrationDismiss: 'Animatsiyani yopish',
         errors: {
@@ -324,19 +317,18 @@ const CONTENT = {
       accent: 'в понятную систему',
       tail: 'обучения.',
       description:
-        'Преподаю математику и физику, разрабатываю методические пособия и тестовые материалы, создаю цифровые инструменты для образования.',
+        'Объясняю математику и физику, создаю методические материалы, тесты и EdTech-инструменты.',
       primary: 'Посмотреть материалы',
       secondary: 'Обсудить задачу',
-      availability: 'Открыт к сотрудничеству и новым образовательным проектам',
+      availability: 'Открыт к новым образовательным проектам',
       focus: ['Математика', 'Физика', 'Методика', 'EdTech'],
       visualLabel: 'Модель обучения',
       visualTitle: 'От понимания к результату',
       visualSteps: ['Тема', 'Понимание', 'Практика', 'Проверка'],
-      visualNote:
-        'Каждый материал имеет ясную цель, логичную структуру и критерий проверки знаний.',
+      visualNote: 'Цель, логика и проверка — в одной системе.',
       solverTitle: 'Решение по шагам',
       solverBadge: '3 шага',
-      solverFooter: 'Показываю логику решения, а не только ответ',
+      solverFooter: 'Показываю логику решения',
       solverSteps: [
         { formula: '2x + 6 = 14', action: 'Исходное уравнение' },
         { formula: '2x = 8', action: 'Вычитаем 6 из обеих частей' },
@@ -345,83 +337,80 @@ const CONTENT = {
     },
     about: {
       eyebrow: 'мой подход',
-      title: 'Образование, методика и технологии в одной системе',
-      lead:
-        'Моя основная деятельность — преподавание математики и физики, а также создание качественных учебных материалов.',
+      title: 'Образование × методика × технологии',
+      lead: 'Преподаю математику и физику, создаю учебные материалы.',
       body:
-        'Я уделяю внимание последовательному объяснению сложных понятий, соответствию заданий учебной цели и объективной оценке результата. Навыки разработки помогают дополнять этот подход тестами, ботами и другими цифровыми образовательными инструментами.',
+        'Разбираю сложную тему на шаги и проверяю результат по ясным критериям. Разработка помогает это автоматизировать.',
       principlesTitle: 'Принципы работы',
       principles: [
-        'Объяснять сложные темы ясным и доступным языком',
-        'Связывать теорию, практику и проверку в единую систему',
-        'Адаптировать материал под аудиторию и учебную цель',
+        'Объяснять ясно и доступно',
+        'Теория → практика → проверка',
+        'Адаптировать под аудиторию',
       ],
       audiencesTitle: 'Для кого',
       audiences: [
         {
           number: '01',
           title: 'Ученики',
-          text: 'Чтобы понять тему, обнаружить пробелы в знаниях и выстроить системную практику.',
+          text: 'Понять тему, найти пробелы и закрепить навык.',
         },
         {
           number: '02',
           title: 'Преподаватели',
-          text: 'Чтобы получить методическую структуру, задания, тесты и материалы к занятиям.',
+          text: 'Получить структуру урока, задания и тесты.',
         },
         {
           number: '03',
           title: 'Школы и центры',
-          text: 'Чтобы разработать учебные программы, диагностику и специализированные продукты.',
+          text: 'Разработать программу, диагностику или спецкурс.',
         },
       ],
     },
     expertise: {
       eyebrow: 'профессиональные направления',
       title: 'С чем я могу помочь',
-      intro:
-        'От проведения занятий до готового методического продукта — прорабатываю содержание, структуру и критерии проверки.',
+      intro: 'Занятия, методика, диагностика и цифровые решения.',
       items: [
         {
           symbol: '∑',
           index: '01',
           title: 'Преподавание математики',
-          text: 'Последовательное объяснение тем, стратегии решения задач и упражнения для закрепления материала.',
-          points: ['Теоретическое объяснение', 'Алгоритмы решения задач', 'Задания разного уровня'],
+          text: 'Теория, стратегия и поэтапная практика.',
+          points: ['Теоретическое объяснение', 'Решение задач'],
         },
         {
-          symbol: 'φ',
+          symbol: 'ψ',
           index: '02',
           title: 'Преподавание физики',
-          text: 'Понимание физических явлений, осмысленное применение формул и работа с практическими задачами.',
-          points: ['Явления и законы', 'Работа с формулами', 'Практические задачи'],
+          text: 'Явление, формула и задача — в одной логике.',
+          points: ['Явления и законы', 'Практические задачи'],
         },
         {
-          symbol: '◇',
+          symbol: '∂',
           index: '03',
           title: 'Методическая разработка',
-          text: 'Пособия и материалы, выстроенные под учебную цель, логику темы и уровень аудитории.',
-          points: ['Методические пособия', 'Разработки уроков', 'Рабочие листы'],
+          text: 'Готовый материал под цель и аудиторию.',
+          points: ['Методические пособия', 'Рабочие листы'],
         },
         {
-          symbol: '✓',
+          symbol: 'Δ',
           index: '04',
           title: 'Тесты и диагностика',
-          text: 'Вопросы, которые точно измеряют знания, задания по уровням и прозрачные критерии оценки.',
-          points: ['Диагностические тесты', 'Контрольные материалы', 'Ответы и критерии'],
+          text: 'Вопросы и критерии для точной оценки знаний.',
+          points: ['Диагностические тесты', 'Ответы и критерии'],
         },
       ],
     },
     materials: {
       eyebrow: 'методические продукты',
       title: 'Разработаю материал под вашу задачу',
-      intro:
-        'Каждый материал создаётся не по готовому шаблону, а с учётом предмета, возраста, цели и формата использования.',
+      intro: 'Индивидуальные материалы под предмет, возраст, цель и формат.',
       request: 'Обсудить материал',
       items: [
         {
           type: 'Пособие',
           title: 'Методические пособия',
-          text: 'Структура темы, способы объяснения, примеры и практические рекомендации для преподавателя.',
+          text: 'Структура темы, примеры и практические рекомендации.',
           meta: ['PDF / DOCX', 'Печать и онлайн'],
           preview: ['Цель и результат', 'Теория и примеры', 'Рекомендации'],
           tone: 'violet',
@@ -430,7 +419,7 @@ const CONTENT = {
         {
           type: 'Оценивание',
           title: 'Тестовые материалы',
-          text: 'Входные, текущие или итоговые тесты с ответами и прозрачными критериями оценивания.',
+          text: 'Диагностика и контроль с ответами и критериями.',
           meta: ['Тест / Google Forms', 'С ответами'],
           preview: ['Диагностика', 'Уровневые вопросы', 'Критерии оценки'],
           tone: 'cyan',
@@ -439,7 +428,7 @@ const CONTENT = {
         {
           type: 'Практика',
           title: 'Задачи и рабочие листы',
-          text: 'Задания от простого к сложному для самостоятельной работы и закрепления темы.',
+          text: 'Задания от простого к сложному и самостоятельная работа.',
           meta: ['PDF / Print', 'Для ученика'],
           preview: ['Базовые упражнения', 'Практические задачи', 'Самостоятельная работа'],
           tone: 'amber',
@@ -448,7 +437,7 @@ const CONTENT = {
         {
           type: 'Занятие',
           title: 'Разработки уроков',
-          text: 'Цель, этапы и активности урока, структура презентации и итоговая рефлексия.',
+          text: 'Цель, этапы, активности и рефлексия урока.',
           meta: ['PPTX / DOCX', 'Для преподавателя'],
           preview: ['Сценарий урока', 'План презентации', 'Рефлексия'],
           tone: 'green',
@@ -462,43 +451,41 @@ const CONTENT = {
         {
           number: '01',
           title: 'Определяем задачу',
-          text: 'Фиксируем аудиторию, предмет, тему, учебную цель и формат использования.',
+          text: 'Аудитория, тема, цель и формат.',
         },
         {
           number: '02',
           title: 'Проектирую структуру',
-          text: 'Планирую логику содержания, уровни сложности и способ проверки результата.',
+          text: 'Логика, сложность и способ проверки.',
         },
         {
           number: '03',
           title: 'Разрабатываю материал',
-          text: 'Объединяю текст, задания, ответы и визуальную структуру в единый продукт.',
+          text: 'Текст, задания и визуальная структура.',
         },
         {
           number: '04',
           title: 'Проверяю и передаю',
-          text: 'Проверяю точность, логику и удобство, затем передаю в необходимом формате.',
+          text: 'Проверка и передача в нужном формате.',
         },
       ],
     },
     projects: {
       eyebrow: 'образование через технологии',
       title: 'Цифровые проекты',
-      intro:
-        'Разработка для меня — и самостоятельное направление, и способ сделать обучение удобнее и эффективнее.',
+      intro: 'Цифровые инструменты, которые упрощают обучение.',
       ready: 'Готово',
       development: 'В разработке',
       demo: 'Демо',
       nextFocus: 'Следующий фокус',
       nextTitle: 'Цифровые инструменты для обучения',
-      nextText:
-        'Онлайн-тесты, диагностика знаний и сервисы, упрощающие работу с учебными материалами.',
+      nextText: 'Онлайн-тесты, диагностика и работа с материалами.',
       items: [
         {
           icon: 'TM',
           category: 'Full-stack приложение',
           title: 'Task Manager',
-          text: 'Аутентификация JWT и bcrypt, CRUD задач и управление ролями пользователей.',
+          text: 'Аутентификация, задачи и роли пользователей.',
           tags: ['Next.js', 'MongoDB', 'JWT'],
           done: true,
           demo: 'https://project-1-task-manager-amber.vercel.app',
@@ -507,7 +494,7 @@ const CONTENT = {
           icon: 'LS',
           category: 'Веб-сервис',
           title: 'Link Shortener',
-          text: 'Короткие ссылки, уникальный slug, статистика переходов и кабинет пользователя.',
+          text: 'Короткие ссылки, статистика и кабинет пользователя.',
           tags: ['Next.js', 'MongoDB', 'Analytics'],
           done: false,
           demo: null,
@@ -516,7 +503,7 @@ const CONTENT = {
           icon: 'TB',
           category: 'Telegram-инструмент',
           title: 'Telegram Notes Bot',
-          text: 'Бот для хранения заметок на основе serverless webhook и Telegram API.',
+          text: 'Serverless-бот для хранения заметок в Telegram.',
           tags: ['Node.js', 'Telegram API', 'MongoDB'],
           done: false,
           demo: null,
@@ -525,16 +512,15 @@ const CONTENT = {
     },
     contact: {
       eyebrow: 'сотрудничество',
-      title: 'Давайте создадим полезный образовательный продукт',
-      text:
-        'Если вам нужен урок, методическое пособие, тестовые материалы или цифровой инструмент для образования — готов обсудить задачу.',
+      title: 'Создадим полезный образовательный продукт',
+      text: 'Опишите задачу — предложу подходящий формат и решение.',
       primary: 'Написать в Telegram',
       response: 'Связаться напрямую',
       fallback: 'Если форма не сработает, напишите в Telegram или позвоните.',
       form: {
         badge: 'Заявка → Telegram',
         title: 'Расскажите о задаче',
-        hint: 'Заявка придёт напрямую мне. Обычно отвечаю в Telegram или по телефону.',
+        hint: 'Заявка придёт мне в Telegram.',
         name: 'Как к вам обращаться?',
         namePlaceholder: 'Ваше имя',
         replyTo: 'Куда вам ответить?',
@@ -565,10 +551,9 @@ const CONTENT = {
         success:
           'Спасибо! Я получил заявку и свяжусь с вами по указанному контакту.',
         reference: 'Номер заявки',
-        celebrationEyebrow: 'ЗАЯВКА ПРИНЯТА · EDU 01',
-        celebrationTitle: 'Задача на образовательной орбите!',
-        celebrationText:
-          'Запрос уже доставлен в Telegram. Я изучу детали и свяжусь с вами по указанному контакту.',
+        celebrationEyebrow: 'СИГНАЛ ПРИНЯТ · Φ 01',
+        celebrationTitle: 'Задача на траектории решения!',
+        celebrationText: 'Запрос доставлен в Telegram. Скоро свяжусь с вами.',
         celebrationClose: 'Продолжить',
         celebrationDismiss: 'Закрыть анимацию',
         errors: {
@@ -800,17 +785,18 @@ const LearningSuccessIcon = () => (
 )
 
 const EDUCATION_SYMBOLS = [
-  ['π', 'symbol-one'],
-  ['F = ma', 'symbol-two'],
-  ['∑', 'symbol-three'],
-  ['x² + y²', 'symbol-four'],
-  ['Δ', 'symbol-five'],
-  ['√x', 'symbol-six'],
-  ['E = mc²', 'symbol-seven'],
+  ['ψ', 'symbol-one'],
+  ['E = ħω', 'symbol-two'],
+  ['ℏ', 'symbol-three'],
+  ['Gμν', 'symbol-four'],
+  ['ΔxΔp', 'symbol-five'],
+  ['∂ψ/∂t', 'symbol-six'],
+  ['Fμν', 'symbol-seven'],
 ]
 
 const SUCCESS_CELEBRATION_MS = 6200
-const FORMULA_STREAM = 'π · ∑ · a² + b² = c² · F = ma · ∫ f(x)dx · E = mc² · √x · Δ'
+const FORMULA_STREAM =
+  'ψ(x,t) · iℏ∂ψ/∂t = Ĥψ · E = ħω · ΔxΔp ≥ ħ/2 · Gμν + Λgμν = 8πGTμν/c⁴ · Fμν · ∮p·dq'
 
 const EducationAmbient = ({ dark = false }) => (
   <div className={`education-ambient ${dark ? 'education-ambient-dark' : ''}`} aria-hidden="true">
@@ -820,6 +806,19 @@ const EducationAmbient = ({ dark = false }) => (
         <span>{FORMULA_STREAM}</span>
       </div>
     </div>
+    <svg className="physics-wave" viewBox="0 0 1200 240" fill="none">
+      <path
+        className="physics-wave-primary"
+        pathLength="1"
+        d="M0 120C75 20 145 20 220 120S365 220 440 120S585 20 660 120S805 220 880 120S1025 20 1100 120S1170 210 1200 166"
+      />
+      <path
+        className="physics-wave-secondary"
+        pathLength="1"
+        d="M0 120C55 67 108 67 165 120S275 173 330 120S440 67 495 120S605 173 660 120S770 67 825 120S935 173 990 120S1100 67 1200 120"
+      />
+    </svg>
+    <span className="physics-wave-label">ψ(x,t)</span>
     <svg className="education-curve" viewBox="0 0 520 220" fill="none">
       <path className="education-curve-axis" d="M22 188H500M44 204V22" />
       <path
@@ -1316,7 +1315,7 @@ export default function Home() {
           <div className="hero-grid-pattern" aria-hidden="true" />
           <div className="hero-orb hero-orb-one" aria-hidden="true" />
           <div className="hero-orb hero-orb-two" aria-hidden="true" />
-          <EducationAmbient />
+          <EducationAmbient dark />
 
           <div className="container-wide hero-layout">
             <div className="hero-copy">
@@ -1359,10 +1358,10 @@ export default function Home() {
 
             <div className="hero-visual reveal" aria-label={tr.hero.visualTitle}>
               <div className="visual-formula visual-formula-one" aria-hidden="true">
-                F = ma
+                E = ħω
               </div>
               <div className="visual-formula visual-formula-two" aria-hidden="true">
-                ∫ f(x)dx
+                iℏ∂tψ = Ĥψ
               </div>
 
               <div className="learning-card">
@@ -1942,13 +1941,13 @@ export default function Home() {
 
             <div className="success-scene" aria-hidden="true">
               <div className="success-orbit success-orbit-outer">
-                <span>π</span>
-                <span>F = ma</span>
-                <span>∑</span>
+                <span>ψ</span>
+                <span>E = ħω</span>
+                <span>ℏ</span>
               </div>
               <div className="success-orbit success-orbit-inner">
-                <span>Δ</span>
-                <span>x²</span>
+                <span>Δp</span>
+                <span>Gμν</span>
               </div>
               <div className="success-particles">
                 {Array.from({ length: 18 }, (_, index) => (

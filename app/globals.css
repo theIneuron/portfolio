@@ -45,6 +45,7 @@ body {
   background: var(--paper);
   color: var(--ink-900);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 17px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -172,7 +173,7 @@ button:focus-visible {
   position: relative;
   border-radius: 6px;
   color: var(--ink-600);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 650;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -323,12 +324,27 @@ button:focus-visible {
 .hero-section {
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(145, 157, 198, 0.16);
   background:
-    radial-gradient(circle at 72% 20%, rgba(103, 87, 239, 0.1), transparent 31%),
-    radial-gradient(circle at 10% 80%, rgba(10, 166, 160, 0.07), transparent 28%),
-    #fbfcff;
+    radial-gradient(circle at 76% 22%, rgba(103, 87, 239, 0.27), transparent 32%),
+    radial-gradient(circle at 13% 77%, rgba(10, 166, 160, 0.16), transparent 30%),
+    linear-gradient(145deg, #070d1b 0%, #101936 52%, #0a1327 100%);
   padding: 148px 0 100px;
+}
+
+.hero-section::before {
+  position: absolute;
+  inset: -20%;
+  background-image:
+    radial-gradient(circle, rgba(217, 224, 255, 0.7) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(75, 218, 204, 0.48) 0 1px, transparent 1.5px);
+  background-position: 0 0, 47px 31px;
+  background-size: 94px 94px, 137px 137px;
+  content: "";
+  opacity: 0.14;
+  transform: rotate(-4deg);
+  animation: physics-field-drift 34s linear infinite;
+  pointer-events: none;
 }
 
 .hero-grid-pattern,
@@ -340,15 +356,15 @@ button:focus-visible {
 
 .hero-grid-pattern {
   background-image:
-    linear-gradient(rgba(87, 98, 126, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(87, 98, 126, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(183, 194, 228, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(183, 194, 228, 0.065) 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: linear-gradient(to bottom, #000, transparent 82%);
 }
 
 .hero-orb {
   position: absolute;
-  border: 1px solid rgba(103, 87, 239, 0.12);
+  border: 1px solid rgba(147, 134, 255, 0.25);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -360,8 +376,8 @@ button:focus-visible {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--violet);
-  box-shadow: 0 0 0 6px rgba(103, 87, 239, 0.1);
+  background: #9a8eff;
+  box-shadow: 0 0 0 7px rgba(103, 87, 239, 0.14), 0 0 28px #7668f6;
   content: "";
 }
 
@@ -378,13 +394,13 @@ button:focus-visible {
   left: -180px;
   width: 430px;
   height: 430px;
-  border-color: rgba(10, 166, 160, 0.11);
+  border-color: rgba(55, 218, 202, 0.2);
   animation: spin-slow 36s linear infinite reverse;
 }
 
 .hero-orb-two::after {
-  background: var(--cyan);
-  box-shadow: 0 0 0 6px rgba(10, 166, 160, 0.1);
+  background: #3bd6c7;
+  box-shadow: 0 0 0 7px rgba(10, 166, 160, 0.12), 0 0 28px #2cc5b7;
 }
 
 /* Ambient education motion */
@@ -426,6 +442,50 @@ button:focus-visible {
   letter-spacing: -0.055em;
   line-height: 1;
   white-space: nowrap;
+}
+
+.physics-wave {
+  position: absolute;
+  top: 34%;
+  left: -5%;
+  width: 110%;
+  color: #9387ff;
+  opacity: 0.15;
+  animation: physics-wave-float 7s ease-in-out infinite alternate;
+  overflow: visible;
+}
+
+.physics-wave path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.physics-wave-primary {
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 0.055 0.018;
+  animation: physics-wave-phase 11s linear infinite;
+}
+
+.physics-wave-secondary {
+  stroke: #3fd4c5;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 0.018 0.012;
+  animation: physics-wave-phase 8s linear infinite reverse;
+}
+
+.physics-wave-label {
+  position: absolute;
+  top: 31%;
+  right: 7%;
+  color: #9f95ff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(1.1rem, 2vw, 1.65rem);
+  font-weight: 800;
+  opacity: 0.3;
+  animation: physics-label-pulse 4s ease-in-out infinite;
 }
 
 .education-symbol {
@@ -636,11 +696,11 @@ button:focus-visible {
   align-items: center;
   gap: 10px;
   margin-bottom: 25px;
-  border: 1px solid rgba(103, 87, 239, 0.18);
+  border: 1px solid rgba(173, 164, 255, 0.22);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 8px 30px rgba(48, 42, 106, 0.05);
-  color: var(--violet-dark);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 12px 34px rgba(2, 6, 18, 0.22);
+  color: #c9c3ff;
   padding: 9px 14px;
   font-family: "JetBrains Mono", monospace;
   font-size: 10px;
@@ -661,7 +721,7 @@ button:focus-visible {
 .hero-title {
   max-width: 770px;
   margin: 0;
-  color: var(--ink-950);
+  color: #f7f9ff;
   font-size: clamp(2.8rem, 6.2vw, 5.25rem);
   font-weight: 800;
   letter-spacing: -0.062em;
@@ -669,7 +729,7 @@ button:focus-visible {
 }
 
 .gradient-ink {
-  background: linear-gradient(118deg, var(--violet) 0%, #7f53df 48%, var(--cyan) 100%);
+  background: linear-gradient(118deg, #9e91ff 0%, #b7a1ff 42%, #42d7c8 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -679,9 +739,9 @@ button:focus-visible {
 .hero-description {
   max-width: 660px;
   margin: 28px 0 0;
-  color: var(--ink-600);
-  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
-  line-height: 1.7;
+  color: #bac4d8;
+  font-size: clamp(1.12rem, 1.8vw, 1.32rem);
+  line-height: 1.65;
 }
 
 .hero-buttons {
@@ -721,15 +781,16 @@ button:focus-visible {
 }
 
 .button-secondary {
-  border-color: var(--line-strong);
-  background: rgba(255, 255, 255, 0.8);
-  color: var(--ink-800);
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.065);
+  color: #e7ebf7;
+  backdrop-filter: blur(12px);
 }
 
 .button-secondary:hover {
-  border-color: rgba(103, 87, 239, 0.38);
-  background: #fff;
-  color: var(--violet-dark);
+  border-color: rgba(159, 146, 255, 0.46);
+  background: rgba(255, 255, 255, 0.11);
+  color: #fff;
 }
 
 .hero-availability {
@@ -737,8 +798,8 @@ button:focus-visible {
   align-items: center;
   gap: 10px;
   margin-top: 23px;
-  color: var(--ink-600);
-  font-size: 12px;
+  color: #b4bfd3;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -761,13 +822,13 @@ button:focus-visible {
 }
 
 .focus-list span {
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.66);
-  color: var(--ink-600);
+  background: rgba(255, 255, 255, 0.055);
+  color: #c0c9da;
   padding: 7px 11px;
   font-family: "JetBrains Mono", monospace;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -786,13 +847,13 @@ button:focus-visible {
   display: none;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(103, 87, 239, 0.16);
+  border: 1px solid rgba(166, 155, 255, 0.24);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: var(--shadow-sm);
-  color: var(--violet-dark);
+  background: rgba(11, 18, 39, 0.88);
+  box-shadow: 0 16px 40px rgba(3, 8, 22, 0.3);
+  color: #d6d1ff;
   font-family: "JetBrains Mono", monospace;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   backdrop-filter: blur(12px);
 }
@@ -800,16 +861,16 @@ button:focus-visible {
 .visual-formula-one {
   top: 56px;
   right: -25px;
-  width: 86px;
-  height: 44px;
+  width: 98px;
+  height: 48px;
   animation: float-one 5s ease-in-out infinite;
 }
 
 .visual-formula-two {
   bottom: 68px;
   left: -34px;
-  width: 104px;
-  height: 48px;
+  width: 132px;
+  height: 52px;
   animation: float-two 6s ease-in-out infinite;
 }
 
@@ -848,7 +909,7 @@ button:focus-visible {
 .learning-label,
 .learning-code {
   font-family: "JetBrains Mono", monospace;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 750;
   letter-spacing: 0.075em;
   text-transform: uppercase;
@@ -910,7 +971,7 @@ button:focus-visible {
   margin-bottom: 5px;
   color: var(--violet);
   font-family: "JetBrains Mono", monospace;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 800;
 }
 
@@ -918,7 +979,7 @@ button:focus-visible {
   overflow: hidden;
   margin: 0;
   color: var(--ink-700);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -952,7 +1013,7 @@ button:focus-visible {
 .learning-note p {
   margin: 0;
   color: #554c88;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1.6;
 }
@@ -962,7 +1023,7 @@ button:focus-visible {
   right: -42px;
   bottom: -76px;
   z-index: 5;
-  width: 266px;
+  width: 282px;
   overflow: hidden;
   border: 1px solid rgba(214, 220, 234, 0.96);
   border-radius: 19px;
@@ -994,7 +1055,7 @@ button:focus-visible {
 .equation-solver-header > span,
 .equation-solver-header small {
   font-family: "JetBrains Mono", monospace;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 850;
   letter-spacing: 0.055em;
   text-transform: uppercase;
@@ -1050,7 +1111,7 @@ button:focus-visible {
 
 .equation-solver-step span {
   color: var(--ink-500);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 700;
   line-height: 1.35;
   text-align: center;
@@ -1093,7 +1154,7 @@ button:focus-visible {
   gap: 7px;
   margin: 10px 0 0;
   color: var(--ink-500);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 650;
   line-height: 1.4;
 }
@@ -1111,20 +1172,26 @@ button:focus-visible {
 }
 
 .section-white {
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: radial-gradient(circle, rgba(72, 86, 121, 0.055) 0 0.8px, transparent 0.9px);
+  background-size: 30px 30px;
 }
 
 .section-soft {
   border-top: 1px solid #eef1f6;
   border-bottom: 1px solid #eef1f6;
-  background: var(--paper-soft);
+  background-color: var(--paper-soft);
+  background-image:
+    linear-gradient(rgba(82, 96, 132, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(82, 96, 132, 0.025) 1px, transparent 1px);
+  background-size: 42px 42px;
 }
 
 .section-eyebrow {
   margin: 0 0 16px;
   color: var(--violet-dark);
   font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -1160,8 +1227,8 @@ button:focus-visible {
   max-width: 540px;
   margin: 0;
   color: var(--ink-600);
-  font-size: 16px;
-  line-height: 1.75;
+  font-size: 18px;
+  line-height: 1.65;
 }
 
 /* About */
@@ -1177,14 +1244,14 @@ button:focus-visible {
 .about-copy > p {
   margin: 0;
   color: var(--ink-600);
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 .about-copy .about-lead {
   margin-bottom: 14px;
   color: var(--ink-800);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 650;
   letter-spacing: -0.02em;
   line-height: 1.55;
@@ -1202,7 +1269,7 @@ button:focus-visible {
   margin: 0 0 3px !important;
   color: var(--ink-500) !important;
   font-family: "JetBrains Mono", monospace;
-  font-size: 9px !important;
+  font-size: 10px !important;
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -1229,7 +1296,7 @@ button:focus-visible {
 .principles > div p {
   margin: 1px 0 0;
   color: var(--ink-700);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   line-height: 1.6;
 }
@@ -1242,7 +1309,7 @@ button:focus-visible {
   margin: 0 0 18px;
   color: var(--ink-500);
   font-family: "JetBrains Mono", monospace;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1279,14 +1346,14 @@ button:focus-visible {
 .audience-card h3 {
   margin: -3px 0 8px;
   color: var(--ink-900);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
 }
 
 .audience-card p {
   margin: 0;
   color: var(--ink-600);
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.65;
 }
 
@@ -1380,7 +1447,7 @@ button:focus-visible {
   z-index: 1;
   margin: 0 0 12px;
   color: var(--ink-900);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: -0.025em;
 }
@@ -1388,11 +1455,11 @@ button:focus-visible {
 .expertise-card > p {
   position: relative;
   z-index: 1;
-  min-height: 68px;
+  min-height: 52px;
   margin: 0;
   color: var(--ink-600);
-  font-size: 12px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .expertise-card ul {
@@ -1411,7 +1478,7 @@ button:focus-visible {
   align-items: center;
   gap: 9px;
   color: var(--ink-700);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 650;
 }
 
@@ -1647,7 +1714,7 @@ button:focus-visible {
   color: var(--ink-500);
   padding: 5px 8px;
   font-family: "JetBrains Mono", monospace;
-  font-size: 7px;
+  font-size: 9px;
   font-weight: 750;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1656,7 +1723,7 @@ button:focus-visible {
 .material-content h3 {
   margin: 0 0 10px;
   color: var(--ink-900);
-  font-size: 19px;
+  font-size: 21px;
   font-weight: 800;
   letter-spacing: -0.025em;
 }
@@ -1664,8 +1731,8 @@ button:focus-visible {
 .material-content > p {
   margin: 0 0 22px;
   color: var(--ink-600);
-  font-size: 12px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .material-actions {
@@ -1684,7 +1751,7 @@ button:focus-visible {
   align-items: center;
   gap: 8px;
   border-radius: 8px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   text-decoration: none;
 }
@@ -1797,15 +1864,15 @@ button:focus-visible {
 .process-item h3 {
   margin: 0 0 10px;
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 750;
 }
 
 .process-item p {
   margin: 0;
   color: #9fa8ba;
-  font-size: 11px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 /* Projects */
@@ -1854,7 +1921,7 @@ button:focus-visible {
   margin: 0 0 6px;
   color: var(--violet-dark);
   font-family: "JetBrains Mono", monospace;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -1863,7 +1930,7 @@ button:focus-visible {
 .next-focus h3 {
   margin: 0 0 7px;
   color: var(--ink-900);
-  font-size: 18px;
+  font-size: 21px;
   font-weight: 800;
   letter-spacing: -0.025em;
 }
@@ -1872,7 +1939,7 @@ button:focus-visible {
   display: block;
   max-width: 670px;
   color: var(--ink-600);
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.65;
 }
 
@@ -1901,7 +1968,7 @@ button:focus-visible {
 
 .project-card {
   display: flex;
-  min-height: 340px;
+  min-height: 315px;
   flex-direction: column;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
@@ -1974,7 +2041,7 @@ button:focus-visible {
   margin: 0 0 7px;
   color: var(--violet);
   font-family: "JetBrains Mono", monospace;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.075em;
   text-transform: uppercase;
@@ -1983,7 +2050,7 @@ button:focus-visible {
 .project-card h3 {
   margin: 0 0 11px;
   color: var(--ink-900);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
   letter-spacing: -0.03em;
 }
@@ -1991,8 +2058,8 @@ button:focus-visible {
 .project-text {
   margin: 0;
   color: var(--ink-600);
-  font-size: 12px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .project-tags {
@@ -2084,8 +2151,8 @@ button:focus-visible {
   max-width: 610px;
   margin: 24px 0 0;
   color: #a7b0c1;
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: 17px;
+  line-height: 1.65;
 }
 
 .contact-card {
@@ -2102,7 +2169,7 @@ button:focus-visible {
   margin: 3px 4px 7px;
   color: #a9b2c2;
   font-family: "JetBrains Mono", monospace;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2112,7 +2179,7 @@ button:focus-visible {
   display: block;
   margin: 0 4px 13px;
   color: #7f8a9d;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.55;
 }
 
@@ -2156,7 +2223,7 @@ button:focus-visible {
 }
 
 .contact-card > a > span:nth-child(2) {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 750;
 }
 
@@ -2165,7 +2232,7 @@ button:focus-visible {
   margin-bottom: 4px;
   color: #7f8a9d;
   font-family: "JetBrains Mono", monospace;
-  font-size: 7px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2210,7 +2277,7 @@ button:focus-visible {
   color: var(--violet-dark);
   padding: 6px 9px;
   font-family: "JetBrains Mono", monospace;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 850;
   letter-spacing: 0.075em;
   text-transform: uppercase;
@@ -2229,7 +2296,7 @@ button:focus-visible {
   max-width: 590px;
   margin: 0;
   color: var(--ink-600);
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.6;
 }
 
@@ -2244,7 +2311,7 @@ button:focus-visible {
   min-width: 0;
   gap: 8px;
   color: var(--ink-800);
-  font-size: 10px;
+  font-size: 13px;
   font-style: normal;
   font-weight: 800;
 }
@@ -2256,7 +2323,7 @@ button:focus-visible {
 
 .contact-field b {
   color: #6757ef;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .contact-field-label {
@@ -2270,7 +2337,7 @@ button:focus-visible {
   flex: 0 0 auto;
   color: var(--ink-400);
   font-family: "JetBrains Mono", monospace;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 750;
   letter-spacing: 0.02em;
   text-transform: lowercase;
@@ -2287,7 +2354,7 @@ button:focus-visible {
   background: #f8f9fb;
   color: var(--ink-900);
   font: inherit;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 550;
   transition:
     border-color 0.18s ease,
@@ -2399,7 +2466,7 @@ button:focus-visible {
 
 .contact-consent em {
   padding-top: 1px;
-  font-size: 9px;
+  font-size: 12px;
   font-style: normal;
   line-height: 1.55;
 }
@@ -2407,7 +2474,7 @@ button:focus-visible {
 .contact-submit {
   display: grid;
   width: 100%;
-  min-height: 52px;
+  min-height: 56px;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 10px;
@@ -2420,7 +2487,7 @@ button:focus-visible {
   cursor: pointer;
   padding: 0 16px;
   font: inherit;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
   transition:
     background 0.2s ease,
@@ -2494,7 +2561,7 @@ button:focus-visible {
 .contact-form-status strong {
   display: block;
   margin-top: 1px;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 850;
   line-height: 1.45;
 }
@@ -2503,7 +2570,7 @@ button:focus-visible {
 .contact-form-status small {
   display: block;
   margin: 3px 0 0;
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.55;
 }
 
@@ -2542,7 +2609,7 @@ button:focus-visible {
   margin: 12px 0 0;
   color: var(--ink-400);
   font-family: "JetBrains Mono", monospace;
-  font-size: 7px;
+  font-size: 10px;
   font-weight: 750;
   line-height: 1.45;
   text-align: center;
@@ -2586,14 +2653,14 @@ button:focus-visible {
   display: block;
   margin-bottom: 3px;
   color: var(--ink-900);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .footer-brand p,
 .footer-note {
   margin: 0;
   color: var(--ink-500);
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.5;
 }
 
@@ -3644,6 +3711,45 @@ button:focus-visible {
   }
 }
 
+@keyframes physics-field-drift {
+  from {
+    transform: translate3d(-2%, -1%, 0) rotate(-4deg);
+  }
+  to {
+    transform: translate3d(7%, 5%, 0) rotate(1deg);
+  }
+}
+
+@keyframes physics-wave-float {
+  from {
+    transform: translate3d(0, -8px, 0) scaleY(0.9);
+  }
+  to {
+    transform: translate3d(0, 11px, 0) scaleY(1.08);
+  }
+}
+
+@keyframes physics-wave-phase {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes physics-label-pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateY(3px) scale(0.96);
+  }
+  50% {
+    opacity: 0.42;
+    transform: translateY(-4px) scale(1.04);
+  }
+}
+
 @keyframes equation-card-float {
   0%,
   100% {
@@ -4318,6 +4424,10 @@ button:focus-visible {
     opacity: 0.07;
   }
 
+  .education-ambient-dark .education-formula-stream {
+    opacity: 0.075;
+  }
+
   .education-formula-stream > div {
     animation-duration: 21s;
   }
@@ -4326,6 +4436,17 @@ button:focus-visible {
     right: -80px;
     width: 88vw;
     opacity: 0.08;
+  }
+
+  .physics-wave {
+    top: 42%;
+    left: -34%;
+    width: 168%;
+    opacity: 0.1;
+  }
+
+  .physics-wave-label {
+    display: none;
   }
 
   .learning-card {
