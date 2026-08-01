@@ -222,8 +222,6 @@ const CONTENT = {
         badge: 'SIGNAL → TELEGRAM',
         title: 'Yangi vazifa',
         hint: 'Qisqa va aniq.',
-        progressLabel: 'Ariza tayyorligi',
-        progressSteps: ['Aloqa', 'Xizmat', 'Vazifa', 'Tayyor'],
         name: 'Sizga qanday murojaat qilay?',
         namePlaceholder: 'Ismingiz',
         replyTo: 'Javob yuborish uchun aloqa',
@@ -532,8 +530,6 @@ const CONTENT = {
         badge: 'СИГНАЛ → TELEGRAM',
         title: 'Новая задача',
         hint: 'Коротко и по существу.',
-        progressLabel: 'Готовность заявки',
-        progressSteps: ['Контакт', 'Услуга', 'Задача', 'Готово'],
         name: 'Как к вам обращаться?',
         namePlaceholder: 'Ваше имя',
         replyTo: 'Куда вам ответить?',
@@ -1232,7 +1228,6 @@ export default function Home() {
   const [celebrationOpen, setCelebrationOpen] = useState(false)
   const [referenceCopied, setReferenceCopied] = useState(false)
   const [heroPhraseIndex, setHeroPhraseIndex] = useState(0)
-  const [contactSteps, setContactSteps] = useState([false, false, false, false])
   const [orderSignal, setOrderSignal] = useState(null)
   const [themeMode, setThemeMode] = useState(null)
   const menuButtonRef = useRef(null)
@@ -1251,8 +1246,6 @@ export default function Home() {
   const demoDocument = activeDemo ? DEMO_DOCUMENTS[activeDemo] : null
   const demoContent = demoDocument ? demoDocument[lang] : null
   const heroAccents = tr.hero.accents || [tr.hero.accent]
-  const contactCompletion = contactSteps.filter(Boolean).length
-  const contactNextStep = contactSteps.findIndex((step) => !step)
 
   useScrollReveal()
 
@@ -1755,19 +1748,7 @@ export default function Home() {
   }
   const handleContactFormInput = (event) => {
     const form = event.currentTarget
-    const name = form.elements.name?.value.trim() || ''
-    const replyTo = form.elements.contact?.value.trim() || ''
-    const service = form.elements.service?.value || ''
-    const details = form.elements.details?.value.trim() || ''
-    const consent = Boolean(form.elements.consent?.checked)
-
     setContactDetailsLength(form.elements.details?.value.length || 0)
-    setContactSteps([
-      name.length >= 2 && replyTo.length >= 3,
-      Boolean(service),
-      details.length >= 20,
-      consent,
-    ])
   }
   const scrollToContactForm = (event, serviceId) => {
     event?.preventDefault()
@@ -2274,27 +2255,6 @@ export default function Home() {
                 <p>{tr.contact.form.hint}</p>
               </div>
 
-              <div className="contact-form-progress" aria-label={tr.contact.form.progressLabel}>
-                <div className="contact-progress-heading">
-                  <span>{tr.contact.form.progressLabel}</span>
-                  <strong>{contactCompletion}/4</strong>
-                </div>
-                <div className="contact-progress-track" aria-hidden="true">
-                  <i style={{ width: `${(contactCompletion / 4) * 100}%` }} />
-                </div>
-                <div className="contact-progress-steps">
-                  {tr.contact.form.progressSteps.map((step, index) => (
-                    <span
-                      className={`${contactSteps[index] ? 'complete' : ''} ${contactNextStep === index ? 'active' : ''}`}
-                      key={step}
-                    >
-                      <b>{contactSteps[index] ? '✓' : `0${index + 1}`}</b>
-                      {step}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
               <div className="contact-form-grid">
                 <label className="contact-field">
                   <span>
@@ -2393,7 +2353,7 @@ export default function Home() {
               </label>
 
               <button
-                className={`contact-submit ${contactCompletion === 4 ? 'ready' : ''}`}
+                className="contact-submit"
                 type="submit"
                 disabled={contactStatus === 'sending'}
               >

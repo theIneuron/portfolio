@@ -5168,7 +5168,7 @@ html[data-theme="light"] .contact-form-header h3 {
 html[data-theme="light"] .contact-form-header p,
 html[data-theme="light"] .contact-field > span:first-child,
 html[data-theme="light"] .contact-field-label {
-  color: #5d6e89;
+  color: #233653;
 }
 
 html[data-theme="light"] .contact-form-progress {
@@ -5193,8 +5193,9 @@ html[data-theme="light"] .contact-field textarea {
 
 html[data-theme="light"] .contact-field input::placeholder,
 html[data-theme="light"] .contact-field textarea::placeholder {
-  color: #7787a0;
-  opacity: 1;
+  color: #7f8da3;
+  opacity: 0.58;
+  -webkit-text-fill-color: #7f8da3;
 }
 
 html[data-theme="light"] .contact-field input:hover,
@@ -7931,7 +7932,11 @@ body {
 
 .contact-field > span:first-child,
 .contact-field-label {
-  color: #949eb6;
+  color: #f1f4ff;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 820;
+  letter-spacing: -0.012em;
+  line-height: 1.35;
 }
 
 .contact-field input,
@@ -7947,7 +7952,10 @@ body {
 
 .contact-field input::placeholder,
 .contact-field textarea::placeholder {
-  color: #505b75;
+  color: #7a879f;
+  opacity: 0.5;
+  font-weight: 520;
+  -webkit-text-fill-color: #7a879f;
 }
 
 .contact-field input:hover,
