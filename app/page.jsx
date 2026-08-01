@@ -1481,7 +1481,7 @@ export default function Home() {
                 <p>{tr.contact.response}</p>
                 <span className="contact-fallback-note">{tr.contact.fallback}</span>
                 <a
-                  href="https://t.me/neworders_byslt_bot?start=portfolio_contact"
+                  href="https://t.me/sultoniiy"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -1490,7 +1490,7 @@ export default function Home() {
                   </span>
                   <span>
                     <small>Telegram</small>
-                    @neworders_byslt_bot
+                    @sultoniiy
                   </span>
                   <ArrowIcon />
                 </a>
@@ -1785,7 +1785,7 @@ export default function Home() {
 
                 <a
                   className="demo-request-button"
-                  href={`https://t.me/neworders_byslt_bot?start=demo_${activeDemo}`}
+                  href="https://t.me/sultoniiy"
                   target="_blank"
                   rel="noreferrer"
                 >
