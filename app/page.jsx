@@ -1663,9 +1663,11 @@ export default function Home() {
 
     const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0
     const startY = window.scrollY
+    const orderForm = contactSection.querySelector('#order-form')
+    const scrollTarget = window.innerWidth >= 900 && orderForm ? orderForm : contactSection
     const destinationY = Math.max(
       0,
-      contactSection.getBoundingClientRect().top + startY - headerHeight
+      scrollTarget.getBoundingClientRect().top + startY - headerHeight
     )
     const distance = destinationY - startY
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
