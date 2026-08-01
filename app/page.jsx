@@ -789,6 +789,8 @@ const EDUCATION_SYMBOLS = [
   ['∑', 'symbol-three'],
   ['x² + y²', 'symbol-four'],
   ['Δ', 'symbol-five'],
+  ['√x', 'symbol-six'],
+  ['E = mc²', 'symbol-seven'],
 ]
 
 const SUCCESS_CELEBRATION_MS = 6200
@@ -813,7 +815,13 @@ const EducationAmbient = ({ dark = false }) => (
       <span
         key={symbol}
         className={`education-symbol ${position}`}
-        style={{ '--ambient-delay': `${index * -1.4}s` }}
+        style={{
+          '--ambient-delay': `${index * -1.15}s`,
+          '--ambient-duration': `${7.2 + (index % 4) * 1.1}s`,
+          '--ambient-shift-x': `${18 + (index % 3) * 8}px`,
+          '--ambient-shift-y': `${-(20 + (index % 4) * 7)}px`,
+          '--ambient-rotation': `${4 + (index % 3) * 2}deg`,
+        }}
       >
         {symbol}
       </span>

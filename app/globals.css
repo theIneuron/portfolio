@@ -403,48 +403,64 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(103, 87, 239, 0.11);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.46);
-  box-shadow: 0 12px 30px rgba(39, 45, 78, 0.04);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.56);
+  box-shadow: 0 16px 40px rgba(39, 45, 78, 0.07);
   color: currentColor;
-  padding: 8px 11px;
+  padding: 11px 15px;
   font-family: "JetBrains Mono", monospace;
-  font-size: 11px;
-  font-weight: 750;
-  opacity: 0.22;
-  backdrop-filter: blur(8px);
-  animation: education-drift 9s ease-in-out var(--ambient-delay, 0s) infinite alternate;
-  will-change: transform;
+  font-size: 15px;
+  font-weight: 800;
+  opacity: 0.3;
+  backdrop-filter: blur(10px);
+  animation: education-drift var(--ambient-duration, 8.5s) ease-in-out
+    var(--ambient-delay, 0s) infinite alternate;
+  will-change: transform, opacity;
 }
 
 .education-symbol.symbol-one {
   top: 17%;
   left: 4%;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 29px;
 }
 
 .education-symbol.symbol-two {
-  top: 30%;
-  right: 3.5%;
+  top: 28%;
+  right: 3%;
+  font-size: 16px;
 }
 
 .education-symbol.symbol-three {
   bottom: 17%;
   left: 8%;
-  font-size: 17px;
+  font-size: 27px;
 }
 
 .education-symbol.symbol-four {
   right: 16%;
   bottom: 8%;
+  font-size: 16px;
 }
 
 .education-symbol.symbol-five {
   top: 13%;
   left: 49%;
   border-radius: 50%;
-  font-size: 16px;
+  font-size: 25px;
+}
+
+.education-symbol.symbol-six {
+  top: 47%;
+  left: 2.5%;
+  border-radius: 50%;
+  font-size: 23px;
+}
+
+.education-symbol.symbol-seven {
+  right: 6%;
+  bottom: 34%;
+  font-size: 15px;
 }
 
 .education-curve {
@@ -477,22 +493,31 @@ button:focus-visible {
   stroke-linecap: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: education-curve-draw 8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  filter: drop-shadow(0 0 8px rgba(10, 166, 160, 0.2));
+  animation: education-curve-draw 6.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
 .education-curve circle {
   fill: #fff;
   stroke: currentColor;
   stroke-width: 2;
-  animation: education-node-pulse 3s ease-in-out infinite;
+  animation: education-node-pulse 2.25s ease-in-out infinite;
+}
+
+.education-curve circle:nth-of-type(2) {
+  animation-delay: -0.75s;
+}
+
+.education-curve circle:nth-of-type(3) {
+  animation-delay: -1.5s;
 }
 
 .education-ring {
   position: absolute;
   border: 1px solid currentColor;
   border-radius: 50%;
-  opacity: 0.07;
-  animation: spin-slow 42s linear infinite;
+  opacity: 0.1;
+  animation: spin-slow 29s linear infinite;
 }
 
 .education-ring::after {
@@ -503,6 +528,7 @@ button:focus-visible {
   height: 7px;
   border-radius: 50%;
   background: currentColor;
+  box-shadow: 0 0 0 7px rgba(103, 87, 239, 0.08), 0 0 18px currentColor;
   content: "";
 }
 
@@ -519,7 +545,7 @@ button:focus-visible {
   width: 270px;
   height: 270px;
   animation-direction: reverse;
-  animation-duration: 50s;
+  animation-duration: 37s;
 }
 
 .education-triangle {
@@ -528,9 +554,9 @@ button:focus-visible {
   left: 46%;
   color: currentColor;
   font-family: "JetBrains Mono", monospace;
-  font-size: 54px;
-  opacity: 0.07;
-  animation: education-drift 11s ease-in-out -3s infinite alternate-reverse;
+  font-size: 76px;
+  opacity: 0.11;
+  animation: education-geometry-drift 9s ease-in-out -3s infinite alternate-reverse;
 }
 
 .education-triangle::before {
@@ -546,7 +572,7 @@ button:focus-visible {
   background: rgba(255, 255, 255, 0.035);
   box-shadow: none;
   color: #b9b0ff;
-  opacity: 0.2;
+  opacity: 0.28;
 }
 
 .education-ambient-dark .education-curve {
@@ -2443,7 +2469,7 @@ button:focus-visible {
   transform: translate(-50%, -50%) scale(0.3);
   mask-image: radial-gradient(circle, #000 0 12%, rgba(0, 0, 0, 0.92) 29%, transparent 68%);
   animation: success-rays-in 1.35s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards,
-    success-rays-spin 32s linear 1.4s infinite;
+    success-rays-spin 24s linear 1.4s infinite;
 }
 
 .success-celebration-panel {
@@ -2486,8 +2512,8 @@ button:focus-visible {
 
 .success-scene {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 360px;
+  height: 360px;
   animation: success-scene-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
 }
 
@@ -2503,8 +2529,8 @@ button:focus-visible {
 }
 
 .success-core-halo {
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
   background: rgba(103, 87, 239, 0.22);
   box-shadow: 0 0 70px rgba(103, 87, 239, 0.45), 0 0 120px rgba(10, 166, 160, 0.2);
   animation: success-halo-pulse 2.3s ease-in-out 0.65s infinite;
@@ -2512,8 +2538,8 @@ button:focus-visible {
 
 .success-core {
   z-index: 4;
-  width: 124px;
-  height: 124px;
+  width: 136px;
+  height: 136px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.92);
@@ -2528,8 +2554,8 @@ button:focus-visible {
 }
 
 .success-core svg {
-  width: 76px;
-  height: 76px;
+  width: 84px;
+  height: 84px;
 }
 
 .success-orbit {
@@ -2539,61 +2565,71 @@ button:focus-visible {
 .success-orbit span {
   position: absolute;
   display: inline-flex;
-  min-width: 35px;
-  min-height: 35px;
+  min-width: 42px;
+  min-height: 42px;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 10px;
+  border-radius: 13px;
   background: rgba(18, 25, 48, 0.82);
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
   color: #dcd8ff;
-  padding: 6px 8px;
+  padding: 8px 11px;
   font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   white-space: nowrap;
   backdrop-filter: blur(10px);
+  animation: success-symbol-breathe 2.2s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.success-orbit span:nth-child(2) {
+  animation-delay: -0.7s;
+}
+
+.success-orbit span:nth-child(3) {
+  animation-delay: -1.4s;
 }
 
 .success-orbit-outer {
-  width: 286px;
-  height: 286px;
-  animation: success-orbit-spin 12s linear infinite;
+  width: 328px;
+  height: 328px;
+  animation: success-orbit-spin 9.5s linear infinite;
 }
 
 .success-orbit-outer span:nth-child(1) {
-  top: 25px;
-  left: 17px;
+  top: 29px;
+  left: 18px;
 }
 
 .success-orbit-outer span:nth-child(2) {
-  top: 58px;
-  right: -5px;
+  top: 66px;
+  right: -8px;
 }
 
 .success-orbit-outer span:nth-child(3) {
-  bottom: 15px;
-  left: 72px;
+  bottom: 17px;
+  left: 82px;
 }
 
 .success-orbit-inner {
-  width: 206px;
-  height: 206px;
+  width: 234px;
+  height: 234px;
   border-style: dashed;
   border-color: rgba(60, 217, 202, 0.33);
-  animation: success-orbit-spin-reverse 9s linear infinite;
+  animation: success-orbit-spin-reverse 7.2s linear infinite;
 }
 
 .success-orbit-inner span:nth-child(1) {
-  top: 73px;
-  left: -17px;
+  top: 83px;
+  left: -20px;
   color: #8ce8df;
 }
 
 .success-orbit-inner span:nth-child(2) {
-  right: 6px;
-  bottom: 13px;
+  right: 7px;
+  bottom: 15px;
   color: #8ce8df;
 }
 
@@ -3402,10 +3438,29 @@ button:focus-visible {
 
 @keyframes education-drift {
   0% {
-    transform: translate3d(0, 0, 0) rotate(-2deg);
+    opacity: 0.2;
+    transform: translate3d(-5px, 5px, 0) rotate(-4deg) scale(0.94);
+  }
+  42% {
+    opacity: 0.36;
+    transform: translate3d(10px, -15px, 0) rotate(2deg) scale(1.04);
   }
   100% {
-    transform: translate3d(12px, -17px, 0) rotate(3deg);
+    opacity: 0.27;
+    transform: translate3d(var(--ambient-shift-x, 22px), var(--ambient-shift-y, -26px), 0)
+      rotate(var(--ambient-rotation, 5deg)) scale(1.08);
+  }
+}
+
+@keyframes education-geometry-drift {
+  0% {
+    transform: translate3d(-8px, 8px, 0) rotate(-8deg) scale(0.92);
+  }
+  55% {
+    transform: translate3d(13px, -20px, 0) rotate(7deg) scale(1.08);
+  }
+  100% {
+    transform: translate3d(25px, -9px, 0) rotate(15deg) scale(1);
   }
 }
 
@@ -3490,10 +3545,23 @@ button:focus-visible {
 @keyframes success-core-float {
   0%,
   100% {
-    transform: translate(-50%, -50%) translateY(0);
+    transform: translate(-50%, -50%) translateY(2px) rotate(-1deg);
   }
   50% {
-    transform: translate(-50%, -50%) translateY(-8px);
+    transform: translate(-50%, -50%) translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes success-symbol-breathe {
+  0% {
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16), 0 0 0 rgba(103, 87, 239, 0);
+    opacity: 0.72;
+    transform: scale(0.92) rotate(-2deg);
+  }
+  100% {
+    box-shadow: 0 15px 32px rgba(0, 0, 0, 0.22), 0 0 24px rgba(103, 87, 239, 0.25);
+    opacity: 1;
+    transform: scale(1.08) rotate(2deg);
   }
 }
 
@@ -3982,6 +4050,8 @@ button:focus-visible {
 
   .education-symbol.symbol-two,
   .education-symbol.symbol-four,
+  .education-symbol.symbol-six,
+  .education-symbol.symbol-seven,
   .education-ring-one {
     display: none;
   }
@@ -4184,10 +4254,10 @@ button:focus-visible {
   }
 
   .success-orbit span {
-    min-width: 31px;
-    min-height: 31px;
-    padding: 5px 7px;
-    font-size: 8px;
+    min-width: 36px;
+    min-height: 36px;
+    padding: 6px 8px;
+    font-size: 10px;
   }
 
   .success-orbit-outer span:nth-child(1) {
