@@ -857,6 +857,20 @@ const EDUCATION_SYMBOLS = [
 ]
 
 const SUCCESS_CELEBRATION_MS = 14000
+const GAMMA_QUANTA = [
+  { angle: -168, distance: 142, lift: -18, delay: 0, duration: 3.1 },
+  { angle: -142, distance: 184, lift: 24, delay: 0.08, duration: 3.35 },
+  { angle: -116, distance: 128, lift: -22, delay: 0.18, duration: 2.9 },
+  { angle: -88, distance: 196, lift: 30, delay: 0.04, duration: 3.55 },
+  { angle: -58, distance: 152, lift: -26, delay: 0.23, duration: 3.15 },
+  { angle: -28, distance: 206, lift: 24, delay: 0.12, duration: 3.7 },
+  { angle: 2, distance: 148, lift: -18, delay: 0.27, duration: 3.25 },
+  { angle: 34, distance: 190, lift: 28, delay: 0.06, duration: 3.5 },
+  { angle: 66, distance: 136, lift: -24, delay: 0.2, duration: 3.05 },
+  { angle: 98, distance: 202, lift: 22, delay: 0.14, duration: 3.65 },
+  { angle: 128, distance: 158, lift: -28, delay: 0.3, duration: 3.3 },
+  { angle: 154, distance: 188, lift: 20, delay: 0.1, duration: 3.45 },
+]
 const FORMULA_STREAM =
   'ψ(x,t) · iℏ∂ψ/∂t = Ĥψ · E = ħω · ΔxΔp ≥ ħ/2 · Gμν + Λgμν = 8πGTμν/c⁴ · Fμν · ∮p·dq'
 
@@ -1229,6 +1243,7 @@ export default function Home() {
   const [referenceCopied, setReferenceCopied] = useState(false)
   const [heroPhraseIndex, setHeroPhraseIndex] = useState(0)
   const [orderSignal, setOrderSignal] = useState(null)
+  const [gammaBurst, setGammaBurst] = useState(null)
   const [themeMode, setThemeMode] = useState(null)
   const menuButtonRef = useRef(null)
   const mobileNavRef = useRef(null)
@@ -1746,6 +1761,34 @@ export default function Home() {
     event.currentTarget.style.setProperty('--card-glow-x', '50%')
     event.currentTarget.style.setProperty('--card-glow-y', '50%')
   }
+  const emitGammaQuanta = (event) => {
+    const source = event?.currentTarget
+    if (!(source instanceof Element)) return
+    const bounds = source.getBoundingClientRect()
+    setGammaBurst({
+      id: Date.now(),
+      x: event.clientX || bounds.left + bounds.width / 2,
+      y: event.clientY || bounds.top + bounds.height / 2,
+    })
+  }
+  const openHeroMaterials = (event) => {
+    event.preventDefault()
+    emitGammaQuanta(event)
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    window.setTimeout(() => {
+      document.querySelector('#materials')?.scrollIntoView({
+        behavior: reducedMotion ? 'auto' : 'smooth',
+        block: 'start',
+      })
+      const url = new URL(window.location.href)
+      url.hash = 'materials'
+      window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`)
+    }, reducedMotion ? 0 : 320)
+  }
+  const openHeroContact = (event) => {
+    emitGammaQuanta(event)
+    scrollToContactForm(event)
+  }
   const handleContactFormInput = (event) => {
     const form = event.currentTarget
     setContactDetailsLength(form.elements.details?.value.length || 0)
@@ -1926,6 +1969,36 @@ export default function Home() {
           <span />
         </div>
       )}
+      {gammaBurst && (
+        <div
+          className="gamma-quantum-burst"
+          key={gammaBurst.id}
+          style={{ '--gamma-origin-x': `${gammaBurst.x}px`, '--gamma-origin-y': `${gammaBurst.y}px` }}
+          onAnimationEnd={(event) => {
+            if (event.target === event.currentTarget) setGammaBurst(null)
+          }}
+          aria-hidden="true"
+        >
+          <span className="gamma-burst-core">γ</span>
+          <span className="gamma-burst-ring gamma-burst-ring-one" />
+          <span className="gamma-burst-ring gamma-burst-ring-two" />
+          {GAMMA_QUANTA.map((quantum, index) => (
+            <i
+              key={`${gammaBurst.id}-${index}`}
+              style={{
+                '--gamma-angle': `${quantum.angle}deg`,
+                '--gamma-counter-angle': `${-quantum.angle}deg`,
+                '--gamma-distance': `${quantum.distance}px`,
+                '--gamma-lift': `${quantum.lift}px`,
+                '--gamma-delay': `${quantum.delay}s`,
+                '--gamma-duration': `${quantum.duration}s`,
+              }}
+            >
+              <b>{index % 3 === 0 ? 'γ' : ''}</b>
+            </i>
+          ))}
+        </div>
+      )}
       <div className="scroll-page-meter" aria-hidden="true">
         <span>FIELD / DEPTH</span>
         <i><b /></i>
@@ -2071,14 +2144,18 @@ export default function Home() {
               <p className="hero-description reveal">{tr.hero.description}</p>
 
               <div className="hero-buttons reveal">
-                <a href="#materials" className="button button-primary">
+                <a
+                  href="#materials"
+                  className="button button-primary"
+                  onClick={openHeroMaterials}
+                >
                   {tr.hero.primary}
                   <ArrowIcon />
                 </a>
                 <a
                   href="#contact"
                   className="button button-secondary"
-                  onClick={(event) => scrollToContactForm(event)}
+                  onClick={openHeroContact}
                 >
                   {tr.hero.secondary}
                 </a>
