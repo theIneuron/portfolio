@@ -8143,8 +8143,338 @@ body {
   }
 }
 
+/* Interactive signal system */
+.hero-dynamic-accent {
+  min-height: 1.05em;
+  animation: hero-accent-arrival 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes hero-accent-arrival {
+  from {
+    opacity: 0;
+    transform: translateY(0.22em);
+    filter: blur(7px) drop-shadow(0 0 0 transparent);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0) drop-shadow(0 0 25px rgba(126, 105, 255, 0.14));
+  }
+}
+
+.scroll-formula-morph {
+  position: absolute;
+  z-index: 7;
+  top: 47%;
+  right: 24px;
+  width: 92px;
+  height: 112px;
+  border: 1px solid rgba(110, 222, 218, 0.16);
+  border-radius: 50% 8px 50% 8px;
+  background: rgba(8, 19, 41, 0.68);
+  box-shadow: 0 0 45px rgba(74, 220, 210, 0.07), inset 0 0 30px rgba(120, 98, 255, 0.06);
+  color: #80eee0;
+}
+
+.scroll-formula-morph span {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  opacity: 0;
+  font-family: Georgia, serif;
+  font-size: 44px;
+  font-style: italic;
+  transform: translate(-50%, -50%) scale(0.55) rotate(-16deg);
+  transition: opacity 0.45s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-formula-morph span.active {
+  opacity: 1;
+  text-shadow: 0 0 25px rgba(81, 235, 219, 0.45);
+  transform: translate(-50%, -50%) scale(1) rotate(0);
+}
+
+.scroll-formula-morph small {
+  position: absolute;
+  right: 0;
+  bottom: 13px;
+  left: 0;
+  color: #687a98;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.order-signal-flight {
+  position: fixed;
+  z-index: 180;
+  top: var(--signal-y);
+  left: var(--signal-x);
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(212, 255, 249, 0.86);
+  border-radius: 50%;
+  background: #5ff2dd;
+  box-shadow: 0 0 12px #5ff2dd, 0 0 32px rgba(98, 126, 255, 0.86), 0 0 70px rgba(83, 236, 219, 0.48);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: order-signal-flight 1.18s cubic-bezier(0.2, 0.72, 0.22, 1) both;
+}
+
+.order-signal-flight::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(100, 240, 224, 0.34);
+  border-radius: 50%;
+  content: "";
+  transform: translate(-50%, -50%);
+  animation: order-signal-ring 0.72s ease-out infinite;
+}
+
+.order-signal-flight span {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 76px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(130, 112, 255, 0.48), #5ff2dd);
+  filter: blur(0.4px);
+  transform: translateY(-50%);
+}
+
+@keyframes order-signal-flight {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+  12% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--signal-dx), var(--signal-dy)) scale(0.42);
+  }
+}
+
+@keyframes order-signal-ring {
+  from { opacity: 0.8; transform: translate(-50%, -50%) scale(0.35); }
+  to { opacity: 0; transform: translate(-50%, -50%) scale(1.35); }
+}
+
+.contact-form-progress {
+  margin: 24px 0 28px;
+  border: 1px solid rgba(128, 181, 232, 0.12);
+  border-radius: 4px 16px 4px 16px;
+  background: rgba(7, 18, 38, 0.48);
+  padding: 15px 16px 14px;
+}
+
+.contact-progress-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #71809c;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.contact-progress-heading strong {
+  color: #81eadf;
+  font-size: 9px;
+}
+
+.contact-progress-track {
+  height: 3px;
+  overflow: hidden;
+  margin: 11px 0 13px;
+  border-radius: 999px;
+  background: rgba(141, 169, 216, 0.1);
+}
+
+.contact-progress-track i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #826cff, #55efd9);
+  box-shadow: 0 0 15px rgba(85, 239, 217, 0.42);
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-progress-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.contact-progress-steps > span {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 6px;
+  color: #596782;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 7px;
+  font-weight: 750;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.contact-progress-steps b {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(137, 163, 207, 0.15);
+  border-radius: 50%;
+  color: #68758f;
+  font-size: 6px;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.contact-progress-steps > span.active {
+  color: #aaa2de;
+}
+
+.contact-progress-steps > span.active b {
+  border-color: rgba(145, 126, 255, 0.48);
+  box-shadow: 0 0 16px rgba(126, 105, 255, 0.18);
+  color: #b8afff;
+}
+
+.contact-progress-steps > span.complete {
+  color: #7bded3;
+}
+
+.contact-progress-steps > span.complete b {
+  border-color: rgba(85, 239, 217, 0.42);
+  background: rgba(85, 239, 217, 0.1);
+  box-shadow: 0 0 16px rgba(85, 239, 217, 0.14);
+  color: #7ff4e5;
+}
+
+.hero-buttons .button {
+  min-height: 68px;
+  padding-inline: 32px;
+  font-size: 12px;
+}
+
+.contact-submit {
+  min-height: 64px;
+}
+
+.contact-submit.ready {
+  border-color: rgba(87, 242, 221, 0.46);
+  background: linear-gradient(125deg, #6d5aff, #3f49c7 55%, #187f82);
+  box-shadow: 0 20px 50px rgba(63, 50, 197, 0.34), 0 0 28px rgba(85, 239, 217, 0.12);
+}
+
+.material-actions button,
+.material-actions a {
+  min-height: 50px;
+}
+
+.button::after,
+.contact-submit::after,
+.material-actions button::after,
+.material-actions a::after {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: -34%;
+  width: 34%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #76f3e4, #9a87ff, transparent);
+  box-shadow: 0 0 12px rgba(91, 241, 222, 0.65);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+}
+
+.button:hover::after,
+.contact-submit:hover::after,
+.material-actions button:hover::after,
+.material-actions a:hover::after {
+  animation: button-signal-trace 1.15s ease-out;
+}
+
+@keyframes button-signal-trace {
+  0% { left: -34%; opacity: 0; }
+  14% { opacity: 1; }
+  100% { left: 106%; opacity: 0; }
+}
+
+.material-simulation {
+  cursor: ew-resize;
+}
+
+.material-simulation::after {
+  position: absolute;
+  z-index: 6;
+  right: 11px;
+  bottom: 8px;
+  color: rgba(116, 225, 215, 0.65);
+  content: "↔  FIELD CONTROL";
+  font-family: "JetBrains Mono", monospace;
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.material-simulation:hover::after,
+.material-simulation.is-interacting::after {
+  opacity: 1;
+}
+
 /* Mobile performance: keep the physics identity with fewer composited layers. */
 @media (max-width: 759px) {
+  .scroll-formula-morph,
+  .material-simulation::after {
+    display: none;
+  }
+
+  .hero-buttons .button {
+    min-height: 62px;
+    padding-inline: 24px;
+    font-size: 11px;
+  }
+
+  .contact-form-progress {
+    margin: 20px 0 24px;
+    padding-inline: 12px;
+  }
+
+  .contact-progress-steps {
+    gap: 4px;
+  }
+
+  .contact-progress-steps > span {
+    gap: 4px;
+    font-size: 6px;
+  }
+
+  .contact-progress-steps b {
+    width: 20px;
+    height: 20px;
+  }
+
+  .order-signal-flight {
+    width: 12px;
+    height: 12px;
+    box-shadow: 0 0 10px #5ff2dd, 0 0 24px rgba(98, 126, 255, 0.54);
+  }
+
+  .order-signal-flight::before,
+  .order-signal-flight span {
+    display: none;
+  }
+
   .site-header,
   .quantum-console,
   .contact-form,

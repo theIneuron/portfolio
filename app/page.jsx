@@ -16,6 +16,7 @@ const CONTENT = {
       eyebrow: "NAZARIYA → TUSHUNISH → NATIJA",
       title: 'Murakkab',
       accent: 'tushunarli bo‘ladi.',
+      accents: ['tushunarli bo‘ladi.', 'amaliyotga aylanadi.', 'tizimga aylanadi.'],
       tail: '',
       description: 'Matematika · Fizika · Metodika · EdTech',
       primary: 'Materiallar',
@@ -221,6 +222,8 @@ const CONTENT = {
         badge: 'SIGNAL → TELEGRAM',
         title: 'Yangi vazifa',
         hint: 'Qisqa va aniq.',
+        progressLabel: 'Ariza tayyorligi',
+        progressSteps: ['Aloqa', 'Xizmat', 'Vazifa', 'Tayyor'],
         name: 'Sizga qanday murojaat qilay?',
         namePlaceholder: 'Ismingiz',
         replyTo: 'Javob yuborish uchun aloqa',
@@ -317,6 +320,7 @@ const CONTENT = {
       eyebrow: 'ТЕОРИЯ → ПОНИМАНИЕ → РЕЗУЛЬТАТ',
       title: 'Сложное',
       accent: 'становится ясным.',
+      accents: ['становится ясным.', 'становится практикой.', 'становится системой.'],
       tail: '',
       description: 'Математика · Физика · Методика · EdTech',
       primary: 'Материалы',
@@ -522,6 +526,8 @@ const CONTENT = {
         badge: 'СИГНАЛ → TELEGRAM',
         title: 'Новая задача',
         hint: 'Коротко и по существу.',
+        progressLabel: 'Готовность заявки',
+        progressSteps: ['Контакт', 'Услуга', 'Задача', 'Готово'],
         name: 'Как к вам обращаться?',
         namePlaceholder: 'Ваше имя',
         replyTo: 'Куда вам ответить?',
@@ -1143,6 +1149,15 @@ const ScrollPhysicsField = () => (
       ))}
     </div>
 
+    <div className="scroll-formula-morph">
+      {['∑', 'ψ', '∂', 'Δ'].map((formula, index) => (
+        <span className={index === 0 ? 'active' : ''} key={formula}>
+          {formula}
+        </span>
+      ))}
+      <small>FIELD · STATE</small>
+    </div>
+
     <div className="scroll-tunnel">
       {Array.from({ length: 9 }, (_, index) => (
         <i key={index} style={{ '--ring-index': index }} />
@@ -1186,6 +1201,9 @@ export default function Home() {
   const [contactDetailsLength, setContactDetailsLength] = useState(0)
   const [celebrationOpen, setCelebrationOpen] = useState(false)
   const [referenceCopied, setReferenceCopied] = useState(false)
+  const [heroPhraseIndex, setHeroPhraseIndex] = useState(0)
+  const [contactSteps, setContactSteps] = useState([false, false, false, false])
+  const [orderSignal, setOrderSignal] = useState(null)
   const menuButtonRef = useRef(null)
   const mobileNavRef = useRef(null)
   const demoPageRef = useRef(0)
@@ -1201,8 +1219,20 @@ export default function Home() {
   const tr = CONTENT[lang]
   const demoDocument = activeDemo ? DEMO_DOCUMENTS[activeDemo] : null
   const demoContent = demoDocument ? demoDocument[lang] : null
+  const heroAccents = tr.hero.accents || [tr.hero.accent]
+  const contactCompletion = contactSteps.filter(Boolean).length
+  const contactNextStep = contactSteps.findIndex((step) => !step)
 
   useScrollReveal()
+
+  useEffect(() => {
+    setHeroPhraseIndex(0)
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+    const timer = window.setInterval(() => {
+      setHeroPhraseIndex((current) => (current + 1) % (CONTENT[lang].hero.accents?.length || 1))
+    }, 4200)
+    return () => window.clearInterval(timer)
+  }, [lang])
 
   useEffect(
     () => () => {
@@ -1251,9 +1281,11 @@ export default function Home() {
       trajectoryPath: document.querySelector('.scroll-trajectory-line'),
       trajectoryMarker: document.querySelector('.scroll-trajectory-marker'),
       trajectoryMarkerHalo: document.querySelector('.scroll-trajectory-marker-halo'),
+      formulaMorphs: Array.from(document.querySelectorAll('.scroll-formula-morph span')),
       particles: Array.from(document.querySelectorAll('.scroll-particles i')),
     }
     let frame = null
+    let formulaIndex = -1
 
     const updateScrollField = () => {
       frame = null
@@ -1280,6 +1312,14 @@ export default function Home() {
       root.style.setProperty('--contact-progress', contactProgress.toFixed(4))
       root.style.setProperty('--scroll-offset', `${scrollTop.toFixed(1)}px`)
       root.style.setProperty('--scroll-percent', `${(scrollProgress * 100).toFixed(2)}%`)
+
+      const nextFormulaIndex = Math.min(3, Math.floor(scrollProgress * 4))
+      if (nextFormulaIndex !== formulaIndex) {
+        formulaIndex = nextFormulaIndex
+        scene.formulaMorphs.forEach((formula, index) => {
+          formula.classList.toggle('active', index === formulaIndex)
+        })
+      }
 
       if (scene.trajectoryPath) {
         scene.trajectoryPath.style.strokeDashoffset = String(1 - scrollProgress)
@@ -1661,9 +1701,41 @@ export default function Home() {
     event.currentTarget.style.setProperty('--card-glow-x', '50%')
     event.currentTarget.style.setProperty('--card-glow-y', '50%')
   }
+  const handleContactFormInput = (event) => {
+    const form = event.currentTarget
+    const name = form.elements.name?.value.trim() || ''
+    const replyTo = form.elements.contact?.value.trim() || ''
+    const service = form.elements.service?.value || ''
+    const details = form.elements.details?.value.trim() || ''
+    const consent = Boolean(form.elements.consent?.checked)
+
+    setContactDetailsLength(form.elements.details?.value.length || 0)
+    setContactSteps([
+      name.length >= 2 && replyTo.length >= 3,
+      Boolean(service),
+      details.length >= 20,
+      consent,
+    ])
+  }
   const scrollToContactForm = (event, serviceId) => {
     event?.preventDefault()
     setMenuOpen(false)
+
+    const sourceElement = event?.currentTarget
+    if (sourceElement instanceof Element) {
+      const sourceBounds = sourceElement.getBoundingClientRect()
+      const sourceX = sourceBounds.left + sourceBounds.width / 2
+      const sourceY = sourceBounds.top + sourceBounds.height / 2
+      const destinationX = window.innerWidth * 0.62
+      const destinationSignalY = window.innerHeight * 0.88
+      setOrderSignal({
+        id: `${Date.now()}-${sourceX.toFixed(0)}`,
+        x: sourceX,
+        y: sourceY,
+        dx: destinationX - sourceX,
+        dy: destinationSignalY - sourceY,
+      })
+    }
 
     const contactSection = document.querySelector('#contact')
     if (!contactSection) return
@@ -1675,6 +1747,7 @@ export default function Home() {
     const serviceField = contactSection.querySelector('select[name="service"]')
     if (serviceField && serviceId) {
       serviceField.value = serviceId
+      serviceField.dispatchEvent(new Event('input', { bubbles: true }))
       serviceField.dispatchEvent(new Event('change', { bubbles: true }))
     }
 
@@ -1766,6 +1839,7 @@ export default function Home() {
 
       form.reset()
       setContactDetailsLength(0)
+      setContactSteps([false, false, false, false])
       setContactStatus('success')
       setContactResult({ requestId: result.requestId || null })
       setReferenceCopied(false)
@@ -1803,6 +1877,22 @@ export default function Home() {
     <div className="site-shell">
       <ScrollPhysicsField />
       <div className="global-pointer-field" aria-hidden="true" />
+      {orderSignal && (
+        <div
+          className="order-signal-flight"
+          key={orderSignal.id}
+          style={{
+            '--signal-x': `${orderSignal.x}px`,
+            '--signal-y': `${orderSignal.y}px`,
+            '--signal-dx': `${orderSignal.dx}px`,
+            '--signal-dy': `${orderSignal.dy}px`,
+          }}
+          onAnimationEnd={() => setOrderSignal(null)}
+          aria-hidden="true"
+        >
+          <span />
+        </div>
+      )}
       <div className="scroll-page-meter" aria-hidden="true">
         <span>FIELD / DEPTH</span>
         <i><b /></i>
@@ -1917,7 +2007,12 @@ export default function Home() {
 
               <h1 className="hero-title reveal">
                 {tr.hero.title}{' '}
-                <span className="gradient-ink">{tr.hero.accent}</span>{' '}
+                <span
+                  className="gradient-ink hero-dynamic-accent"
+                  key={`${lang}-${heroPhraseIndex}`}
+                >
+                  {heroAccents[heroPhraseIndex % heroAccents.length]}
+                </span>{' '}
                 {tr.hero.tail}
               </h1>
 
@@ -2094,6 +2189,8 @@ export default function Home() {
               id="order-form"
               className="contact-form reveal"
               onSubmit={handleContactSubmit}
+              onInput={handleContactFormInput}
+              onChange={handleContactFormInput}
               aria-labelledby="contact-form-title"
               aria-busy={contactStatus === 'sending'}
             >
@@ -2104,6 +2201,27 @@ export default function Home() {
                 <span>{tr.contact.form.badge}</span>
                 <h3 id="contact-form-title">{tr.contact.form.title}</h3>
                 <p>{tr.contact.form.hint}</p>
+              </div>
+
+              <div className="contact-form-progress" aria-label={tr.contact.form.progressLabel}>
+                <div className="contact-progress-heading">
+                  <span>{tr.contact.form.progressLabel}</span>
+                  <strong>{contactCompletion}/4</strong>
+                </div>
+                <div className="contact-progress-track" aria-hidden="true">
+                  <i style={{ width: `${(contactCompletion / 4) * 100}%` }} />
+                </div>
+                <div className="contact-progress-steps">
+                  {tr.contact.form.progressSteps.map((step, index) => (
+                    <span
+                      className={`${contactSteps[index] ? 'complete' : ''} ${contactNextStep === index ? 'active' : ''}`}
+                      key={step}
+                    >
+                      <b>{contactSteps[index] ? '✓' : `0${index + 1}`}</b>
+                      {step}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               <div className="contact-form-grid">
@@ -2166,7 +2284,6 @@ export default function Home() {
                     maxLength="1500"
                     rows="6"
                     placeholder={tr.contact.form.descriptionPlaceholder}
-                    onInput={(event) => setContactDetailsLength(event.currentTarget.value.length)}
                     required
                   />
                 </label>
@@ -2205,7 +2322,7 @@ export default function Home() {
               </label>
 
               <button
-                className="contact-submit"
+                className={`contact-submit ${contactCompletion === 4 ? 'ready' : ''}`}
                 type="submit"
                 disabled={contactStatus === 'sending'}
               >
