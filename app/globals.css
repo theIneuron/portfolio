@@ -8857,147 +8857,6 @@ body {
   to { opacity: 0; transform: translate(-50%, -50%) scale(1.35); }
 }
 
-/* Slow gamma-quanta emission from the two primary hero actions */
-.gamma-quantum-burst {
-  position: fixed;
-  z-index: 190;
-  top: var(--gamma-origin-y);
-  left: var(--gamma-origin-x);
-  width: 1px;
-  height: 1px;
-  overflow: visible;
-  pointer-events: none;
-  animation: gamma-burst-lifetime 4.2s linear both;
-}
-
-.gamma-burst-core,
-.gamma-burst-ring,
-.gamma-quantum-burst > i {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.gamma-burst-core {
-  z-index: 3;
-  display: grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  border: 1px solid rgba(223, 255, 250, 0.8);
-  border-radius: 50%;
-  background: radial-gradient(circle at 38% 32%, #f5fffd, #63f1dd 24%, #7463ff 70%);
-  box-shadow: 0 0 18px rgba(92, 241, 220, 0.9), 0 0 48px rgba(114, 93, 255, 0.68);
-  color: #172446;
-  font-family: Georgia, serif;
-  font-size: 18px;
-  font-style: italic;
-  font-weight: 800;
-  transform: translate(-50%, -50%);
-  animation: gamma-core-release 2.2s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.gamma-burst-ring {
-  width: 28px;
-  height: 28px;
-  border: 1px solid rgba(91, 239, 220, 0.68);
-  border-radius: 50%;
-  box-shadow: 0 0 20px rgba(91, 239, 220, 0.24);
-  transform: translate(-50%, -50%);
-  animation: gamma-ring-expand 2.5s ease-out both;
-}
-
-.gamma-burst-ring-two {
-  border-color: rgba(133, 111, 255, 0.62);
-  animation-delay: 0.32s;
-  animation-duration: 3.1s;
-}
-
-.gamma-quantum-burst > i {
-  width: 9px;
-  height: 9px;
-  border: 1px solid rgba(230, 255, 251, 0.8);
-  border-radius: 50%;
-  background: #5ff2dd;
-  box-shadow: 0 0 9px #5ff2dd, 0 0 24px rgba(96, 237, 220, 0.7);
-  opacity: 0;
-  transform: translate(-50%, -50%) rotate(var(--gamma-angle)) translateX(0) translateY(0) scale(0.25);
-  animation: gamma-quanta-flight var(--gamma-duration) cubic-bezier(0.18, 0.68, 0.2, 1) var(--gamma-delay) both;
-}
-
-.gamma-quantum-burst > i:nth-of-type(even) {
-  width: 7px;
-  height: 7px;
-  background: #8a74ff;
-  box-shadow: 0 0 9px #8a74ff, 0 0 26px rgba(122, 99, 255, 0.7);
-}
-
-.gamma-quantum-burst > i::after {
-  position: absolute;
-  top: 50%;
-  right: 55%;
-  width: 46px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(95, 242, 221, 0.1), rgba(95, 242, 221, 0.72));
-  content: "";
-  filter: blur(0.35px);
-  transform: translateY(-50%);
-}
-
-.gamma-quantum-burst > i:nth-of-type(even)::after {
-  background: linear-gradient(90deg, transparent, rgba(138, 116, 255, 0.1), rgba(138, 116, 255, 0.68));
-}
-
-.gamma-quantum-burst > i > b {
-  position: absolute;
-  top: -18px;
-  left: 50%;
-  color: #b7fff5;
-  font-family: Georgia, serif;
-  font-size: 14px;
-  font-style: italic;
-  font-weight: 700;
-  text-shadow: 0 0 10px rgba(95, 242, 221, 0.9);
-  transform: translateX(-50%) rotate(var(--gamma-counter-angle));
-}
-
-@keyframes gamma-burst-lifetime {
-  0%, 96% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-@keyframes gamma-core-release {
-  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.25); }
-  15% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
-  52% { opacity: 0.82; transform: translate(-50%, -50%) scale(0.82); }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.32); }
-}
-
-@keyframes gamma-ring-expand {
-  0% { opacity: 0.82; transform: translate(-50%, -50%) scale(0.2); }
-  72% { opacity: 0.34; }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(7.8); }
-}
-
-@keyframes gamma-quanta-flight {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(var(--gamma-angle)) translateX(0) translateY(0) scale(0.25);
-  }
-  13% {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(var(--gamma-angle)) translateX(18px) translateY(0) scale(1.08);
-  }
-  58% {
-    opacity: 0.92;
-    transform: translate(-50%, -50%) rotate(var(--gamma-angle)) translateX(calc(var(--gamma-distance) * 0.58)) translateY(var(--gamma-lift)) scale(0.9);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(var(--gamma-angle)) translateX(var(--gamma-distance)) translateY(0) scale(0.46);
-  }
-}
-
 .contact-form-progress {
   margin: 24px 0 28px;
   border: 1px solid rgba(128, 181, 232, 0.12);
@@ -9211,18 +9070,6 @@ body {
     display: none;
   }
 
-  .gamma-quantum-burst > i:nth-of-type(n + 9) {
-    display: none;
-  }
-
-  .gamma-quantum-burst > i::after {
-    width: 30px;
-  }
-
-  .gamma-burst-ring {
-    animation-duration: 2.8s;
-  }
-
   .site-header,
   .quantum-console,
   .contact-form,
@@ -9337,10 +9184,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gamma-quantum-burst {
-    display: none;
-  }
-
   .scroll-physics-field {
     opacity: 0.42;
   }
