@@ -305,6 +305,12 @@ const CONTENT = {
     navigationLabel: 'Asosiy navigatsiya',
     mobileNavigationLabel: 'Mobil navigatsiya',
     languageSelector: 'Tilni tanlash',
+    themeLabel: 'Sayt mavzusi',
+    themeModes: {
+      light: 'Yorug‘ mavzu',
+      auto: 'Avtomatik mavzu',
+      dark: 'Qorong‘i mavzu',
+    },
     skip: "Asosiy mazmunga o'tish",
   },
   ru: {
@@ -609,6 +615,12 @@ const CONTENT = {
     navigationLabel: 'Основная навигация',
     mobileNavigationLabel: 'Мобильная навигация',
     languageSelector: 'Выбор языка',
+    themeLabel: 'Тема сайта',
+    themeModes: {
+      light: 'Светлая тема',
+      auto: 'Автоматическая тема',
+      dark: 'Тёмная тема',
+    },
     skip: 'Перейти к основному содержанию',
   },
 }
@@ -786,6 +798,33 @@ const CopyIcon = () => (
     <path d="M16 8V6.8A1.8 1.8 0 0 0 14.2 5H6.8A1.8 1.8 0 0 0 5 6.8v7.4A1.8 1.8 0 0 0 6.8 16H8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
   </svg>
 )
+
+const SunIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+  </svg>
+)
+
+const AutoThemeIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M12 4a8 8 0 0 0 0 16V4Z" fill="currentColor" opacity="0.82" />
+    <path d="M12 7.5v9" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" opacity="0.42" />
+  </svg>
+)
+
+const MoonIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M20 15.2A8.4 8.4 0 0 1 8.8 4 8.4 8.4 0 1 0 20 15.2Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+  </svg>
+)
+
+const THEME_MODES = [
+  { id: 'light', Icon: SunIcon },
+  { id: 'auto', Icon: AutoThemeIcon },
+  { id: 'dark', Icon: MoonIcon },
+]
 
 const LearningSuccessIcon = () => (
   <svg viewBox="0 0 88 88" fill="none" aria-hidden="true">
@@ -1195,6 +1234,7 @@ export default function Home() {
   const [heroPhraseIndex, setHeroPhraseIndex] = useState(0)
   const [contactSteps, setContactSteps] = useState([false, false, false, false])
   const [orderSignal, setOrderSignal] = useState(null)
+  const [themeMode, setThemeMode] = useState(null)
   const menuButtonRef = useRef(null)
   const mobileNavRef = useRef(null)
   const demoPageRef = useRef(0)
@@ -1215,6 +1255,37 @@ export default function Home() {
   const contactNextStep = contactSteps.findIndex((step) => !step)
 
   useScrollReveal()
+
+  useEffect(() => {
+    try {
+      const savedMode = window.localStorage.getItem('portfolio-theme')
+      setThemeMode(['light', 'auto', 'dark'].includes(savedMode) ? savedMode : 'auto')
+    } catch (error) {
+      setThemeMode('auto')
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!themeMode) return undefined
+
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+    const applyTheme = () => {
+      const resolvedTheme = themeMode === 'auto' ? (systemTheme.matches ? 'dark' : 'light') : themeMode
+      document.documentElement.dataset.theme = resolvedTheme
+      document.documentElement.dataset.themeMode = themeMode
+      document.documentElement.style.colorScheme = resolvedTheme
+    }
+
+    applyTheme()
+    try {
+      window.localStorage.setItem('portfolio-theme', themeMode)
+    } catch (error) {
+      // The selected theme still works when browser storage is unavailable.
+    }
+
+    if (themeMode === 'auto') systemTheme.addEventListener?.('change', applyTheme)
+    return () => systemTheme.removeEventListener?.('change', applyTheme)
+  }, [themeMode])
 
   useEffect(() => {
     setHeroPhraseIndex(0)
@@ -1921,6 +1992,25 @@ export default function Home() {
                   {language}
                 </button>
               ))}
+            </div>
+
+            <div className="theme-switch" role="group" aria-label={tr.themeLabel}>
+              {THEME_MODES.map(({ id, Icon }) => {
+                const active = (themeMode || 'auto') === id
+                return (
+                  <button
+                    key={id}
+                    type="button"
+                    className={active ? 'active' : ''}
+                    onClick={() => setThemeMode(id)}
+                    aria-label={tr.themeModes[id]}
+                    title={tr.themeModes[id]}
+                    aria-pressed={active}
+                  >
+                    <Icon />
+                  </button>
+                )
+              })}
             </div>
 
             <a

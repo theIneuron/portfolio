@@ -1,5 +1,23 @@
 import './globals.css'
 
+const themeScript = `
+  (() => {
+    try {
+      const savedMode = localStorage.getItem('portfolio-theme')
+      const mode = ['light', 'auto', 'dark'].includes(savedMode) ? savedMode : 'auto'
+      const darkSystemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+      const resolvedTheme = mode === 'auto' ? (darkSystemTheme ? 'dark' : 'light') : mode
+      document.documentElement.dataset.theme = resolvedTheme
+      document.documentElement.dataset.themeMode = mode
+      document.documentElement.style.colorScheme = resolvedTheme
+    } catch (error) {
+      document.documentElement.dataset.theme = 'dark'
+      document.documentElement.dataset.themeMode = 'auto'
+      document.documentElement.style.colorScheme = 'dark'
+    }
+  })()
+`
+
 export const metadata = {
   title: 'Boyazid — преподаватель, методист и разработчик',
   description:
@@ -23,8 +41,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="uz">
+    <html lang="uz" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link

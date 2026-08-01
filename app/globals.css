@@ -4671,6 +4671,639 @@ button:focus-visible {
   }
 }
 
+/* Theme controls and light scientific laboratory */
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid rgba(163, 174, 214, 0.13);
+  border-radius: 13px 4px 13px 4px;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 3px;
+}
+
+.theme-switch button {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  border: 0;
+  border-radius: 9px 3px 9px 3px;
+  background: transparent;
+  color: #66738f;
+  cursor: pointer;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.theme-switch button:hover {
+  color: #c8c1ff;
+  transform: translateY(-1px);
+}
+
+.theme-switch button.active {
+  background: rgba(142, 126, 255, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(168, 157, 255, 0.18), 0 0 20px rgba(107, 86, 238, 0.13);
+  color: #cbc4ff;
+}
+
+.theme-switch button:focus-visible {
+  outline: 2px solid var(--quantum-cyan);
+  outline-offset: 2px;
+}
+
+.theme-switch svg {
+  width: 15px;
+  height: 15px;
+}
+
+html[data-theme] body,
+html[data-theme] .site-shell,
+html[data-theme] .site-header,
+html[data-theme] .hero-section,
+html[data-theme] .quantum-console,
+html[data-theme] .theory-bridge,
+html[data-theme] .theory-principle,
+html[data-theme] .section-white,
+html[data-theme] .section-soft,
+html[data-theme] .expertise-card,
+html[data-theme] .materials-section,
+html[data-theme] .material-card,
+html[data-theme] .material-preview,
+html[data-theme] .material-content,
+html[data-theme] .contact-section,
+html[data-theme] .contact-card,
+html[data-theme] .contact-form,
+html[data-theme] .contact-field input,
+html[data-theme] .contact-field select,
+html[data-theme] .contact-field textarea {
+  transition: background-color 0.36s ease, border-color 0.36s ease, box-shadow 0.36s ease, color 0.36s ease;
+}
+
+html[data-theme="light"] {
+  --quantum-bg: #edf4ff;
+  --quantum-panel: #ffffff;
+  --quantum-panel-2: #e9f2ff;
+  --quantum-line: rgba(62, 91, 142, 0.14);
+  --quantum-line-strong: rgba(103, 84, 225, 0.28);
+  --quantum-text: #10203d;
+  --quantum-muted: #60708c;
+  --quantum-violet: #6554e7;
+  --quantum-cyan: #078f91;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] body {
+  background: #edf4ff;
+  color: #142440;
+}
+
+html[data-theme="light"] .site-shell {
+  background:
+    radial-gradient(circle at 50% -8%, rgba(115, 91, 255, 0.14), transparent 33%),
+    linear-gradient(145deg, #f7faff, #edf4ff 53%, #e7f2fb);
+}
+
+html[data-theme="light"] .scroll-physics-field {
+  background:
+    radial-gradient(circle at 72% 42%, rgba(116, 91, 246, 0.18), transparent 31%),
+    radial-gradient(circle at 18% 75%, rgba(15, 166, 161, 0.13), transparent 35%),
+    radial-gradient(circle at 48% 5%, rgba(55, 126, 225, 0.12), transparent 32%),
+    #edf5ff;
+}
+
+html[data-theme="light"] .scroll-physics-field::after {
+  background-image: repeating-linear-gradient(to bottom, transparent 0 3px, rgba(34, 57, 96, 0.016) 3px 4px);
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+html[data-theme="light"] .scroll-field-nebula {
+  opacity: calc(0.36 + var(--contact-progress) * 0.2);
+  filter: blur(42px);
+}
+
+html[data-theme="light"] .scroll-spacetime-sheet {
+  background-image:
+    linear-gradient(rgba(94, 75, 208, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 142, 145, 0.1) 1px, transparent 1px);
+}
+
+html[data-theme="light"] .scroll-equation-cloud span {
+  color: rgba(78, 65, 156, 0.28);
+}
+
+html[data-theme="light"] .scroll-trajectory {
+  opacity: 0.66;
+  mix-blend-mode: multiply;
+}
+
+html[data-theme="light"] .scroll-trajectory-ghost {
+  stroke: rgba(50, 104, 179, 0.28);
+}
+
+html[data-theme="light"] .scroll-trajectory-nodes circle {
+  fill: #f8fbff;
+  stroke: #078f91;
+}
+
+html[data-theme="light"] .scroll-tunnel b {
+  background: rgba(255, 255, 255, 0.62);
+  color: rgba(76, 59, 169, 0.72);
+}
+
+html[data-theme="light"] .global-pointer-field {
+  background: radial-gradient(circle, rgba(103, 81, 230, 0.09), rgba(10, 156, 153, 0.035) 33%, transparent 69%);
+  opacity: 0.62;
+  mix-blend-mode: multiply;
+}
+
+html[data-theme="light"] .scroll-page-meter {
+  color: #687995;
+}
+
+html[data-theme="light"] .scroll-page-meter > strong {
+  border-color: rgba(94, 76, 205, 0.2);
+  background: rgba(255, 255, 255, 0.86);
+  color: #6756d8;
+}
+
+html[data-theme="light"] .site-header {
+  border-color: rgba(68, 96, 146, 0.16);
+  background: rgba(246, 250, 255, 0.86);
+  box-shadow: 0 12px 36px rgba(41, 65, 108, 0.06);
+}
+
+html[data-theme="light"] .brand,
+html[data-theme="light"] .brand-name,
+html[data-theme="light"] .desktop-nav a {
+  color: #142440;
+}
+
+html[data-theme="light"] .brand-role,
+html[data-theme="light"] .desktop-nav a {
+  color: #62718b;
+}
+
+html[data-theme="light"] .desktop-nav a:hover {
+  color: #30207f;
+}
+
+html[data-theme="light"] .language-switch,
+html[data-theme="light"] .theme-switch {
+  border-color: rgba(72, 96, 139, 0.16);
+  background: rgba(61, 83, 126, 0.045);
+}
+
+html[data-theme="light"] .language-switch button,
+html[data-theme="light"] .theme-switch button {
+  color: #697893;
+}
+
+html[data-theme="light"] .language-switch button.active,
+html[data-theme="light"] .theme-switch button.active {
+  background: #ffffff;
+  box-shadow: 0 5px 15px rgba(52, 71, 111, 0.09), inset 0 0 0 1px rgba(102, 83, 221, 0.14);
+  color: #5543ce;
+}
+
+html[data-theme="light"] .theme-switch button:hover {
+  color: #5543ce;
+}
+
+html[data-theme="light"] .header-contact {
+  border-color: rgba(91, 72, 204, 0.22);
+  background: rgba(101, 80, 226, 0.09);
+  color: #35268f;
+}
+
+html[data-theme="light"] .header-contact:hover {
+  background: rgba(101, 80, 226, 0.16);
+}
+
+html[data-theme="light"] .menu-button {
+  border-color: rgba(72, 96, 139, 0.16);
+  background: rgba(255, 255, 255, 0.7);
+  color: #172844;
+}
+
+html[data-theme="light"] .mobile-nav {
+  border-color: rgba(72, 96, 139, 0.15);
+  background: rgba(245, 249, 255, 0.98);
+}
+
+html[data-theme="light"] .mobile-nav a {
+  border-color: rgba(72, 96, 139, 0.12);
+  color: #243653;
+}
+
+html[data-theme="light"] .hero-section {
+  border-color: rgba(63, 88, 136, 0.14);
+  background:
+    radial-gradient(circle at calc(76% + var(--field-x) * 5%) calc(42% + var(--field-y) * 5%), rgba(114, 89, 239, 0.16), transparent 30%),
+    radial-gradient(circle at 13% 79%, rgba(14, 160, 157, 0.12), transparent 33%),
+    radial-gradient(circle at 42% -8%, rgba(58, 128, 222, 0.12), transparent 33%),
+    linear-gradient(145deg, rgba(247, 250, 255, 0.93), rgba(236, 243, 255, 0.9) 50%, rgba(229, 241, 250, 0.92));
+}
+
+html[data-theme="light"] .hero-title,
+html[data-theme="light"] .section-title,
+html[data-theme="light"] .section-title-light,
+html[data-theme="light"] .theory-bridge-title h2,
+html[data-theme="light"] .contact-copy h2 {
+  color: #10203d;
+}
+
+html[data-theme="light"] .gradient-ink {
+  background-image: linear-gradient(112deg, #7663f2 0%, #5947d9 46%, #078f91 102%);
+  filter: drop-shadow(0 0 22px rgba(98, 79, 216, 0.1));
+}
+
+html[data-theme="light"] .hero-eyebrow {
+  border-color: rgba(8, 143, 145, 0.2);
+  background: rgba(7, 143, 145, 0.06);
+  color: #087f81;
+}
+
+html[data-theme="light"] .hero-description,
+html[data-theme="light"] .hero-availability,
+html[data-theme="light"] .section-intro,
+html[data-theme="light"] .contact-copy > p:not(.section-eyebrow) {
+  color: #61718b;
+}
+
+html[data-theme="light"] .button-secondary {
+  border-color: rgba(62, 88, 136, 0.18);
+  background: rgba(255, 255, 255, 0.58);
+  color: #1e3150;
+}
+
+html[data-theme="light"] .focus-list span {
+  border-color: rgba(62, 88, 136, 0.15);
+  background: rgba(255, 255, 255, 0.48);
+  color: #5b6c88;
+}
+
+html[data-theme="light"] .quantum-console {
+  border-color: rgba(85, 76, 192, 0.2);
+  background:
+    linear-gradient(rgba(80, 70, 177, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(80, 70, 177, 0.055) 1px, transparent 1px),
+    radial-gradient(circle at 50% 42%, rgba(112, 86, 242, 0.13), transparent 39%),
+    rgba(255, 255, 255, 0.72);
+  box-shadow: 0 38px 90px rgba(50, 71, 112, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 0 100px rgba(87, 67, 207, 0.04);
+}
+
+html[data-theme="light"] .quantum-console:hover {
+  border-color: rgba(91, 73, 207, 0.34);
+  box-shadow: 0 44px 100px rgba(50, 71, 112, 0.17), 0 0 60px rgba(90, 72, 206, 0.08), inset 0 1px 0 #fff;
+}
+
+html[data-theme="light"] .quantum-console-bar,
+html[data-theme="light"] .quantum-readouts,
+html[data-theme="light"] .quantum-wave-monitor > span,
+html[data-theme="light"] .quantum-wave-monitor small {
+  color: #687893;
+}
+
+html[data-theme="light"] .quantum-console-bar {
+  border-color: rgba(68, 91, 133, 0.12);
+}
+
+html[data-theme="light"] .quantum-formula,
+html[data-theme="light"] .quantum-wave-monitor {
+  border-color: rgba(68, 91, 133, 0.14);
+  background: rgba(247, 250, 255, 0.73);
+  color: #263957;
+}
+
+html[data-theme="light"] .quantum-wave-monitor b {
+  color: #5543c2;
+}
+
+html[data-theme="light"] .quantum-wave-grid,
+html[data-theme="light"] .quantum-crosshair {
+  stroke: rgba(59, 82, 128, 0.13);
+}
+
+html[data-theme="light"] .theory-bridge {
+  border-color: rgba(66, 91, 138, 0.14);
+  background: linear-gradient(90deg, rgba(111, 87, 235, 0.09), rgba(244, 248, 255, 0.83) 42%, rgba(12, 152, 150, 0.07));
+}
+
+html[data-theme="light"] .theory-principles {
+  border-color: rgba(64, 89, 137, 0.14);
+  background: rgba(73, 97, 142, 0.12);
+}
+
+html[data-theme="light"] .theory-principle {
+  background: rgba(255, 255, 255, 0.84);
+}
+
+html[data-theme="light"] .theory-principle:hover {
+  background: #ffffff;
+}
+
+html[data-theme="light"] .theory-principle p {
+  color: #53647f;
+}
+
+html[data-theme="light"] .section-white,
+html[data-theme="light"] .section-soft {
+  border-color: rgba(66, 91, 138, 0.14);
+  background-color: rgba(241, 247, 255, 0.74);
+  background-image:
+    radial-gradient(circle at 84% 12%, rgba(109, 87, 232, 0.1), transparent 27%),
+    linear-gradient(rgba(65, 91, 139, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(65, 91, 139, 0.045) 1px, transparent 1px);
+}
+
+html[data-theme="light"] .section-white {
+  background-color: rgba(248, 251, 255, 0.8);
+}
+
+html[data-theme="light"] .expertise-card,
+html[data-theme="light"] .project-card,
+html[data-theme="light"] .next-focus {
+  border-color: rgba(65, 91, 139, 0.18);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(238, 245, 255, 0.86));
+  box-shadow: 0 18px 45px rgba(47, 70, 110, 0.08), inset 0 1px 0 #fff;
+}
+
+html[data-theme="light"] .expertise-card:hover,
+html[data-theme="light"] .project-card:hover {
+  border-color: rgba(7, 143, 145, 0.35);
+  box-shadow: 0 28px 60px rgba(47, 70, 110, 0.13), 0 0 40px rgba(7, 143, 145, 0.06), inset 0 1px 0 #fff;
+}
+
+html[data-theme="light"] .expertise-card h3,
+html[data-theme="light"] .project-card h3 {
+  color: #152641;
+}
+
+html[data-theme="light"] .expertise-card > p,
+html[data-theme="light"] .project-card p {
+  color: #63738e;
+}
+
+html[data-theme="light"] .expertise-index {
+  color: #8090aa;
+}
+
+html[data-theme="light"] .materials-section {
+  border-color: rgba(61, 89, 139, 0.16);
+  background:
+    radial-gradient(circle at 13% 18%, rgba(11, 157, 155, 0.11), transparent 28%),
+    radial-gradient(circle at 88% 82%, rgba(111, 87, 232, 0.13), transparent 32%),
+    linear-gradient(145deg, #f0f7ff, #e9f2ff);
+}
+
+html[data-theme="light"] .materials-section .material-card,
+html[data-theme="light"] .material-card {
+  border-color: rgba(62, 89, 139, 0.2);
+  background: #f9fbff;
+  box-shadow: 0 20px 50px rgba(48, 70, 109, 0.09), inset 0 1px 0 #fff;
+}
+
+html[data-theme="light"] .materials-section .material-card .material-content,
+html[data-theme="light"] .material-content {
+  background: linear-gradient(145deg, rgba(110, 89, 229, 0.035), transparent 52%), #f9fbff;
+}
+
+html[data-theme="light"] .materials-section .material-card .material-content h3,
+html[data-theme="light"] .material-content h3 {
+  color: #152641;
+}
+
+html[data-theme="light"] .materials-section .material-card .material-content > p,
+html[data-theme="light"] .material-content > p {
+  color: #64748e;
+}
+
+html[data-theme="light"] .material-preview,
+html[data-theme="light"] .material-simulation {
+  border-color: rgba(62, 89, 139, 0.16);
+  background:
+    linear-gradient(rgba(58, 86, 137, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58, 86, 137, 0.065) 1px, transparent 1px),
+    #edf5ff;
+  background-size: 25px 25px;
+}
+
+html[data-theme="light"] .material-card .material-simulation {
+  background-color: #eaf3ff;
+}
+
+html[data-theme="light"] .preview-top span,
+html[data-theme="light"] .material-meta span,
+html[data-theme="light"] .simulation-readout span {
+  color: #61718b;
+}
+
+html[data-theme="light"] .material-meta span,
+html[data-theme="light"] .simulation-readout {
+  border-color: rgba(61, 88, 137, 0.17);
+  background: rgba(255, 255, 255, 0.73);
+}
+
+html[data-theme="light"] .material-actions {
+  border-color: rgba(61, 88, 137, 0.12);
+}
+
+html[data-theme="light"] .material-actions button,
+html[data-theme="light"] .material-actions a {
+  color: #40536f;
+}
+
+html[data-theme="light"] .simulation-axis,
+html[data-theme="light"] .material-axis {
+  stroke: rgba(55, 83, 132, 0.2);
+}
+
+html[data-theme="light"] .contact-section {
+  background:
+    radial-gradient(circle at 16% 25%, rgba(108, 84, 229, 0.15), transparent 34%),
+    radial-gradient(circle at 88% 80%, rgba(12, 154, 152, 0.1), transparent 30%),
+    rgba(235, 244, 255, 0.72);
+}
+
+html[data-theme="light"] .contact-card {
+  border-color: rgba(61, 88, 137, 0.18);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 18px 48px rgba(47, 70, 110, 0.08);
+}
+
+html[data-theme="light"] .contact-card > p,
+html[data-theme="light"] .contact-card small {
+  color: #65758f;
+}
+
+html[data-theme="light"] .contact-card > a {
+  border-color: rgba(61, 88, 137, 0.13);
+  color: #263956;
+}
+
+html[data-theme="light"] .contact-card > a:hover {
+  background: rgba(101, 80, 226, 0.06);
+}
+
+html[data-theme="light"] .contact-form {
+  border-color: rgba(74, 97, 154, 0.24);
+  background:
+    linear-gradient(rgba(65, 91, 139, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(65, 91, 139, 0.04) 1px, transparent 1px),
+    rgba(252, 253, 255, 0.94);
+  box-shadow: 0 36px 90px rgba(44, 65, 105, 0.14), 0 0 50px rgba(88, 68, 207, 0.04), inset 0 1px 0 #fff;
+  color: #182944;
+  color-scheme: light;
+}
+
+html[data-theme="light"] .contact-form-header h3 {
+  color: #142440;
+}
+
+html[data-theme="light"] .contact-form-header p,
+html[data-theme="light"] .contact-field > span:first-child,
+html[data-theme="light"] .contact-field-label {
+  color: #5d6e89;
+}
+
+html[data-theme="light"] .contact-form-progress {
+  border-color: rgba(63, 89, 139, 0.14);
+  background: rgba(234, 242, 253, 0.7);
+}
+
+html[data-theme="light"] .contact-progress-heading,
+html[data-theme="light"] .contact-progress-steps > span,
+html[data-theme="light"] .contact-progress-steps b {
+  color: #65758f;
+}
+
+html[data-theme="light"] .contact-field input,
+html[data-theme="light"] .contact-field select,
+html[data-theme="light"] .contact-field textarea {
+  border-color: rgba(63, 89, 139, 0.2);
+  background-color: #f1f6fd;
+  color: #152641;
+  -webkit-text-fill-color: #152641;
+}
+
+html[data-theme="light"] .contact-field input::placeholder,
+html[data-theme="light"] .contact-field textarea::placeholder {
+  color: #7787a0;
+  opacity: 1;
+}
+
+html[data-theme="light"] .contact-field input:hover,
+html[data-theme="light"] .contact-field select:hover,
+html[data-theme="light"] .contact-field textarea:hover,
+html[data-theme="light"] .contact-field input:focus,
+html[data-theme="light"] .contact-field select:focus,
+html[data-theme="light"] .contact-field textarea:focus {
+  background-color: #ffffff;
+  color: #10203d;
+  -webkit-text-fill-color: #10203d;
+}
+
+html[data-theme="light"] .contact-field select option {
+  background: #ffffff;
+  color: #152641;
+}
+
+html[data-theme="light"] .contact-field input:-webkit-autofill,
+html[data-theme="light"] .contact-field input:-webkit-autofill:hover,
+html[data-theme="light"] .contact-field input:-webkit-autofill:focus,
+html[data-theme="light"] .contact-field select:-webkit-autofill,
+html[data-theme="light"] .contact-field select:-webkit-autofill:hover,
+html[data-theme="light"] .contact-field select:-webkit-autofill:focus,
+html[data-theme="light"] .contact-field textarea:-webkit-autofill,
+html[data-theme="light"] .contact-field textarea:-webkit-autofill:hover,
+html[data-theme="light"] .contact-field textarea:-webkit-autofill:focus {
+  border-color: rgba(7, 143, 145, 0.34) !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+  caret-color: #078f91 !important;
+  -webkit-text-fill-color: #10203d !important;
+}
+
+html[data-theme="light"] .contact-field input:autofill,
+html[data-theme="light"] .contact-field select:autofill,
+html[data-theme="light"] .contact-field textarea:autofill {
+  background: #ffffff !important;
+  color: #10203d !important;
+}
+
+html[data-theme="light"] .contact-consent em,
+html[data-theme="light"] .contact-form-note {
+  color: #5f708b;
+}
+
+html[data-theme="light"] .contact-consent > span {
+  border-color: rgba(61, 88, 137, 0.22);
+  background: #f7faff;
+}
+
+html[data-theme="light"] .contact-form-status.success {
+  border-color: rgba(7, 143, 145, 0.24);
+  background: rgba(7, 143, 145, 0.07);
+  color: #17696b;
+}
+
+html[data-theme="light"] .contact-form-status.error {
+  background: rgba(210, 58, 73, 0.07);
+  color: #8b2934;
+}
+
+@media (max-width: 639px) {
+  .theme-switch {
+    gap: 1px;
+    padding: 2px;
+  }
+
+  .theme-switch button {
+    width: 27px;
+    height: 29px;
+  }
+
+  .theme-switch svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+@media (max-width: 340px) {
+  .brand > span:last-child {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme] body,
+  html[data-theme] .site-shell,
+  html[data-theme] .site-header,
+  html[data-theme] .hero-section,
+  html[data-theme] .quantum-console,
+  html[data-theme] .theory-bridge,
+  html[data-theme] .theory-principle,
+  html[data-theme] .section-white,
+  html[data-theme] .section-soft,
+  html[data-theme] .expertise-card,
+  html[data-theme] .materials-section,
+  html[data-theme] .material-card,
+  html[data-theme] .material-preview,
+  html[data-theme] .material-content,
+  html[data-theme] .contact-section,
+  html[data-theme] .contact-card,
+  html[data-theme] .contact-form,
+  html[data-theme] .contact-field input,
+  html[data-theme] .contact-field select,
+  html[data-theme] .contact-field textarea {
+    transition: none;
+  }
+}
+
 /* Restore the clean success boost countdown after removing the stage panel. */
 .success-celebration-progress span {
   animation: success-progress 14s linear both;
