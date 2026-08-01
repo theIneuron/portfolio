@@ -1149,15 +1149,6 @@ const ScrollPhysicsField = () => (
       ))}
     </div>
 
-    <div className="scroll-formula-morph">
-      {['∑', 'ψ', '∂', 'Δ'].map((formula, index) => (
-        <span className={index === 0 ? 'active' : ''} key={formula}>
-          {formula}
-        </span>
-      ))}
-      <small>FIELD · STATE</small>
-    </div>
-
     <div className="scroll-tunnel">
       {Array.from({ length: 9 }, (_, index) => (
         <i key={index} style={{ '--ring-index': index }} />
@@ -1282,6 +1273,7 @@ export default function Home() {
       trajectoryMarker: document.querySelector('.scroll-trajectory-marker'),
       trajectoryMarkerHalo: document.querySelector('.scroll-trajectory-marker-halo'),
       formulaMorphs: Array.from(document.querySelectorAll('.scroll-formula-morph span')),
+      formulaCounter: document.querySelector('.scroll-formula-index'),
       particles: Array.from(document.querySelectorAll('.scroll-particles i')),
     }
     let frame = null
@@ -1319,6 +1311,9 @@ export default function Home() {
         scene.formulaMorphs.forEach((formula, index) => {
           formula.classList.toggle('active', index === formulaIndex)
         })
+        if (scene.formulaCounter) {
+          scene.formulaCounter.textContent = `0${formulaIndex + 1} / 04`
+        }
       }
 
       if (scene.trajectoryPath) {
@@ -1877,6 +1872,15 @@ export default function Home() {
     <div className="site-shell">
       <ScrollPhysicsField />
       <div className="global-pointer-field" aria-hidden="true" />
+      <div className="scroll-formula-morph" aria-hidden="true">
+        {['∑', 'ψ', '∂', 'Δ'].map((formula, index) => (
+          <span className={index === 0 ? 'active' : ''} key={formula}>
+            {formula}
+          </span>
+        ))}
+        <b className="scroll-formula-index">01 / 04</b>
+        <small>FIELD · STATE</small>
+      </div>
       {orderSignal && (
         <div
           className="order-signal-flight"
