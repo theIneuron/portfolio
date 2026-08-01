@@ -794,9 +794,16 @@ const EDUCATION_SYMBOLS = [
 ]
 
 const SUCCESS_CELEBRATION_MS = 6200
+const FORMULA_STREAM = 'π · ∑ · a² + b² = c² · F = ma · ∫ f(x)dx · E = mc² · √x · Δ'
 
 const EducationAmbient = ({ dark = false }) => (
   <div className={`education-ambient ${dark ? 'education-ambient-dark' : ''}`} aria-hidden="true">
+    <div className="education-formula-stream">
+      <div>
+        <span>{FORMULA_STREAM}</span>
+        <span>{FORMULA_STREAM}</span>
+      </div>
+    </div>
     <svg className="education-curve" viewBox="0 0 520 220" fill="none">
       <path className="education-curve-axis" d="M22 188H500M44 204V22" />
       <path
