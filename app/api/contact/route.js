@@ -16,7 +16,6 @@ const SERVICE_LABELS = {
   methodical_material: 'Методическая разработка или урок',
   tests_diagnostics: 'Тесты и диагностика',
   worksheets: 'Задачи и рабочие листы',
-  vibe_coding: 'Обучение вайбкодингу',
   edtech: 'Цифровой образовательный инструмент',
   other: 'Другая задача',
 }
@@ -27,7 +26,6 @@ const SERVICE_REFERENCE_CODES = {
   methodical_material: 'MET',
   tests_diagnostics: 'TST',
   worksheets: 'LST',
-  vibe_coding: 'VIB',
   edtech: 'EDU',
   other: 'OTH',
 }
