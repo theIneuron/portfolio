@@ -21,13 +21,13 @@ const SERVICE_LABELS = {
 }
 
 const SERVICE_REFERENCE_CODES = {
-  math_lessons: { symbol: '∑', code: 'MAT' },
-  physics_lessons: { symbol: 'ψ', code: 'FIZ' },
-  methodical_material: { symbol: '∂', code: 'MET' },
-  tests_diagnostics: { symbol: 'Δ', code: 'TST' },
-  worksheets: { symbol: '∫', code: 'LST' },
-  edtech: { symbol: 'Φ', code: 'EDU' },
-  other: { symbol: 'Ω', code: 'OTH' },
+  math_lessons: 'MAT',
+  physics_lessons: 'FIZ',
+  methodical_material: 'MET',
+  tests_diagnostics: 'TST',
+  worksheets: 'LST',
+  edtech: 'EDU',
+  other: 'OTH',
 }
 
 const REFERENCE_ALPHABET = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ'
@@ -274,14 +274,14 @@ function validatePayload(payload) {
 }
 
 function requestId(service = 'other') {
-  const category = SERVICE_REFERENCE_CODES[service] || SERVICE_REFERENCE_CODES.other
+  const categoryCode = SERVICE_REFERENCE_CODES[service] || SERVICE_REFERENCE_CODES.other
   const bytes = randomBytes(REFERENCE_RANDOM_LENGTH)
   const suffix = Array.from(
     bytes,
     (byte) => REFERENCE_ALPHABET[byte % REFERENCE_ALPHABET.length]
   ).join('')
 
-  return `BZ-${category.symbol}${category.code}-${suffix}`
+  return `BYZ-${categoryCode}-${suffix}`
 }
 
 function successResponse(id) {
@@ -289,7 +289,7 @@ function successResponse(id) {
 }
 
 function telegramMessage(payload, id) {
-  const category = SERVICE_REFERENCE_CODES[payload.service] || SERVICE_REFERENCE_CODES.other
+  const categoryCode = SERVICE_REFERENCE_CODES[payload.service] || SERVICE_REFERENCE_CODES.other
   const submittedAt = new Intl.DateTimeFormat('ru-RU', {
     dateStyle: 'medium',
     timeStyle: 'short',
@@ -299,7 +299,7 @@ function telegramMessage(payload, id) {
   return [
     'Новая заявка с сайта',
     `Номер: ${id}`,
-    `Категория: ${category.symbol} ${category.code}`,
+    `Категория: ${categoryCode}`,
     '',
     `Услуга: ${SERVICE_LABELS[payload.service]}`,
     `Имя: ${payload.name}`,
