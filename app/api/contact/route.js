@@ -281,7 +281,7 @@ function requestId(service = 'other') {
     (byte) => REFERENCE_ALPHABET[byte % REFERENCE_ALPHABET.length]
   ).join('')
 
-  return `BYZ-${categoryCode}-${suffix}`
+  return `BZ-${categoryCode}-${suffix}`
 }
 
 function successResponse(id) {
