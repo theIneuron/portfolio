@@ -8270,7 +8270,7 @@ body {
 
 .success-reference-card {
   position: relative;
-  width: min(470px, 88vw);
+  width: min(640px, 92vw);
   margin-top: 24px;
   overflow: hidden;
   border: 1px solid rgba(172, 159, 255, 0.32);
@@ -8325,10 +8325,11 @@ body {
   color: #fff;
   padding: 0;
   font-family: "JetBrains Mono", monospace;
-  font-size: clamp(1.55rem, 4.5vw, 2.25rem);
+  font-size: clamp(1.4rem, 3.2vw, 2.05rem);
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.055em;
   line-height: 1;
+  white-space: nowrap;
   text-shadow: 0 0 24px rgba(167, 153, 255, 0.34);
 }
 
