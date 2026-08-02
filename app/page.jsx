@@ -1856,34 +1856,36 @@ export default function Home() {
     setContactStatus('sending')
     setContactResult(null)
 
+    let response
+    let result
     try {
-      const response = await fetch('/api/contact', {
+      response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
       })
-      const result = await response.json().catch(() => null)
-
-      if (!response.ok || !result?.ok) {
-        setContactStatus('error')
-        setContactResult({ code: result?.code || 'generic' })
-        return
-      }
-
-      form.reset()
-      setContactDetailsLength(0)
-      setContactSteps([false, false, false, false])
-      setContactStatus('success')
-      setContactResult({ requestId: result.requestId || null })
-      setReferenceCopied(false)
-      celebrationReturnFocusRef.current = form.querySelector('button[type="submit"]')
-      setCelebrationOpen(true)
+      result = await response.json().catch(() => null)
     } catch {
       setContactStatus('error')
       setContactResult({ code: 'generic' })
+      return
     }
+
+    if (!response.ok || !result?.ok) {
+      setContactStatus('error')
+      setContactResult({ code: result?.code || 'generic' })
+      return
+    }
+
+    form.reset()
+    setContactDetailsLength(0)
+    setContactStatus('success')
+    setContactResult({ requestId: result.requestId || null })
+    setReferenceCopied(false)
+    celebrationReturnFocusRef.current = form.querySelector('button[type="submit"]')
+    setCelebrationOpen(true)
   }
 
   const copyRequestReference = async () => {
