@@ -8249,6 +8249,8 @@ body {
 }
 
 .success-celebration-copy {
+  width: min(720px, 94vw);
+  max-width: 720px;
   margin-top: -10px;
 }
 
@@ -8270,7 +8272,7 @@ body {
 
 .success-reference-card {
   position: relative;
-  width: min(640px, 92vw);
+  width: 100%;
   margin-top: 24px;
   overflow: hidden;
   border: 1px solid rgba(172, 159, 255, 0.32);
@@ -8313,12 +8315,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 14px;
 }
 
 .success-celebration-copy .success-reference-card strong {
   display: block;
-  min-width: 0;
+  width: max-content;
+  min-width: max-content;
+  flex: 0 0 auto;
   margin: 0;
   border: 0;
   background: transparent;
@@ -8329,6 +8333,8 @@ body {
   font-weight: 900;
   letter-spacing: 0.055em;
   line-height: 1;
+  overflow-wrap: normal;
+  word-break: keep-all;
   white-space: nowrap;
   text-shadow: 0 0 24px rgba(167, 153, 255, 0.34);
 }
@@ -8345,7 +8351,7 @@ body {
   background: rgba(133, 111, 255, 0.1);
   color: #c9c1ff;
   cursor: pointer;
-  padding: 0 14px;
+  padding: 0 11px;
   font: inherit;
   font-family: "JetBrains Mono", monospace;
   font-size: 8px;
