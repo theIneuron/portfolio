@@ -8372,6 +8372,32 @@ body {
   flex: 0 0 auto;
 }
 
+.success-reference-category {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 13px;
+  border-top: 1px solid rgba(176, 164, 255, 0.12);
+  padding-top: 11px;
+  color: #a8b2c9;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.success-reference-category span {
+  color: #6f7b98;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.success-reference-category b {
+  color: #78ddd4;
+  font-weight: 850;
+}
+
 .success-reference-card.copied {
   border-color: rgba(67, 231, 208, 0.38);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3), 0 0 52px rgba(67, 231, 208, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.055);

@@ -254,6 +254,7 @@ const CONTENT = {
           'Rahmat! Arizangizni oldim va ko‘rsatilgan aloqa orqali siz bilan bog‘lanaman.',
         reference: 'Ariza raqami',
         referenceYours: 'Sizning ariza raqamingiz',
+        referenceCategory: 'Ariza toifasi',
         copyReference: 'Raqamni nusxalash',
         copiedReference: 'Nusxalandi',
         celebrationEyebrow: 'SIGNAL QABUL QILINDI · Φ 01',
@@ -563,6 +564,7 @@ const CONTENT = {
           'Спасибо! Я получил заявку и свяжусь с вами по указанному контакту.',
         reference: 'Номер заявки',
         referenceYours: 'Ваш номер заявки',
+        referenceCategory: 'Категория заявки',
         copyReference: 'Скопировать номер',
         copiedReference: 'Скопировано',
         celebrationEyebrow: 'СИГНАЛ ПРИНЯТ · Φ 01',
@@ -1882,7 +1884,7 @@ export default function Home() {
     form.reset()
     setContactDetailsLength(0)
     setContactStatus('success')
-    setContactResult({ requestId: result.requestId || null })
+    setContactResult({ requestId: result.requestId || null, service: payload.service })
     setReferenceCopied(false)
     celebrationReturnFocusRef.current = form.querySelector('button[type="submit"]')
     setCelebrationOpen(true)
@@ -2516,6 +2518,16 @@ export default function Home() {
                       </span>
                     </button>
                   </div>
+                  {contactResult.service && (
+                    <small className="success-reference-category">
+                      <span>{tr.contact.form.referenceCategory}</span>
+                      <b>
+                        {tr.contact.form.services.find(
+                          ({ value }) => value === contactResult.service
+                        )?.label || contactResult.service}
+                      </b>
+                    </small>
+                  )}
                 </div>
               )}
               <button type="button" onClick={() => setCelebrationOpen(false)}>

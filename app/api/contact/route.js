@@ -1,4 +1,4 @@
-import { createHash, randomBytes, randomUUID } from 'node:crypto'
+import { createHash, randomBytes } from 'node:crypto'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -19,6 +19,19 @@ const SERVICE_LABELS = {
   edtech: 'Цифровой образовательный инструмент',
   other: 'Другая задача',
 }
+
+const SERVICE_REFERENCE_CODES = {
+  math_lessons: { symbol: '∑', code: 'MAT' },
+  physics_lessons: { symbol: 'ψ', code: 'FIZ' },
+  methodical_material: { symbol: '∂', code: 'MET' },
+  tests_diagnostics: { symbol: 'Δ', code: 'TST' },
+  worksheets: { symbol: '∫', code: 'LST' },
+  edtech: { symbol: 'Φ', code: 'EDU' },
+  other: { symbol: 'Ω', code: 'OTH' },
+}
+
+const REFERENCE_ALPHABET = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ'
+const REFERENCE_RANDOM_LENGTH = 6
 
 const ALLOWED_FIELDS = new Set([
   'name',
@@ -260,8 +273,15 @@ function validatePayload(payload) {
   }
 }
 
-function requestId() {
-  return `BZ-${randomUUID().replaceAll('-', '').slice(0, 7).toUpperCase()}`
+function requestId(service = 'other') {
+  const category = SERVICE_REFERENCE_CODES[service] || SERVICE_REFERENCE_CODES.other
+  const bytes = randomBytes(REFERENCE_RANDOM_LENGTH)
+  const suffix = Array.from(
+    bytes,
+    (byte) => REFERENCE_ALPHABET[byte % REFERENCE_ALPHABET.length]
+  ).join('')
+
+  return `BZ-${category.symbol}${category.code}-${suffix}`
 }
 
 function successResponse(id) {
@@ -269,6 +289,7 @@ function successResponse(id) {
 }
 
 function telegramMessage(payload, id) {
+  const category = SERVICE_REFERENCE_CODES[payload.service] || SERVICE_REFERENCE_CODES.other
   const submittedAt = new Intl.DateTimeFormat('ru-RU', {
     dateStyle: 'medium',
     timeStyle: 'short',
@@ -278,6 +299,7 @@ function telegramMessage(payload, id) {
   return [
     'Новая заявка с сайта',
     `Номер: ${id}`,
+    `Категория: ${category.symbol} ${category.code}`,
     '',
     `Услуга: ${SERVICE_LABELS[payload.service]}`,
     `Имя: ${payload.name}`,
@@ -388,7 +410,7 @@ export async function POST(request) {
     return jsonResponse({ ok: false, code: 'validation' }, 400)
   }
 
-  const id = requestId()
+  const id = requestId(payload.service)
   const delivery = await sendToTelegram(payload, id)
 
   if (delivery === 'unconfigured') {
