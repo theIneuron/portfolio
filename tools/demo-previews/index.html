@@ -489,11 +489,109 @@
         margin-bottom: 5px;
         font-size: 12px;
       }
+      /* A4 document system: denser, calmer and closer to a real teacher handout. */
+      .page { padding: 42px 54px 48px; }
+      header { padding-bottom: 13px; }
+      .brand-mark { width: 36px; height: 36px; border-radius: 10px; font-size: 15px; }
+      .demo-badge { padding: 7px 11px; background: #fff; font-size: 7px; }
+      .kicker { margin: 20px 0 8px; font-size: 8px; }
+      h1 { max-width: 760px; font-size: 30px; line-height: 1.12; letter-spacing: -.025em; }
+      .lead { margin-top: 8px; font-size: 11px; line-height: 1.45; }
+      .meta { margin-top: 13px; gap: 7px; }
+      .meta > div { min-height: 48px; border-radius: 8px; padding: 9px 11px; }
+      .meta span { margin-bottom: 4px; font-size: 7px; }
+      .meta strong { font-size: 10px; }
+      .section { margin-top: 12px; border-radius: 11px; padding: 13px 15px; }
+      .section-title { margin-bottom: 10px; }
+      .section-title h2 { font-size: 14px; }
+      .section-title span { font-size: 7px; }
+      .document-fields {
+        display: grid;
+        grid-template-columns: 1.6fr .55fr .7fr;
+        gap: 15px;
+        margin-top: 12px;
+        border-bottom: 1px solid var(--line);
+        padding: 0 2px 10px;
+      }
+      .document-fields span { color: var(--muted); font-size: 8px; font-weight: 800; }
+      .document-fields i { display: inline-block; width: calc(100% - 52px); margin-left: 5px; border-bottom: 1px solid #9ba6b8; }
+      .passport {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+      .passport div { min-height: 54px; border-right: 1px solid var(--line); padding: 9px; }
+      .passport div:last-child { border-right: 0; }
+      .passport span { display: block; margin-bottom: 5px; color: var(--muted); font-size: 7px; font-weight: 800; text-transform: uppercase; }
+      .passport b { font-size: 9px; line-height: 1.35; }
+      .lesson-table, .criteria-table, .spec-table { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; }
+      .lesson-row, .criteria-row, .spec-row { display: grid; border-bottom: 1px solid var(--line); }
+      .lesson-row:last-child, .criteria-row:last-child, .spec-row:last-child { border-bottom: 0; }
+      .lesson-row { grid-template-columns: .65fr 1.55fr 1.4fr .42fr .7fr; }
+      .criteria-row { grid-template-columns: .28fr 1.75fr .65fr; }
+      .spec-row { grid-template-columns: .28fr 1.5fr .62fr .45fr; }
+      .lesson-row > *, .criteria-row > *, .spec-row > * {
+        border-right: 1px solid var(--line);
+        padding: 7px 8px;
+        font-size: 8px;
+        line-height: 1.35;
+      }
+      .lesson-row > *:last-child, .criteria-row > *:last-child, .spec-row > *:last-child { border-right: 0; }
+      .table-head { background: var(--soft, var(--violet-soft)); color: var(--ink); font-weight: 900; }
+      .micro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .micro-card { border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
+      .micro-card strong { display: block; margin-bottom: 5px; font-size: 9px; }
+      .micro-card p, .micro-card li { margin: 0; color: var(--muted); font-size: 8px; line-height: 1.45; }
+      .micro-card ul { margin: 0; padding-left: 14px; }
+      .worked-example { display: grid; grid-template-columns: .85fr 1.8fr; gap: 11px; }
+      .worked-problem { border-radius: 9px; background: var(--soft); padding: 13px; }
+      .worked-problem span { color: var(--muted); font-size: 7px; font-weight: 900; text-transform: uppercase; }
+      .worked-problem strong { display: block; margin: 13px 0 8px; color: var(--accent); font-size: 20px; }
+      .worked-problem p { margin: 0; color: var(--muted); font-size: 8px; line-height: 1.5; }
+      .solution { border: 1px solid var(--line); border-radius: 9px; padding: 10px 12px; }
+      .solution div { display: grid; grid-template-columns: 20px 1fr; gap: 7px; border-bottom: 1px dashed var(--line); padding: 5px 0; font-size: 9px; line-height: 1.4; }
+      .solution div:last-child { border-bottom: 0; }
+      .solution b { color: var(--accent); }
+      .compact-tasks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .compact-task { min-height: 100px; border: 1px solid var(--line); border-radius: 9px; padding: 10px; }
+      .compact-task span { color: var(--accent); font-size: 7px; font-weight: 900; text-transform: uppercase; }
+      .compact-task strong { display: block; margin: 8px 0 6px; font-size: 11px; }
+      .compact-task p { margin: 0; color: var(--muted); font-size: 8px; line-height: 1.4; }
+      .answer-lines { display: grid; gap: 7px; margin-top: 9px; }
+      .answer-lines i { display: block; border-bottom: 1px solid #b7c0cf; }
+      .instruction-strip { display: flex; align-items: center; gap: 18px; border-radius: 8px; background: var(--soft); padding: 9px 12px; }
+      .instruction-strip b { color: var(--accent); font-size: 11px; }
+      .instruction-strip span { color: var(--muted); font-size: 8px; font-weight: 800; }
+      .score { float: right; color: var(--accent); font-size: 8px; font-weight: 900; }
+      .real-task { border-bottom: 1px solid var(--line); padding: 8px 0; }
+      .real-task:last-child { border-bottom: 0; }
+      .real-task p { margin: 0 0 6px; font-size: 9px; font-weight: 700; line-height: 1.45; }
+      .real-task .options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+      .real-task .options span { border: 1px solid var(--line); border-radius: 6px; padding: 6px; color: var(--muted); font-size: 8px; text-align: center; }
+      .procedure { counter-reset: procedure; display: grid; gap: 6px; }
+      .procedure div { position: relative; min-height: 27px; padding: 6px 8px 6px 35px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 8px; line-height: 1.45; }
+      .procedure div::before { counter-increment: procedure; content: counter(procedure); position: absolute; left: 3px; top: 3px; display: grid; width: 22px; height: 22px; place-items: center; border-radius: 6px; background: var(--soft); color: var(--accent); font-weight: 900; }
+      .table.five { grid-template-columns: 1.25fr repeat(5, 1fr); }
+      .table.five div { min-height: 35px; padding: 10px 7px; }
+      .table.five div:nth-child(4n) { border-right: 1px solid var(--line); }
+      .table.five div:nth-child(6n) { border-right: 0; }
+      .table.five div:nth-last-child(-n+4) { border-bottom: 1px solid var(--line); }
+      .table.five div:nth-last-child(-n+6) { border-bottom: 0; }
+      .page-diagnostic-1 .question { padding: 7px 0; }
+      .page-diagnostic-1 .motion-graph { height: 80px; }
+      .page-diagnostic-2 .motion-graph { height: 98px; }
+      .page-worksheet-1 .circuit-diagram { min-height: 150px; }
+      .page-worksheet-1 .circuit-svg { height: 150px; }
+      .page-worksheet-2 .graph-box { height: 180px; }
+      .watermarks { gap: 160px 60px; }
+      .watermarks span { font-size: 15px; opacity: .04; }
       footer {
         position: absolute;
-        right: 66px;
-        bottom: 45px;
-        left: 66px;
+        right: 54px;
+        bottom: 28px;
+        left: 54px;
         z-index: 7;
         display: flex;
         align-items: center;
@@ -524,24 +622,24 @@
           soft: '#eeebff',
           kicker: 'Методическое пособие · Математика',
           title: 'Квадратные уравнения: от смысла к алгоритму',
-          lead: 'Демо-макет для портфолио: цели, логика объяснения и примеры заданий разного уровня.',
-          meta: ['Алгебра', '8 класс · базовый', 'Методический макет · RU'],
+          lead: 'Фрагмент методической разработки урока с действиями преподавателя, практикой и формативным оцениванием.',
+          meta: ['Алгебра · квадратные уравнения', '8 класс · 45 минут', 'МП-ALG-08-01 · версия 1.0'],
         },
         diagnostic: {
           accent: '#0d9f99',
           soft: '#e1f7f4',
           kicker: 'Диагностический материал · Физика',
           title: 'Входная диагностика: основы механики',
-          lead: 'Демо-макет для портфолио: пример структуры входной диагностики. Не является стандартизированным или апробированным инструментом.',
-          meta: ['Механика', '8 класс · повторение', 'Диагностический макет · RU'],
+          lead: 'Рабочий фрагмент: инструкция, спецификация, задания, баллы и шкала интерпретации результатов.',
+          meta: ['Механика · входной контроль', '8 класс · 20 минут', 'ДМ-PHY-08-02 · 12 баллов'],
         },
         worksheet: {
           accent: '#ca8214',
           soft: '#fff2d6',
-          kicker: 'Рабочий лист · Физика',
+          kicker: 'Лабораторный рабочий лист · Физика',
           title: 'Закон Ома: исследуем зависимость тока от напряжения',
-          lead: 'Демо-макет для портфолио: гипотеза, измерительная схема, таблица наблюдений и поле для графика.',
-          meta: ['Электричество', '8 класс · практикум', 'Рабочий лист · RU'],
+          lead: 'Рабочий лист ученика: гипотеза, оборудование, порядок опыта, измерения, график и вывод.',
+          meta: ['Электричество · закон Ома', '8 класс · практикум 40 минут', 'ЛР-PHY-08-03 · версия 1.0'],
         },
       }
 
@@ -708,18 +806,198 @@
         },
       }
 
-      const watermarks = Array.from({ length: 12 }, () => '<span>ДЕМО-МАКЕТ • BOYAZID</span>').join('')
+      const realPageContent = {
+        guide: {
+          1: `
+            <div class="document-fields"><span>Преподаватель:<i></i></span><span>Класс:<i></i></span><span>Дата:<i></i></span></div>
+            <div class="section">
+              <div class="section-title"><h2>Паспорт урока</h2><span>01 · Планирование</span></div>
+              <div class="passport">
+                <div><span>Тип урока</span><b>Открытие нового способа действия</b></div>
+                <div><span>Цель ученика</span><b>Решать ax² + bx + c = 0 по алгоритму</b></div>
+                <div><span>Результат</span><b>Выбирает метод и проверяет корни</b></div>
+                <div><span>Оборудование</span><b>Доска, карточки A–C, exit ticket</b></div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Технологическая карта</h2><span>02 · Ход урока</span></div>
+              <div class="lesson-table">
+                <div class="lesson-row table-head"><b>Этап</b><b>Действия преподавателя</b><b>Действия ученика</b><b>Время</b><b>Проверка</b></div>
+                <div class="lesson-row"><b>Старт</b><span>Предлагает сравнить x²−5x+6=0 и x²−5x+7=0.</span><span>Выдвигает гипотезу о числе корней.</span><span>5 мин</span><span>Устный ответ</span></div>
+                <div class="lesson-row"><b>Модель</b><span>Выводит D=b²−4ac через завершение квадрата.</span><span>Фиксирует смысл знака D.</span><span>10 мин</span><span>Сигнальные карточки</span></div>
+                <div class="lesson-row"><b>Алгоритм</b><span>Показывает образец решения с самопроверкой.</span><span>Комментирует каждый шаг в паре.</span><span>12 мин</span><span>Чек-лист</span></div>
+                <div class="lesson-row"><b>Практика</b><span>Раздаёт задания A, B, C по готовности.</span><span>Решает и сверяет проверку подстановкой.</span><span>13 мин</span><span>1 балл за шаг</span></div>
+                <div class="lesson-row"><b>Выход</b><span>Даёт одно уравнение и вопрос «почему?».</span><span>Сдаёт exit ticket до звонка.</span><span>5 мин</span><span>2 критерия</span></div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Методические акценты</h2><span>Для преподавателя</span></div>
+              <div class="micro-grid">
+                <div class="micro-card"><strong>Типичные ошибки</strong><ul><li>теряется знак коэффициента b;</li><li>формула применяется при a = 0;</li><li>не выполняется проверка корней.</li></ul></div>
+                <div class="micro-card"><strong>Поддерживающие вопросы</strong><ul><li>что сообщает знак D?</li><li>какой метод короче именно здесь?</li><li>как доказать, что ответ верен?</li></ul></div>
+              </div>
+            </div>`,
+          2: `
+            <div class="document-fields"><span>Фрагмент к теме 4.2:<i></i></span><span>Лист:<i></i></span><span>Дата:<i></i></span></div>
+            <div class="section">
+              <div class="section-title"><h2>Разобранный пример</h2><span>03 · Образец рассуждения</span></div>
+              <div class="worked-example">
+                <div class="worked-problem"><span>Задача</span><strong>2x² − 5x − 3 = 0</strong><p>Найдите корни уравнения и подтвердите результат подстановкой.</p></div>
+                <div class="solution">
+                  <div><b>1</b><span>a = 2, b = −5, c = −3.</span></div>
+                  <div><b>2</b><span>D = b² − 4ac = (−5)² − 4·2·(−3) = 49.</span></div>
+                  <div><b>3</b><span>x₁,₂ = (5 ± √49) / 4; x₁ = 3, x₂ = −0,5.</span></div>
+                  <div><b>4</b><span>Проверка для x=3: 2·9 − 5·3 − 3 = 0.</span></div>
+                  <div><b>✓</b><span><strong>Ответ: 3; −0,5.</strong> Оба значения обращают выражение в ноль.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Дифференцированная практика</h2><span>04 · Карточки A–C</span></div>
+              <div class="compact-tasks">
+                <div class="compact-task"><span>A · Опора</span><strong>x² − 7x + 12 = 0</strong><p>Выпишите a, b, c. Найдите D и корни. Проверьте один корень.</p><div class="answer-lines"><i></i><i></i></div></div>
+                <div class="compact-task"><span>B · Выбор метода</span><strong>3x² − 12x = 0</strong><p>Решите самым коротким способом. Объясните, почему общая формула не обязательна.</p><div class="answer-lines"><i></i><i></i></div></div>
+                <div class="compact-task"><span>C · Исследование</span><strong>x² + 4x + k = 0</strong><p>При каком k уравнение имеет ровно один корень?</p><div class="answer-lines"><i></i><i></i></div></div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Exit ticket</h2><span>05 · 3 минуты</span></div>
+              <div class="micro-grid">
+                <div class="micro-card"><strong>Ученик завершает фразы</strong><p>1. Знак D нужен, чтобы…<br>2. Проверка корня выполняется…<br>3. Мне ещё нужно уточнить…</p><div class="answer-lines"><i></i><i></i></div></div>
+                <div class="micro-card"><strong>Критерии успеха</strong><p>□ коэффициенты выписаны со знаками<br>□ D вычислен без ошибки<br>□ корни проверены подстановкой</p></div>
+              </div>
+            </div>`,
+        },
+        diagnostic: {
+          1: `
+            <div class="document-fields"><span>Фамилия, имя:<i></i></span><span>Класс:<i></i></span><span>Дата:<i></i></span></div>
+            <div class="section"><div class="instruction-strip"><b>Инструкция</b><span>Время — 20 минут</span><span>Калькулятор не требуется</span><span>Максимум — 12 баллов</span></div></div>
+            <div class="section">
+              <div class="section-title"><h2>Спецификация</h2><span>01 · Проверяемые умения</span></div>
+              <div class="spec-table">
+                <div class="spec-row table-head"><b>№</b><b>Умение</b><b>Уровень</b><b>Балл</b></div>
+                <div class="spec-row"><span>1–2</span><span>Единицы СИ и физические величины</span><span>базовый</span><span>2</span></div>
+                <div class="spec-row"><span>3–4</span><span>Формулы скорости, плотности и силы</span><span>базовый</span><span>4</span></div>
+                <div class="spec-row"><span>5–6</span><span>Чтение графика и объяснение результата</span><span>повышенный</span><span>6</span></div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Часть A</h2><span>02 · Краткий ответ</span></div>
+              <div class="real-task"><span class="score">1 балл</span><p><b>1.</b> Какая величина показывает быстроту изменения положения тела?</p><div class="options"><span>A путь</span><span>B скорость</span><span>C масса</span><span>D сила</span></div></div>
+              <div class="real-task"><span class="score">1 балл</span><p><b>2.</b> Переведите 72 км/ч в единицы СИ. Покажите преобразование.</p><div class="answer-lines"><i></i><i></i></div></div>
+              <div class="real-task"><span class="score">2 балла</span><p><b>3.</b> Велосипедист проехал 450 м за 1,5 мин. Найдите среднюю скорость в м/с.</p><div class="answer-lines"><i></i><i></i></div></div>
+              <div class="real-task"><span class="score">2 балла</span><p><b>4.</b> Масса алюминиевого бруска 540 г, объём 200 см³. Вычислите плотность и назовите единицу.</p><div class="answer-lines"><i></i><i></i></div></div>
+            </div>`,
+          2: `
+            <div class="document-fields"><span>Фамилия, имя:<i></i></span><span>Класс:<i></i></span><span>Лист 2/2<i></i></span></div>
+            <div class="section">
+              <div class="section-title"><h2>Часть B</h2><span>03 · Работа с графиком</span></div>
+              <div class="real-task"><span class="score">3 балла</span><p><b>5.</b> По графику v(t): а) назовите участок равномерного движения; б) определите скорость на нём; в) найдите путь за этот участок.</p></div>
+              <svg class="motion-graph" viewBox="0 0 560 112" role="img" aria-label="График зависимости скорости тела от времени">
+                <defs><marker id="motion-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#10192b"></path></marker></defs>
+                <line class="axis" x1="42" y1="90" x2="535" y2="90" marker-end="url(#motion-arrow)"></line><line class="axis" x1="42" y1="90" x2="42" y2="13" marker-end="url(#motion-arrow)"></line>
+                <line class="guide" x1="150" y1="36" x2="150" y2="90"></line><line class="guide" x1="380" y1="36" x2="380" y2="90"></line>
+                <polyline class="motion-line" points="42,88 150,36 380,36 510,68"></polyline>
+                <circle cx="42" cy="88" r="3.8"></circle><circle cx="150" cy="36" r="3.8"></circle><circle cx="380" cy="36" r="3.8"></circle><circle cx="510" cy="68" r="3.8"></circle>
+                <text class="point-label" x="48" y="81">A</text><text class="point-label" x="137" y="28">B</text><text class="point-label" x="386" y="28">C</text><text class="point-label" x="518" y="65">D</text>
+                <text x="143" y="104">2</text><text x="373" y="104">6</text><text x="503" y="104">8</text><text x="515" y="108">t, с</text><text x="6" y="15">v, м/с</text>
+              </svg>
+              <div class="answer-lines"><i></i><i></i></div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Объяснение явления</h2><span>04 · Развёрнутый ответ</span></div>
+              <div class="real-task"><span class="score">3 балла</span><p><b>6.</b> Пассажир в автобусе отклоняется назад при резком начале движения. Назовите явление и объясните наблюдение двумя связанными предложениями.</p><div class="answer-lines"><i></i><i></i><i></i></div></div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Критерии задания 6</h2><span>Для преподавателя</span></div>
+              <div class="criteria-table">
+                <div class="criteria-row table-head"><b>Балл</b><b>Наблюдаемый результат</b><b>Отметка</b></div>
+                <div class="criteria-row"><span>1</span><span>Названа инерция.</span><span>□</span></div>
+                <div class="criteria-row"><span>1</span><span>Указано стремление тела сохранять состояние покоя.</span><span>□</span></div>
+                <div class="criteria-row"><span>1</span><span>Причина связана с ускорением автобуса.</span><span>□</span></div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Интерпретация результата</h2><span>Не является отметкой</span></div>
+              <div class="micro-grid">
+                <div class="micro-card"><strong>0–4 · нужна опора</strong><p>Повторить единицы СИ и смысл базовых величин.</p></div>
+                <div class="micro-card"><strong>5–8 · базовый</strong><p>Отработать графики и развёрнутые объяснения.</p></div>
+                <div class="micro-card"><strong>9–10 · уверенно</strong><p>Точечно уточнить ошибки в расчётах.</p></div>
+                <div class="micro-card"><strong>11–12 · готовность</strong><p>Переходить к задачам повышенного уровня.</p></div>
+              </div>
+            </div>`,
+        },
+        worksheet: {
+          1: `
+            <div class="document-fields"><span>Фамилия, имя:<i></i></span><span>Группа:<i></i></span><span>Дата:<i></i></span></div>
+            <div class="section">
+              <div class="section-title"><h2>Цель и гипотеза</h2><span>01 · До эксперимента</span></div>
+              <div class="micro-grid">
+                <div class="micro-card"><strong>Цель</strong><p>Экспериментально установить зависимость силы тока I от напряжения U при постоянном сопротивлении.</p></div>
+                <div class="micro-card"><strong>Моя гипотеза</strong><p>Если напряжение увеличить в 2 раза, то сила тока ____________________, потому что ____________________.</p></div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Оборудование и схема</h2><span>02 · Подготовка</span></div>
+              <div class="circuit">
+                <div class="circuit-diagram">
+                  <svg class="circuit-svg" viewBox="0 0 350 190" role="img" aria-label="Схема измерения силы тока и напряжения на резисторе">
+                    <path class="circuit-line" d="M35 35 H72 M112 35 H157 M203 35 H320 V150 H282"></path><path class="circuit-line" d="M198 150 H35 V92 M35 72 V35"></path>
+                    <circle class="device-ring" cx="180" cy="35" r="22"></circle><text x="175" y="40">A</text><circle class="device-ring" cx="240" cy="96" r="22"></circle><text x="235" y="101">V</text>
+                    <path class="circuit-line" d="M198 150 V96 H218 M262 96 H282 V150"></path><rect class="resistor" x="198" y="141" width="84" height="18" rx="4"></rect><text x="236" y="155">R</text>
+                    <circle class="node" cx="72" cy="35" r="3.5"></circle><circle class="node" cx="112" cy="35" r="3.5"></circle><path class="circuit-line" d="M72 35 L110 24"></path><text x="88" y="19">K</text>
+                    <line class="circuit-line" x1="18" y1="72" x2="52" y2="72"></line><line class="circuit-line" x1="24" y1="92" x2="46" y2="92"></line><text x="55" y="74">+</text><text x="55" y="95">−</text><text class="source-label" x="55" y="86">источник 0–6 В</text>
+                  </svg>
+                </div>
+                <div class="safety">
+                  <div><b>01</b><span>Источник 0–6 В; резистор 100 Ω</span></div><div><b>02</b><span>Амперметр 0–0,1 А; вольтметр 0–6 В</span></div><div><b>03</b><span>Ключ и соединительные провода</span></div><div><b>!</b><span>Включать только после проверки схемы.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Порядок выполнения</h2><span>03 · Протокол</span></div>
+              <div class="procedure"><div>Соберите цепь по схеме при разомкнутом ключе K. Покажите преподавателю.</div><div>Установите минимальное напряжение, замкните ключ и снимите показания U и I.</div><div>Повторите измерение для пяти значений напряжения, каждый раз кратко размыкая цепь.</div><div>Рассчитайте R = U/I, постройте график I(U) и сформулируйте вывод.</div></div>
+            </div>`,
+          2: `
+            <div class="document-fields"><span>Фамилия, имя:<i></i></span><span>Группа:<i></i></span><span>Лист 2/2<i></i></span></div>
+            <div class="section">
+              <div class="section-title"><h2>Таблица измерений</h2><span>04 · Экспериментальные данные</span></div>
+              <div class="table five">
+                <div class="head">№ опыта</div><div class="head">1</div><div class="head">2</div><div class="head">3</div><div class="head">4</div><div class="head">5</div>
+                <div>Напряжение U, В</div><div></div><div></div><div></div><div></div><div></div>
+                <div>Сила тока I, А</div><div></div><div></div><div></div><div></div><div></div>
+                <div>R = U/I, Ом</div><div></div><div></div><div></div><div></div><div></div>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>График зависимости I(U)</h2><span>05 · Масштаб укажите на осях</span></div>
+              <div class="graph-box"><span class="graph-axis-label y">I, А</span><span class="graph-axis-label x">U, В</span><span class="graph-origin">0</span></div>
+            </div>
+            <div class="section">
+              <div class="section-title"><h2>Обработка и вывод</h2><span>06 · Анализ результата</span></div>
+              <div class="micro-grid">
+                <div class="micro-card"><strong>1. Сравните значения R</strong><p>Среднее Rср = ______ Ом. Разброс связан с ____________________.</p><div class="answer-lines"><i></i></div></div>
+                <div class="micro-card"><strong>2. Опишите график</strong><p>График имеет вид __________. I и U связаны ____________________.</p><div class="answer-lines"><i></i></div></div>
+                <div class="micro-card"><strong>3. Сформулируйте закон</strong><p>При постоянном сопротивлении сила тока ______________________________.</p><div class="answer-lines"><i></i></div></div>
+                <div class="micro-card"><strong>Самопроверка</strong><p>□ единицы подписаны<br>□ нанесены 5 точек<br>□ проведена линия тренда<br>□ вывод отвечает цели</p></div>
+              </div>
+            </div>
+            <div class="section"><div class="instruction-strip"><b>Итог</b><span>Гипотеза: □ подтверждена &nbsp; □ не подтверждена</span><span>Подпись преподавателя: __________________</span></div></div>`,
+        },
+      }
+
+      const watermarks = Array.from({ length: 8 }, () => '<span>ДЕМО • BOYAZID</span>').join('')
 
       const renderPage = (documentKey, documentPage) => {
         const current = data[documentKey] || data.guide
-        const content = pageContent[documentKey]?.[documentPage] || pageContent.guide[1]
+        const content = realPageContent[documentKey]?.[documentPage] || realPageContent.guide[1]
         return `
         <article class="page page-${documentKey}-${documentPage}" style="--accent:${current.accent};--soft:${current.soft}">
           <div class="grid"></div>
           <div class="watermarks">${watermarks}</div>
           <header>
             <div class="brand"><span class="brand-mark">B</span><span><strong>Boyazid</strong><small>Education × Technology</small></span></div>
-            <span class="demo-badge">Демо-макет для портфолио</span>
+            <span class="demo-badge">Защищённый фрагмент портфолио</span>
           </header>
           <main>
             <p class="kicker">${current.kicker}</p>
@@ -732,7 +1010,7 @@
             </div>
             ${content}
           </main>
-          <footer><span>© Boyazid · Демонстрационный макет для портфолио · Использование по согласованию</span><strong>Демо · ${documentPage}/2</strong></footer>
+          <footer><span>© Boyazid · Защищённый фрагмент авторского материала · Использование по согласованию</span><strong>Фрагмент · ${documentPage}/2</strong></footer>
         </article>`
       }
 

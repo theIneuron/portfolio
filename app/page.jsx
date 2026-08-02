@@ -285,8 +285,8 @@ const CONTENT = {
       next: 'Keyingi sahifa',
       page: 'Sahifa',
       protected: 'Tahrirlanadigan asl fayl saytga joylanmagan',
-      badge: 'Portfolio uchun demo-maket',
-      noticeTitle: 'Portfolio uchun yaratilgan namoyish maketi',
+      badge: 'Himoyalangan portfolio fragmenti',
+      noticeTitle: 'Haqiqiy hujjat formatidagi portfolio fragmenti',
       notice:
         'Bu material tuzilishi va dizaynini ko‘rsatadigan cheklangan namunadir. Tahrirlanadigan asl fayl va javoblar saytga joylanmagan.',
       language: 'Material tili: ruscha',
@@ -594,8 +594,8 @@ const CONTENT = {
       next: 'Следующая страница',
       page: 'Страница',
       protected: 'Редактируемый оригинал не размещён на сайте',
-      badge: 'Демо-макет для портфолио',
-      noticeTitle: 'Демонстрационный макет, созданный для портфолио',
+      badge: 'Защищённый фрагмент портфолио',
+      noticeTitle: 'Фрагмент документа в реальном рабочем формате',
       notice:
         'Это ограниченный пример структуры и оформления материала. Редактируемый оригинал и ответы на сайте не размещены.',
       language: 'Язык материала: русский',
@@ -630,17 +630,17 @@ const DEMO_DOCUMENTS = {
       title: 'Квадратные уравнения: от смысла к алгоритму',
       category: 'Методическое пособие',
       subject: 'Математика · Алгебра',
-      level: '8 класс · демо-макет',
+      level: '8 класс · фрагмент пособия',
       description:
-        'Фрагмент показывает учебные цели, логику объяснения и примеры заданий разного уровня сложности.',
+        'Технологическая карта урока, разобранный пример, дифференцированные задания и формативное оценивание.',
     },
     uz: {
       title: "Kvadrat tenglamalar: mazmundan algoritmgacha",
       category: 'Metodik qo‘llanma',
       subject: 'Matematika · Algebra',
-      level: '8-sinf · demo-maket',
+      level: '8-sinf · qo‘llanma fragmenti',
       description:
-        'Fragment o‘quv maqsadlarini, tushuntirish mantiqini va turli murakkablikdagi topshiriq namunalarini ko‘rsatadi.',
+        'Darsning texnologik xaritasi, yechilgan misol, darajali topshiriqlar va formativ baholash.',
     },
   },
   physicsDiagnostic: {
@@ -649,36 +649,36 @@ const DEMO_DOCUMENTS = {
       title: 'Входная диагностика: основы механики',
       category: 'Диагностический материал',
       subject: 'Физика · Механика',
-      level: '8 класс · демо-макет',
+      level: '8 класс · 12 баллов',
       description:
-        'Фрагмент демонстрирует карту проверяемых умений, примеры заданий и один образец критерия оценивания.',
+        'Инструкция, спецификация, задания с баллами, критерии развёрнутого ответа и шкала интерпретации.',
     },
     uz: {
       title: 'Kirish diagnostikasi: mexanika asoslari',
       category: 'Diagnostik material',
       subject: 'Fizika · Mexanika',
-      level: '8-sinf · demo-maket',
+      level: '8-sinf · 12 ball',
       description:
-        'Fragment tekshiriladigan ko‘nikmalar xaritasini, topshiriq namunalarini va bitta baholash mezoni namunasini ko‘rsatadi.',
+        'Yo‘riqnoma, spetsifikatsiya, balli topshiriqlar, batafsil javob mezonlari va natijani sharhlash shkalasi.',
     },
   },
   ohmWorksheet: {
     pages: ['/previews/ohm-worksheet-1.webp', '/previews/ohm-worksheet-2.webp'],
     ru: {
       title: 'Закон Ома: исследуем зависимость тока от напряжения',
-      category: 'Рабочий лист',
+      category: 'Лабораторный рабочий лист',
       subject: 'Физика · Электричество',
       level: '8 класс · практикум',
       description:
-        'Фрагмент содержит проблемный вопрос, схему цепи, таблицу наблюдений, поле для графика и рефлексию.',
+        'Гипотеза, оборудование, безопасный протокол опыта, таблица измерений, график, расчёты и вывод.',
     },
     uz: {
       title: 'Om qonuni: tok kuchining kuchlanishga bog‘liqligini o‘rganamiz',
-      category: 'Ish varag‘i',
+      category: 'Laboratoriya ish varag‘i',
       subject: 'Fizika · Elektr',
       level: '8-sinf · amaliy ish',
       description:
-        'Fragment muammoli savol, elektr zanjiri sxemasi, kuzatuv jadvali, grafik maydoni va refleksiyani o‘z ichiga oladi.',
+        'Gipoteza, jihozlar, xavfsiz tajriba protokoli, o‘lchov jadvali, grafik, hisoblash va xulosa.',
     },
   },
 }
