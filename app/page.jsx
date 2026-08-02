@@ -101,6 +101,18 @@ const CONTENT = {
           title: 'Bilimni baholash',
           points: ['Diagnostika', 'Testlar', 'Nazorat ishlari', 'Baholash mezonlari'],
         },
+        {
+          symbol: 'AI',
+          index: '05',
+          category: 'Zamonaviy raqamli ko‘nikma',
+          title: 'Vaybkoding bo‘yicha ta’lim',
+          points: [
+            'AI-assistentlar bilan ishlash',
+            'Sayt va ilova yaratish',
+            'Prompt va vazifani aniq qo‘yish',
+            'Loyihani internetda nashr qilish',
+          ],
+        },
       ],
     },
     materials: {
@@ -235,6 +247,7 @@ const CONTENT = {
           { value: 'methodical_material', label: 'Metodik ishlanma yoki dars' },
           { value: 'tests_diagnostics', label: 'Test va diagnostika' },
           { value: 'worksheets', label: 'Masalalar va ishchi varaqlar' },
+          { value: 'vibe_coding', label: 'Vaybkoding bo‘yicha ta’lim' },
           { value: 'edtech', label: 'Raqamli ta’lim vositasi' },
           { value: 'other', label: 'Boshqa vazifa' },
         ],
@@ -411,6 +424,18 @@ const CONTENT = {
           title: 'Проверка знаний',
           points: ['Диагностика', 'Тесты', 'Контрольные работы', 'Критерии оценивания'],
         },
+        {
+          symbol: 'AI',
+          index: '05',
+          category: 'Современный цифровой навык',
+          title: 'Обучение вайбкодингу',
+          points: [
+            'Работа с AI-ассистентами',
+            'Создание сайтов и приложений',
+            'Промпты и постановка задач',
+            'Публикация готового проекта',
+          ],
+        },
       ],
     },
     materials: {
@@ -545,6 +570,7 @@ const CONTENT = {
           { value: 'methodical_material', label: 'Методическая разработка или урок' },
           { value: 'tests_diagnostics', label: 'Тесты и диагностика' },
           { value: 'worksheets', label: 'Задачи и рабочие листы' },
+          { value: 'vibe_coding', label: 'Обучение вайбкодингу' },
           { value: 'edtech', label: 'Цифровой инструмент для обучения' },
           { value: 'other', label: 'Другая задача' },
         ],
@@ -691,6 +717,7 @@ const EXPERTISE_SERVICE_IDS = [
   'physics_lessons',
   'methodical_material',
   'tests_diagnostics',
+  'vibe_coding',
 ]
 const MATERIAL_SERVICE_IDS = [
   'methodical_material',
