@@ -2,6 +2,24 @@
 
 import { useEffect, useRef, useState } from 'react'
 
+function AniqBrandMark({ className = '' }) {
+  return (
+    <svg
+      className={`brand-mark ${className}`.trim()}
+      viewBox="0 0 64 64"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <circle className="brand-mark-disc" cx="32" cy="32" r="29" />
+      <path
+        className="brand-mark-letter"
+        d="M13.8 49.5 28.1 17h7.8l14.3 32.5h-9.4L32 29.5l-8.8 20h-9.4Z"
+      />
+      <circle className="brand-mark-point" cx="32" cy="40" r="3.35" />
+    </svg>
+  )
+}
+
 const CONTENT = {
   uz: {
     languageName: "O'zbekcha",
@@ -298,7 +316,7 @@ const CONTENT = {
       loading: 'Namoyish sahifasi yuklanmoqda',
       loadError: 'Sahifani yuklab bo‘lmadi',
       retry: 'Qayta urinish',
-      printMessage: 'DEMO · BOYAZID — namoyish fragmenti. Asl fayl saytga joylanmagan.',
+      printMessage: 'DEMO · ANIQ — namoyish fragmenti. Asl fayl saytga joylanmagan.',
     },
     mobileMenu: 'Menyuni ochish',
     closeMenu: 'Menyuni yopish',
@@ -608,7 +626,7 @@ const CONTENT = {
       loading: 'Загрузка демонстрационной страницы',
       loadError: 'Не удалось загрузить страницу',
       retry: 'Повторить',
-      printMessage: 'DEMO · BOYAZID — демонстрационный фрагмент. Оригинал на сайте не размещён.',
+      printMessage: 'DEMO · ANIQ — демонстрационный фрагмент. Оригинал на сайте не размещён.',
     },
     mobileMenu: 'Открыть меню',
     closeMenu: 'Закрыть меню',
@@ -1943,13 +1961,11 @@ export default function Home() {
 
       <header className="site-header">
         <div className="container-wide header-inner">
-          <a href="#about" className="brand" onClick={closeMenu} aria-label="Boyazid">
-            <span className="brand-symbol" aria-hidden="true">
-              B
-            </span>
+          <a href="#about" className="brand" onClick={closeMenu} aria-label="ANIQ">
+            <AniqBrandMark />
             <span>
-              <span className="brand-name">Boyazid</span>
-              <span className="brand-role">education × technology</span>
+              <span className="brand-name">ANIQ</span>
+              <span className="brand-role">matematika · fizika · metodika</span>
             </span>
           </a>
 
@@ -2561,11 +2577,9 @@ export default function Home() {
           >
             <header className="demo-modal-header">
               <div className="demo-modal-brand">
-                <span className="brand-symbol" aria-hidden="true">
-                  B
-                </span>
+                <AniqBrandMark />
                 <span>
-                  <strong>Boyazid</strong>
+                  <strong>ANIQ</strong>
                   <small>{tr.demoViewer.badge}</small>
                 </span>
               </div>
@@ -2689,9 +2703,9 @@ export default function Home() {
                     onError={() => setDemoImageStatus('error')}
                   />
                   <div className="demo-screen-watermark" aria-hidden="true">
-                    <span>DEMO · BOYAZID</span>
-                    <span>DEMO · BOYAZID</span>
-                    <span>DEMO · BOYAZID</span>
+                    <span>DEMO · ANIQ</span>
+                    <span>DEMO · ANIQ</span>
+                    <span>DEMO · ANIQ</span>
                   </div>
                 </div>
 

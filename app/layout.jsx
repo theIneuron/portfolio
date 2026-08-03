@@ -19,7 +19,7 @@ const themeScript = `
 `
 
 export const metadata = {
-  title: 'Boyazid — преподаватель, методист и разработчик',
+  title: 'ANIQ — математика, физика и методические материалы',
   description:
     'Преподавание математики и физики, разработка методических пособий, тестовых материалов и цифровых образовательных инструментов.',
   keywords: [
@@ -31,7 +31,7 @@ export const metadata = {
     'EdTech',
   ],
   openGraph: {
-    title: 'Boyazid — Education × Technology',
+    title: 'ANIQ — математика и физика понятно',
     description:
       'Математика, физика, методические материалы и цифровые инструменты для образования.',
     type: 'website',

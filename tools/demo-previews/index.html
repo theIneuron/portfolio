@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Boyazid — демонстрационные учебные макеты</title>
+    <title>ANIQ — демонстрационные учебные макеты</title>
     <style>
       :root {
         --ink: #10192b;
@@ -75,16 +75,10 @@
       }
       .brand { display: flex; align-items: center; gap: 12px; }
       .brand-mark {
-        display: grid;
+        display: block;
         width: 42px;
         height: 42px;
-        place-items: center;
-        border-radius: 13px;
-        background: linear-gradient(145deg, #7768f6, #5141db);
-        color: #fff;
-        font-size: 17px;
-        font-weight: 900;
-        box-shadow: 0 8px 18px rgba(101,85,238,.22);
+        filter: drop-shadow(0 7px 12px rgba(16,26,58,.18));
       }
       .brand strong { display: block; font-size: 14px; }
       .brand small {
@@ -986,7 +980,14 @@
         },
       }
 
-      const watermarks = Array.from({ length: 8 }, () => '<span>ДЕМО • BOYAZID</span>').join('')
+      const watermarks = Array.from({ length: 8 }, () => '<span>ДЕМО • ANIQ</span>').join('')
+
+      const aniqMark = `
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="29" fill="#101A3A"/>
+          <path d="M13.8 49.5 28.1 17h7.8l14.3 32.5h-9.4L32 29.5l-8.8 20h-9.4Z" fill="#F6F4EE"/>
+          <circle cx="32" cy="40" r="3.35" fill="#19C7BC"/>
+        </svg>`
 
       const renderPage = (documentKey, documentPage) => {
         const current = data[documentKey] || data.guide
@@ -996,7 +997,7 @@
           <div class="grid"></div>
           <div class="watermarks">${watermarks}</div>
           <header>
-            <div class="brand"><span class="brand-mark">B</span><span><strong>Boyazid</strong><small>Education × Technology</small></span></div>
+            <div class="brand">${aniqMark}<span><strong>ANIQ</strong><small>Matematika · Fizika · Metodika</small></span></div>
             <span class="demo-badge">Защищённый фрагмент портфолио</span>
           </header>
           <main>
@@ -1010,7 +1011,7 @@
             </div>
             ${content}
           </main>
-          <footer><span>© Boyazid · Защищённый фрагмент авторского материала · Использование по согласованию</span><strong>Фрагмент · ${documentPage}/2</strong></footer>
+          <footer><span>© ANIQ · Защищённый фрагмент авторского материала · Использование по согласованию</span><strong>Фрагмент · ${documentPage}/2</strong></footer>
         </article>`
       }
 
