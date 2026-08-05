@@ -237,6 +237,9 @@ const CONTENT = {
       primary: 'Ariza qoldirish',
       response: 'To‘g‘ridan-to‘g‘ri bog‘lanish',
       fallback: 'Forma ishlamasa, telefon orqali bog‘laning.',
+      socials: 'ANIQ ijtimoiy tarmoqlarda',
+      instagram: 'Instagram',
+      telegramChannel: 'Telegram-kanal',
       form: {
         badge: 'SIGNAL → TELEGRAM',
         title: 'Yangi vazifa',
@@ -547,6 +550,9 @@ const CONTENT = {
       primary: 'Оставить заявку',
       response: 'Связаться напрямую',
       fallback: 'Если форма не сработает, позвоните по телефону.',
+      socials: 'ANIQ в социальных сетях',
+      instagram: 'Instagram',
+      telegramChannel: 'Telegram-канал',
       form: {
         badge: 'СИГНАЛ → TELEGRAM',
         title: 'Новая задача',
@@ -769,6 +775,14 @@ const ArrowIcon = ({ className = 'w-4 h-4' }) => (
 const TelegramIcon = () => (
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
     <path d="M21.8 4.2 18.6 19c-.24 1.05-.87 1.31-1.76.82l-4.87-3.6-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.02-8.16c.39-.35-.09-.54-.61-.19L6.25 12.67 1.45 11.16c-1.04-.33-1.06-1.04.22-1.54L20.45 2.38c.87-.32 1.63.19 1.35 1.82Z" />
+  </svg>
+)
+
+const InstagramIcon = () => (
+  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+    <rect x="3" y="3" width="18" height="18" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.4" cy="6.7" r="1" fill="currentColor" stroke="none" />
   </svg>
 )
 
@@ -2264,6 +2278,37 @@ export default function Home() {
                   </span>
                   <ArrowIcon />
                 </a>
+                <div className="contact-socials" aria-label={tr.contact.socials}>
+                  <p>{tr.contact.socials}</p>
+                  <a
+                    href="https://www.instagram.com/aniqedu/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="contact-link-icon instagram">
+                      <InstagramIcon />
+                    </span>
+                    <span>
+                      <small>{tr.contact.instagram}</small>
+                      @aniqedu
+                    </span>
+                    <ArrowIcon />
+                  </a>
+                  <a
+                    href="https://t.me/aniq_edu"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="contact-link-icon telegram-channel">
+                      <TelegramIcon />
+                    </span>
+                    <span>
+                      <small>{tr.contact.telegramChannel}</small>
+                      @aniq_edu
+                    </span>
+                    <ArrowIcon />
+                  </a>
+                </div>
               </div>
             </div>
 
